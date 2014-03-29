@@ -29,14 +29,6 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 	
 </script>
-<script>
-	$(document).ready(function() {
-		$("#searchtext").hide();
-		$("#search").click(function() {
-			$("#searchtext").toggle();
-		});
-	});
-</script>
 
 </head>
 
@@ -44,18 +36,15 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-2 sidebar">
-				<ul class="nav nav-sidebar">
-					<li><a href="${createLink(uri: '/admin/index')}">Dashboard</a></li>
-					<li><a href="${createLink(uri: '/admin/getNewApp')}">New Appointments</a></li>
-				
-					<li><a href="${createLink(uri: '/admin/manageReceptionAccounts')}">Manage Reception Accounts</a></li>
-					<li><a href="${createLink(uri: '/admin/manageDoctorAccounts')}">Manage Doctor Accounts</a></li>
-					<li><a href="${createLink(uri: '/admin/uploadReport')}">Upload Reports</a></li>
-					<li><a href="${createLink(uri: '/admin/viaSMS')}">Appointments taken via SMS</a></li>
-					<li><a href="${createLink(uri: '/admin/feedres')}">Feedback</a></li>
+					<ul class="nav nav-sidebar">
+					<li><a href="index">Dashboard</a></li>
+					
+					<li><a href="manageReceptionAccounts">Manage Reception Accounts</a></li>
+					<li><a href="manageDoctorAccounts">Manage Doctor Accounts</a></li>
+					
+					<li><a href="feedres">Feedback</a></li>
 					<li><a href="ControlPanel">Settings</a></li>
-					<%--<li id="search"><a href="#">Search</a></li>
-				--%></ul>
+				</ul>
 
 			</div>
 			<div class="col-sm-10 col-sm-offset-2 main">
@@ -64,6 +53,12 @@
 				<div class="table-responsive">
 
 					<g:form action="saveChanges">
+	<g:if test="${flash.message}">
+
+						<div class="alert alert-danger">
+							${flash.message}
+						</div>
+					</g:if>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -74,7 +69,7 @@
 					<tr>
 
 						<td>Opening Time</td>
-						<td><select name="start" >
+						<td><select name="start">
 								<g:each in="${0..23}">
 									<option value="${it}:00">
 										${it}:00
@@ -98,9 +93,26 @@
 								</g:each>
 						</select></td>
 					</tr>
-
-					</td>
+                 	<tr>
+						<td>Time required for MRI</td>
+						<td><input type="text" name="mriinterval" value="${mriInterval }"/> (in minutes)</td>
 					</tr>
+					<tr>
+						<td>Time required for CT Scan</td>
+						<td><input type="text" name="ctinterval" value="${ctInterval }"/> (in minutes)</td>
+					</tr>
+					    <tr>
+						<td>Use SMS Messaging Service</td>
+						<td>Yes <input type="radio" name="smsservice" value="true"/>
+					No <input type="radio" name="smsservice" value="false"/></td>
+					</tr>
+						<tr>
+						<td>Use Email Service</td>
+						<td>Yes <input type="radio" name="emailservice" value="true"/>
+					No <input type="radio" name="emailservice" value="false"/></td>
+				
+					<tr>
+				
 					<tr>
 						<td>SMS Username</td>
 						<td><input type="text" name="smsuser" value="${username }"/></td>
@@ -109,14 +121,7 @@
 						<td>SMS Password</td>
 						<td><input type="password" name="smspass" value="${password }"/></td>
 					</tr>
-					<tr>
-						<td>Time required for MRI</td>
-						<td><input type="text" name="mriinterval" value="${mriInterval }"/> (in minutes)</td>
-					</tr>
-					<tr>
-						<td>Time required for CT Scan</td>
-						<td><input type="text" name="ctinterval" value="${ctInterval }"/> (in minutes)</td>
-					</tr>
+				
 					<tr>
 					
 						<td>Confirmed Message note</td>
@@ -129,10 +134,9 @@
 						<td><input type="text" name="smscode" value="${smscode1}"/></td>
 				
 					</tr>
-			
-					<tr>
+				<tr>
 						<td></td>
-						<td><g:actionSubmit class="btn btn-info" value="Save Changes"/></td>
+						<td><g:actionSubmit class="btn btn-info" id="savechanges" value="Save Changes"  onclick="beforesave()"/></td>
 					</tr>
 						
 				</table>

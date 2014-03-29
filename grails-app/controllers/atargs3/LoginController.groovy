@@ -18,6 +18,7 @@ class LoginController {
 	def admin_login_function(){
 		String plainpass=params['password']
 		String hashedpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainpass);
+		//String hashedpass='admin'
 		printf hashedpass
 		def temp = Admin.findWhere(username:params['username'],password:hashedpass)
 		
@@ -76,6 +77,7 @@ class LoginController {
 		else if(temp.confirmedFlag==1){
 			String plainpass=params['password']
 			String hashedpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainpass);
+			//String hashedpass=plainpass
 			UserLoggedin= Reception.findWhere(username:params['username'],password:hashedpass)
 			session.UserLoggedin= UserLoggedin
 			session['usertype']="RECEPTIONIST"
@@ -120,69 +122,6 @@ class LoginController {
 			}
 	def dataSource
 	def logout() {
-		
-		if(String.valueOf(session['usertype']).equalsIgnoreCase("RECEPTIONIST")){
-			print "hello"
-			int i=0
-			
-			def db=new Sql(dataSource)
-			List result=db.rows("Select * from patient_details where confirmed_date is not null")
-			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd")
-			//sdf.parse()
-			Date d=new Date()
-			d=d+1
-			//d=sdf.parse(sdf.format(d))
-			//print sdf.format(result[i].confirmed_date)+"   "+sdf.format(d)
-			
-			while(i<result.size()){
-			
-				if(sdf.format(result[i].confirmed_date).equalsIgnoreCase(sdf.format(d))){
-					print result[i].firstname
-					i++
-				}
-				else
-					result.remove(i)
-					
-				
-			}
-			i=0
-			String path=new String()
-			String fileName=new String()
-			fileName=sdf.format(d)
-			path=fileName+".xls"
-		
-			response.setHeader("Content-disposition", "attachment;filename=${path}")
-			response.setContentType("application/excel")
-			new ExcelBuilder().workbook(response.outputStream) {
-				sheet('0') {
-					cell(0,0,'First Name').bold()
-					cell(1,0,'Last Name').bold()
-					cell(2,0,'Machine').bold()
-					cell(3,0,'Appointment Time').bold()
-					cell(4,0,'Mobile No.').bold()
-					while(i<result.size()){
-					cell(0,i+1,result[i].firstname)		//column,row
-					cell(1,i+1,result[i].lastname)
-					cell(2,i+1,result[i].machine)
-					cell(3,i+1,result[i].confirmed_date.toString().substring(11, result[i].confirmed_date.toString().size()-2))
-					cell(4,i+1,result[i].mobile)
-					i++
-					}
-					for(int x=0;x<5;x++)
-					sheet.setColumnView(x, 20);
-				}
-				
-			}
-	/*
-			File file = new File(path)
-		if(file.isFile()){	
-		response.setContentType("application/excel")
-        response.setHeader("Content-disposition", "attachment;filename=${file.getName()}")
-        response.outputStream << file.newInputStream()
-	
-		}*/
-
-		}
 		
 	session.UserLoggedin=null
 	session['usertype']=null;
@@ -240,6 +179,68 @@ class LoginController {
 		
 		session.UserLoggedin=null
 		redirect(uri: "/")
+	}
+	
+	def takeBackup(){
+		print "hello"
+		int i=0
+		
+		def db=new Sql(dataSource)
+		List result=db.rows("Select * from patient_details where confirmed_date is not null")
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd")
+		//sdf.parse()
+		Date d=new Date()
+		d=d+1
+		//d=sdf.parse(sdf.format(d))
+		//print sdf.format(result[i].confirmed_date)+"   "+sdf.format(d)
+		
+		while(i<result.size()){
+		
+			if(sdf.format(result[i].confirmed_date).equalsIgnoreCase(sdf.format(d))){
+				print result[i].firstname
+				i++
+			}
+			else
+				result.remove(i)
+				
+			
+		}
+		i=0
+		String path=new String()
+		String fileName=new String()
+		fileName=sdf.format(d)
+		path=fileName+".xls"
+	
+		response.setHeader("Content-disposition", "attachment;filename=${path}")
+		response.setContentType("application/excel")
+		new ExcelBuilder().workbook(response.outputStream) {
+			sheet('0') {
+				cell(0,0,'First Name').bold()
+				cell(1,0,'Last Name').bold()
+				cell(2,0,'Machine').bold()
+				cell(3,0,'Appointment Time').bold()
+				cell(4,0,'Mobile No.').bold()
+				while(i<result.size()){
+				cell(0,i+1,result[i].firstname)		//column,row
+				cell(1,i+1,result[i].lastname)
+				cell(2,i+1,result[i].machine)
+				cell(3,i+1,result[i].confirmed_date.toString().substring(11, result[i].confirmed_date.toString().size()-2))
+				cell(4,i+1,result[i].mobile)
+				i++
+				}
+				for(int x=0;x<5;x++)
+				sheet.setColumnView(x, 20);
+			}
+			
+		}
+/*
+		File file = new File(path)
+	if(file.isFile()){
+	response.setContentType("application/excel")
+	response.setHeader("Content-disposition", "attachment;filename=${file.getName()}")
+	response.outputStream << file.newInputStream()
+
+	}*/
 	}
 }
 

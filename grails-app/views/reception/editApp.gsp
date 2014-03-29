@@ -147,7 +147,7 @@
 											style="width: 25%">${it.clinicalhistory }</textarea></td>
 								</tr>
 								<tr>
-									<td>Pregnant</td>
+									<td>Pregnant(if female)</td>
 									<td>
 										
 											<input type="text" name="pregnant" value="${it.pregnant }" />(Yes/No)

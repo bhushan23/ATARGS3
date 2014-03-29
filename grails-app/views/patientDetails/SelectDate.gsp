@@ -161,11 +161,10 @@ $(function () {
 										<tr>
 											<td colspan="7" class="monthAndYear">
 												<div class="visualyear" id="month">
-													<h4><script>
-<!-- Script to display current month -->
-      var month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-      document.write(month[new Date().getMonth()]);  
-</script></h4>
+													<h4>${currentmonth } 
+													<g:if test="${nxtmonth == 1}">
+     													- ${nextmonth }
+													</g:if></h4>
 												</div>
 											</td>
 										</tr>

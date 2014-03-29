@@ -18,6 +18,8 @@ class AdminSettingsController {
 	static String smscode;
 static String smsuser;
 static String smspass;
+static boolean smsservice;
+static boolean emailservice;
 	static String confirmedsms;
 	def index() {
 		redirect(view:"ControlPanel")
@@ -37,11 +39,13 @@ static String smspass;
 	}
 	
 	def saveChanges() {
-		print params
+		print params["sms"]
 		def db = new Sql(dataSource)
 	
 		db.execute("UPDATE admin_settings SET value='${params["smsuser"]}' WHERE entry='smsuser'")
 		db.execute("UPDATE admin_settings SET value='${params["smspass"]}' WHERE entry='smspass'")
+		
+		db.execute("UPDATE admin_settings SET value='${params["sms"]}' WHERE entry='smsfacility'")
 		
 		db.execute("UPDATE admin_settings SET value='${params["start"]}' WHERE entry='centerStartTime'")
 		db.execute("UPDATE admin_settings SET value='${params["end"]}' WHERE entry='centerEndTime'")

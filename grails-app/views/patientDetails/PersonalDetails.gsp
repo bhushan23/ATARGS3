@@ -71,9 +71,9 @@
                         <table style="width: 100%">
                             <tr>
                                 <td colspan="2">
-                                    <input type="radio" name="salution" value="Mr" />Mr.
-                                    <input type="radio" name="salution" value="Mrs" />Mrs.
-                                    <input type="radio" name="salution" value="Miss" />Miss.
+                                    <input type="radio" name="salutation" value="Mr" />Mr.
+                                    <input type="radio" name="salutation" value="Mrs" />Mrs.
+                                    <input type="radio" name="salutation" value="Miss" />Miss.
                                 </td>
                             </tr>
                             <tr>

@@ -209,7 +209,7 @@ String shortcode=AdminSettingsController.smscode;
 	}
 
 	def getbydate(){
-
+		boolean insert_into_db=true;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 		String sender=String.valueOf(params['who'])
 		String msg=String.valueOf(params['what'])
@@ -282,7 +282,7 @@ String shortcode=AdminSettingsController.smscode;
 					def udate=sdf.format(d1);
 					print d1
 					print sdf.format(d1)
-
+					int count_max_app=0;
 					Date[] prio=new Date[3]
 					Date cur_date=new Date()
 					Date comp_date=new Date()
@@ -308,12 +308,20 @@ String shortcode=AdminSettingsController.smscode;
 					}
 
 					else {
-
-
+						
+						
 
 						//def items = db.rows("SELECT * FROM patient_details WHERE confirmed_date >= ${lower} AND confirmed_date <= ${upper}")
 
 						for(int i=0;i<3 && flag==1;){
+							if(count_max_app==30){
+								render("Currently No appointments available")
+							insert_into_db=false;
+									break;
+							}	
+							count_max_app++;
+							
+										print count_max_app
 							if(d1.hours >= endhour)
 							{
 								calendar.setTime(d1);
@@ -326,7 +334,8 @@ String shortcode=AdminSettingsController.smscode;
 
 								print sdf.format(d1)
 							}else{
-
+							
+					
 								print "working on $d1"
 								def temp=PatientDetails.findByConfirmedDate(d1) //.findbyconfirmed_date("$udate")
 								if(temp==null){
@@ -358,6 +367,7 @@ String shortcode=AdminSettingsController.smscode;
 
 						}
 
+						if(insert_into_db){
 						//Sql.execute("insert into patient_details (firstname,lastname,age,gender,machine,address,mobile,priority1,priority2,priority3,email) values (enterincenter,enterincenter,10,Male,${machineselected},enterincenter,${sender},${prio_date[0]},${prio_date[1]},${prio_date[2]})")
 						//	PatientDetails newpat=new PatientDetails(firstname:'enterincenter',lastname:'enterincenter',age:'10',gender:'Male',machine:'$machineselected',address:'enterincenter',mobile:'$sender',priority1:'$prio_date[0]',priority2:'$prio_date[1]',priority3:'$prio_date[2]',email:'a@a.com').save();
 						print prio
@@ -396,7 +406,8 @@ String shortcode=AdminSettingsController.smscode;
 
 						print "patient saved123"
 						render("Reply ${shortcode} 1 for ${prio[0]} \nReply ${shortcode} 2 for ${prio[1]} \n Reply ${shortcode} 3 for ${prio[2]} ")
-					}
+						}
+						}
 					}
 
 				}

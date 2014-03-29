@@ -103,58 +103,10 @@
     ================================================== -->
 	<!-- Wrap the rest of the page in another container to center all the content. -->
 
-	<div class="container marketing">
-
-		<!-- Three columns of text below the carousel -->
-		<div class="row">
-			<div class="col-lg-4">
-				<img class="img-circle" data-src="holder.js/140x140"
-					alt="Generic placeholder image">
-				<h2>Latest News</h2>
-				<p>Now we provide online appointment booking for MRI and CT
-					scan.</p>
-				<p>You can also book and confirm your appointment via SMS</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<!-- /.col-lg-4 -->
-			<div class="col-lg-4">
-				<img class="img-circle" data-src="holder.js/140x140"
-					alt="Generic placeholder image">
-				<h2>Research & Development</h2>
-				<p>Research in technology to connect patients around globe.</p>
-				<p>Latest research in Scan</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<!-- /.col-lg-4 -->
-			<div class="col-lg-4">
-				<img class="img-circle" data-src="holder.js/140x140"
-					alt="Generic placeholder image">
-				<h2>About Us</h2>
-				<p>Know more about our center</p>
-				<p>
-					<a class="btn btn-default" href="#" role="button">View details
-						&raquo;</a>
-				</p>
-			</div>
-			<!-- /.col-lg-4 -->
-		</div>
-		<!-- /.row -->
-
-
-		<hr class="featurette-divider">
-
-		<!-- /END THE FEATURETTES -->
-
 
 		<!-- FOOTER -->
 		<footer>
-			<p>&copy; Poona Diagnostic Services</p>
+			<p>&copy;              Poona Diagnostic Services</p>
 		</footer>
 
 	</div>

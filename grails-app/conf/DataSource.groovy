@@ -14,7 +14,7 @@ environments {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy1"
 			driverClassName = "com.mysql.jdbc.Driver"
-			username = "root"
+			username = "pds"
 			password = "abc123"
 		}
 	}
@@ -24,7 +24,7 @@ environments {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy1"
 			driverClassName = "com.mysql.jdbc.Driver"
-			username = "root"
+			username = "pds"
 			password = "abc123"
 		}
 	}
@@ -34,7 +34,7 @@ environments {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy1"
 			driverClassName = "com.mysql.jdbc.Driver"
-			username = "root"
+			username = "pds"
 			password = "abc123"
 		}
 	}
@@ -52,8 +52,8 @@ hibernate {
 environments {
 	development {
 		dataSource {
-			username = "pds"
-			password = "pds"
+			username = "root"
+			password = "username123"
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"
@@ -63,8 +63,8 @@ environments {
 	}
 	test {
 		dataSource {
-			username = "pds"
-			password = "pds"
+			username = "root"
+			password = "username123"
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"
@@ -75,8 +75,8 @@ environments {
 	}
 	production {
 		dataSource {
-			username = "pds"
-			password = "pds"
+			username = "root"
+			password = "username123"
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"

@@ -57,7 +57,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a href="../" class="navbar-brand">ATARGS</a>
+				<a href="${createLink(uri: '/')}" class="navbar-brand">PDS</a>
 			</div>
 			<nav class="collapse navbar-collapse bs-navbar-collapse"
 				role="navigation">
@@ -67,22 +67,14 @@
 								code="Home" /></a></li>
 				<li>
 				
-				<a	<g:link controller="PatientDetails" action="patientIndex"> <g:message code="For Patients" /></g:link>> </a>
+					<g:link controller="PatientDetails" action="patientIndex"> <g:message code="For Patients" /></g:link> 
 				</li>
 								
 				<li>
 				
-				<a	<g:link controller="login" action="loginAsDoctor"> <g:message code="For Referral Physians" /></g:link>> </a>
+				<g:link controller="login" action="loginAsDoctor"> <g:message code="For Referral Physians" /></g:link>
 				</li>
-				
-				<li>
-				<a	<g:link> <g:message code="Meet our Experts" /></g:link>> </a>
-				</li>
-				
-				<li>
-				<a	<g:link> <g:message code="About us" /></g:link>> </a>
-				</li>
-				
+		
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><g:if test="${session.UserLoggedin}">
@@ -106,7 +98,7 @@
 						</g:if></li>
 				</ul>
 
-				</ul>
+			
 			</nav>
 		</div>
 	</header>
