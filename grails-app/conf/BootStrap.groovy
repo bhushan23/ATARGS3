@@ -21,7 +21,7 @@ class BootStrap {
 	AdminSettingsController.emailservice=true;
 		AdminSettingsController.confirmedsms="Please Come 15 mins before appointment";
 	AdminSettingsController.smscode="ATARG";
-		
+//dfsdfs		
 		}
     def destroy = {
     }
