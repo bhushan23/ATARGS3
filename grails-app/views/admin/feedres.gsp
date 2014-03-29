@@ -1,8 +1,4 @@
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,20 +39,15 @@
 
 		<div class="row">
 			<div class="col-sm-2 sidebar">
-				<ul class="nav nav-sidebar">
+	<ul class="nav nav-sidebar">
 					<li><a href="index">Dashboard</a></li>
-					<li><a href="getNewApp">New Appointments</a></li>
-				
-					<li><a href="manageReceptionAccounts">Manage Reception
-							Accounts</a></li>
+					
+					<li><a href="manageReceptionAccounts">Manage Reception Accounts</a></li>
 					<li><a href="manageDoctorAccounts">Manage Doctor Accounts</a></li>
 					
-					<li><a href="viaSMS">Appointments taken via SMS</a></li>
 					<li><a href="feedres">Feedback</a></li>
-					<li><a href="${createLink(uri: '/adminSettings/ControlPanel')}">Settings</a></li>
-					
+					<li><a href="ControlPanel">Settings</a></li>
 				</ul>
-
 			</div>
 
 		<div class="col-sm-10 col-sm-offset-2 main">
@@ -65,27 +56,39 @@
 				<div class="table-responsive">
 
 					<table 	class="table table-striped">
-						<tr id="searchtext">
-
-							<th><g:remoteField name="A" action="Afunc"
-									update="PatientTable" /></th>
-							<th><g:remoteField name="FN" action="FNfunc"
-									update="PatientTable" /></th>
-							<th><g:remoteField name="LN" action="LNfunc"
-									update="PatientTable" /></th>
-							<th><g:remoteField name="M" action="Mfunc"
-									update="PatientTable" /></th>
-							<th><g:remoteField name="MOB" action="MOBfunc"
-									update="PatientTable" /></th>
-						</tr>		
+						
 						<thead>
 
 							<tr>
 								
-								<th>Service</th>
-								<th>Staff Behaviour</th>
-								<th>Technician</th>
-								<th>Useful</th>
+								<th></th>
+								<th>Good</th>
+								<th>Satisfactory</th>
+								<th>Poor</th>
+							</tr>
+							<tr>
+							<td>Service</td>
+							<td>${gfblist[0]}</td>
+							<td>${gfblist[1]}</td>
+							<td>${gfblist[2]}</td>
+							</tr>
+							<tr>
+							<td>Staff Behavior</td>
+							<td>  ${gfblist[3]}</td>
+							<td>  ${gfblist[4]}</td>
+							<td>  ${gfblist[5]}</td>
+							</tr>
+							<tr>
+							<td>Technician</td>
+							<td>  ${gfblist[6]}</td>
+							<td>  ${gfblist[7]}</td>
+							<td>  ${gfblist[8]}</td>
+							</tr>
+							<tr>
+							<td>Usefulness</td>
+							<td>  ${gfblist[9]}</td>
+							<td>  ${gfblist[10]}</td>
+							<td>  ${gfblist[11]}</td>
 							</tr>
 						</thead>
 						<tbody>

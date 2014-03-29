@@ -111,6 +111,7 @@
   </head>
 
   <body>
+  
 
     <div class="container">
       <div class="header">
@@ -120,7 +121,11 @@
         </ul>
         <h1 class="text-muted">Download Your Report</h1>
       </div>
-
+	<g:if test="${flash.messageOTP}">
+									<div class="alert alert-danger">
+										${flash.messageOTP}
+									</div>
+		</g:if>
       <div class="jumbotron">
         
         <h2 class="text-muted"><p> <g:form controller="Document" action="feedback">

@@ -124,6 +124,10 @@ class DocumentController {
 	def scaffold=Document
 	static allowedMethods = [save: "POST"]
 	def dataSource
+	int sergood=0,serpoor=0,sersat=0;
+	int stagood=0,stapoor=0,stasat=0;
+	int techgood=0,techpoor=0,techsat=0;
+	int usegood=0,usepoor=0,usesat=0;
 	
 	def red(){
 		render (view:'main')
@@ -141,6 +145,7 @@ class DocumentController {
 	}
 
 	def getReport(){
+		
 	}
 
 	def upload() {
@@ -225,6 +230,24 @@ class DocumentController {
 	def moneyPay(){
 		redirect(controller:'Patient',action:'moneyPay')
 	}
+	def feedback(){
+		mid=request.getParameter('otp')
+		print("dfss "+mid)
+		
+		def db = new Sql(dataSource)
+		def resultid=db.rows("SELECT id from patient_details where otp='$mid'")
+		if(resultid&&mid!="")
+		{
+			
+		render(view:'feedback')
+		}
+		else
+		{
+		render(view:'getReport')
+		flash.messageOTP="Check your OTP or else you have downloaded once"
+		
+		}
+	}
 	def download() {
 		//print "hiii"+params.otp
 		def db = new Sql(dataSource)
@@ -249,12 +272,13 @@ class DocumentController {
 		String str4=request.getParameter("radio4");
 		String str1=request.getParameter("radio1");
 
-
+		print("hiihello  "+str1+" "+str2+" "+str3+" "+str4)
 		String comment=request.getParameter("ta")
 		print "comment"+comment
 
 		if(str2.equals(null)||str1.equals(null)||str3.equals(null)||str4.equals(null)){
-			render "Please fill the  feedback form completely!!"
+			render(view:'feedback')
+			flash.messageFB= "Please fill the  feedback form completely!!"
 		}
 
 		else{
@@ -306,13 +330,10 @@ class DocumentController {
 
 			}
 		}
+		redirect(uri:'/')
+		//render(uri:'/')
 	}
-	def feedback(){
-		mid=request.getParameter('otp')
-
-		render(view:'feedback')
-
-	}
+	
 	def prefeedback() {
 		
 	}

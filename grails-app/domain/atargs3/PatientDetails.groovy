@@ -4,6 +4,7 @@ import java.util.Date;
 
 class PatientDetails {
 	//id in database is used as PID
+	String salutation
 	String firstname
 	String middlename
 	String lastname
@@ -41,6 +42,7 @@ class PatientDetails {
 	String pregnant="-"
 
 	static constraints = {
+		salutation(nullable:true)
 		firstname(blank:false)
 		lastname()
 		middlename(nullable:true)

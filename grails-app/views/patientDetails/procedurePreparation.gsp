@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Poona Diagnostice Services</title>
+<title>Poona Diagnostics Services</title>
 <r:require modules="bootstrap" />
 <r:layoutResources />
+<meta name="layout" content="main" />
 
 <link rel="stylesheet"
 	href="${resource(dir: 'css', file: 'offcanvas.css')}" type="text/css">
@@ -82,29 +82,22 @@ Additional Applicable Instructions</h3>
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
 				role="navigation">
 				<div class="list-group">
-					<a href="#" class="list-group-item active">Radiology</a>
-					<a href="#" class="list-group-item">Radiology Home</a> 
-					<a href="requirnment" class="list-group-item">Schedule an appointment</a>
-					<a href="#" class="list-group-item">Procedure Preparation</a> <a href="#" class="list-group-item">Imaging Services</a> <a href="#" class="list-group-item">Patient Resources</a>
-					<a href="#" class="list-group-item">Patient Stories</a>
+					<a href="#" class="list-group-item active">Radiology</a> <a
+						href="requirnment" class="list-group-item">Schedule an
+						appointment</a> <a href="${createLink(uri: '/document/getReport')}"
+						class="list-group-item">Get Report</a>
 				</div>
 			</div>
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="Div1" role="navigation">
-                <div class="list-group">
-                    <a class="list-group-item active">Contact Us</a>
-                    <a class="list-group-item">020 - 2433 7313
-                        <br />
-                        020 - 2433 4661
-                        <br />
-                        020 - 2433 1706</a>
-                    <a class="list-group-item active">Working Hours</a>
-                    <a class="list-group-item">7:00 AM to 7:00 PM<br />
-                        Holidays:<br />
-                        Republic Day, Independence Day</a>
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="Div1"
+				role="navigation">
+				<div class="list-group">
+					<a class="list-group-item active">Contact Us</a> <a
+						class="list-group-item"> <br /> 020 - 2431 4661 <br /> 020 -
+						2433 7313
+					</a>
 
-                </div>
-            </div>
-			<!--/span-->
+				</div>
+			</div>			<!--/span-->
 		</div>
 		<!--/row-->
 

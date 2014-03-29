@@ -88,7 +88,7 @@
 					<tr>
 						<td>Closing Time</td>
 						<td><select name="end" >
-								<g:each in="${0..23}">
+								<g:each in="${1..23}">
 									<option value="${it}:00">
 										${it}:00
 									</option>
@@ -102,14 +102,6 @@
 					</td>
 					</tr>
 					<tr>
-						<td>SMS Username</td>
-						<td><input type="text" name="smsuser" value="${username }"/></td>
-					</tr>
-					<tr>
-						<td>SMS Password</td>
-						<td><input type="password" name="smspass" value="${password }"/></td>
-					</tr>
-					<tr>
 						<td>Time required for MRI</td>
 						<td><input type="text" name="mriinterval" value="${mriInterval }"/> (in minutes)</td>
 					</tr>
@@ -117,6 +109,26 @@
 						<td>Time required for CT Scan</td>
 						<td><input type="text" name="ctinterval" value="${ctInterval }"/> (in minutes)</td>
 					</tr>
+					<tr>
+						<td>Do you want SMS based appointment booking facility?</td>
+						<td>
+						<p><input type="checkbox" name="sms" value="Yes"/>&nbsp Yes</p>
+						<p><input type="checkbox" name="sms" value="No"/>&nbsp No</p>
+						</td>
+					</tr>
+					<tr>
+						<td><b>Enter the details below only if SMS based facility is being availed : </b></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>SMS Username</td>
+						<td><input type="text" name="smsuser" value="${username }"/></td>
+					</tr>
+					<tr>
+						<td>SMS Password</td>
+						<td><input type="password" name="smspass" value="${password }"/></td>
+					</tr>
+					
 					<tr>
 					
 						<td>Confirmed Message note</td>
@@ -129,19 +141,27 @@
 						<td><input type="text" name="smscode" value="${smscode1}"/></td>
 				
 					</tr>
-			
+					<script>
+						function popup() {
+							alert("Please check timings");
+							}
+					</script>
+					
 					<tr>
 						<td></td>
-						<td><g:actionSubmit class="btn btn-info" value="Save Changes"/></td>
+						<td><g:actionSubmit class="btn btn-info" value="Save Changes" /></td>
 					</tr>
 						
 				</table>
 				</g:form>
+				<form>
+	<input type="button" value="suresh" onClick="popup()"/>
+	</form>
+	
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->

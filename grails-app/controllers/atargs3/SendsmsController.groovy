@@ -62,10 +62,7 @@ class SendsmsController {
 	//user="xyz123"
 	//password="156470"
 		print user+"   "+password
-	//user="bhushans23"
-	//password="727703"
-	//user="abcd1"
-//	password="662239"
+	
 		sid="WebSMS"
 		fl="0"
 		String data = URLEncoder.encode("user", "UTF-8") + "=" + URLEncoder.encode(user, "UTF-8");

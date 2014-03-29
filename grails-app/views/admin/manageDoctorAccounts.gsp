@@ -42,20 +42,15 @@
 
 		<div class="row">
 			<div class="col-sm-2 sidebar">
-				<ul class="nav nav-sidebar">
+	<ul class="nav nav-sidebar">
 					<li><a href="index">Dashboard</a></li>
-					<li><a href="getNewApp">New Appointments</a></li>
 					
-					<li><a href="manageReceptionAccounts">Manage Reception
-							Accounts</a></li>
+					<li><a href="manageReceptionAccounts">Manage Reception Accounts</a></li>
 					<li><a href="manageDoctorAccounts">Manage Doctor Accounts</a></li>
 					
-					<li><a href="viaSMS">Appointments taken via SMS</a></li>
 					<li><a href="feedres">Feedback</a></li>
-					<li><a href="${createLink(uri: '/adminSettings/ControlPanel')}">Settings</a></li>
-					<%--<li id="search"><a href="#">Search</a></li>
-				--%></ul>
-
+					<li><a href="ControlPanel">Settings</a></li>
+				</ul>
 			</div>
 
 			<div class="col-sm-10 col-sm-offset-2 main">
@@ -85,10 +80,9 @@
     	<th>First Name</th>
     	<th>Last Name</th>
     	<th>Username</th>
-    	<th>Password</th>
-    	<th>Address</th>
+       	<th>Address</th>
     	<th>Mobile No.</th>
-    	<th>Delete Account</th>
+    	<th>Confirm / Delete Account</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -98,7 +92,7 @@
         <td>${it.firstname}</td>
         <td>${it.lastname}</td>
         <td>${it.username}</td>
-        <td>${it.password}</td>
+
         <td>${it.address}</td>
         <td>${it.mobile}</td>
         <td>

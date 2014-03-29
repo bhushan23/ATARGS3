@@ -45,18 +45,12 @@
 			<div class="col-sm-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li><a href="index">Dashboard</a></li>
-					<li><a href="getNewApp">New Appointments</a></li>
 					
 					<li><a href="manageReceptionAccounts">Manage Reception Accounts</a></li>
 					<li><a href="manageDoctorAccounts">Manage Doctor Accounts</a></li>
 					
-					<li><a href="viaSMS">Appointments taken via SMS</a></li>
 					<li><a href="feedres">Feedback</a></li>
-						<li><a href="ControlPanel">Settings</a></li>
-						<%--
-					<li><a href="${createLink(uri: '/adminSettings/ControlPanel')}">Settings</a></li>
-					<%--<li id="search"><a href="#">Search</a></li>
-				--%>
+					<li><a href="ControlPanel">Settings</a></li>
 				</ul>
 
 			</div>

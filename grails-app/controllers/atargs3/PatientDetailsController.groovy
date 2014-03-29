@@ -154,6 +154,7 @@ class PatientDetailsController {
 				body "Hello ${tempFN} ${tempLN},\nYour Appointment awaits Confirmation : \n${p1.toString()}\n${p2.toString()}\n${p3.toString()}\nYour e-mail id has been successfully registered."
 			}
 			}catch(Exception e){
+			System.out.println(e.printStackTrace());
 				flash.messageEMAIL="Enter Correct e-Mail ID or Check Internet Connection."
 				redirectFlag=true
 			}
@@ -161,11 +162,12 @@ class PatientDetailsController {
 		}
 		if(redirectFlag)
 		{
-			render(view:"PersonalDetails", model:[machine:machine,doctors:docList,tempMOB:tempMOB,tempFN:tempFN,tempLN:tempLN,tempAGE:tempAGE,email:email,historyMN:historyMN,historyAddress:historyAddress, historyCity:historyCity, historyState:historyState, historyClinicalHistory:historyClinicalHistory])
+			render(view:"PersonalDetails", model:[machine:machine,doctors:docList,tempMOB:tempMOB,tempFN:tempFN,tempLN:tempLN,tempAGE:tempAGE,email:email,historyMN:historyMN,historyAddress:historyAddress, historyCity:historyCity, historyState:historyState, historyClinicalHistory:historyClinicalHistory,historyPincode:historyPincode])
 			return
 		}
 
 		PatientDetails pd = new PatientDetails();
+		pd?.salutation=params["salutation"]
 		pd?.firstname = params["firstname"]
 		pd?.middlename = params["middlename"]
 		pd?.lastname = params["lastname"]
@@ -202,7 +204,7 @@ class PatientDetailsController {
 		}
 		//String[] harmfulItems=params["harmful"].toString().split(",")
 		if(params["harmful"]!=null)
-		if(params["harmful"].toString().split(",").size()==1)
+		if(params["harmful"].class.toString().equalsIgnoreCase("java.lang.String"))
 			pd?.harmfulitems=params["harmful"]
 		else if(params["harmful"].length > 0){
 			String str=""
@@ -487,7 +489,19 @@ class PatientDetailsController {
 		print PatientDetails.countByConfirmedDateBetweenAndMachine(today, d + 1,machine)
 		print intervals
 		freeslots[0] = intervals - PatientDetails.countByConfirmedDateBetweenAndMachine(today, d + 1,machine);
-		[limits: [prestart, start, last], counter: counter, free: freeslots,totalNoOfIntervals:totalNoOfIntervals]
+		if(intervals==0)
+		freeslots[0]=0
+		
+		def currentmonth = new Date().format("MMMM")
+		def nextmonth=new Date()
+		int nxtmonth=0
+		if((new Date().format("MM")).equalsIgnoreCase((new Date()+21).format("MM")))
+		print("hello")
+		else
+		nxtmonth=1
+		
+		nextmonth.putAt(Calendar.MONTH, new Date().getAt(Calendar.MONTH)+1)
+		[limits: [prestart, start, last], counter: counter, free: freeslots,totalNoOfIntervals:totalNoOfIntervals,currentmonth:currentmonth,nextmonth:nextmonth.format("MMMM"),nxtmonth:nxtmonth]
 		
 	}
 
@@ -527,7 +541,7 @@ class PatientDetailsController {
 		def upper = sdf.format(d2)
 		def db = new Sql(dataSource)
 		def items = db.rows("SELECT * FROM patient_details WHERE machine = ${machine} AND confirmed_date >= ${lower} AND confirmed_date <= ${upper}")
-		def items_p1 = db.rows("SELECT * FROM patient_details WHERE machine = ${machine} AND priority1 >= ${lower} AND priority1 <= ${upper}")
+		def items_p1 = db.rows("SELECT * FROM patient_details WHERE machine = ${machine} AND priority1 >= ${lower} AND priority1 <= ${upper} And confirmed_date is null")
 		def arr = new int[24*k]
 		int n
 

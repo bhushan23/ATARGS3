@@ -675,6 +675,7 @@ class AdminController {
 	
 	def saveAppChanges(){
 		print(params)
+		
 		entry.firstname=params["firstname"]
 		entry.middlename=params["middlename"]
 		entry.lastname=params["lastname"]
@@ -907,8 +908,75 @@ def notifymanually()
 	
 	def feedres(){
 		def db=new Sql(dataSource)
-		def myPatients = db.rows("SELECT * FROM feedback")
-		[patientList:myPatients]
+		//def myPatients = db.rows("SELECT * FROM feedback")
+		//[patientList:myPatients]
+		def fblist=new String[12]
+	def sergood=db.rows("SELECT count(service) from feedback where service='good'")
+	String strsergood=sergood['count(service)']
+	strsergood=strsergood.substring(1, strsergood.length()-1)
+	fblist[0]=strsergood
+	//[gsergood:strsergood]
+	
+	def sersat=db.rows("SELECT count(service) from feedback where service='satisfactory'")
+	String strsersat=sersat['count(service)']
+	strsersat=strsersat.substring(1, strsersat.length()-1)
+	fblist[1]=strsersat
+	//[gsersat:strsersat]
+	
+	def serpoor=db.rows("SELECT count(service) from feedback where service='poor'")
+	String strserpoor=serpoor['count(service)']
+	strserpoor=strserpoor.substring(1, strserpoor.length()-1)
+	fblist[2]=strserpoor
+	//[gserpoor:strserpoor]
+	
+	def stagood=db.rows("SELECT count(staff_behaviour) from feedback where staff_behaviour='good'")
+	String strstagood=stagood['count(staff_behaviour)']
+	strstagood=strstagood.substring(1, strstagood.length()-1)
+	fblist[3]=strstagood
+	
+	def stasat=db.rows("SELECT count(staff_behaviour) from feedback where staff_behaviour='satisfactory'")
+	String strstasat=stasat['count(staff_behaviour)']
+	strstasat=strstasat.substring(1, strstasat.length()-1)
+	fblist[4]=strstasat
+	
+	def stapoor=db.rows("SELECT count(staff_behaviour) from feedback where staff_behaviour='poor'")
+	String strstapoor=stapoor['count(staff_behaviour)']
+	strstapoor=strstapoor.substring(1, strstapoor.length()-1)
+	fblist[5]=strstapoor
+	
+	def tecgood=db.rows("SELECT count(technician_proc) from feedback where technician_proc='good'")
+	String strtecgood=tecgood['count(technician_proc)']
+	strtecgood=strtecgood.substring(1, strtecgood.length()-1)
+	fblist[6]=strtecgood
+	
+	def tecsta=db.rows("SELECT count(technician_proc) from feedback where technician_proc='satisfactory'")
+	String strtecsta=tecsta['count(technician_proc)']
+	strtecsta=strtecsta.substring(1, strtecsta.length()-1)
+	fblist[7]=strtecsta
+	
+	def tecpoor=db.rows("SELECT count(technician_proc) from feedback where technician_proc='poor'")
+	String strtecpoor=tecpoor['count(technician_proc)']
+	strtecpoor=strtecpoor.substring(1, strtecpoor.length()-1)
+	fblist[8]=strtecpoor
+	
+	def usegood=db.rows("SELECT count(useful) from feedback where useful='good'")
+	String strusegood=usegood['count(useful)']
+	strusegood=strusegood.substring(1, strusegood.length()-1)
+	fblist[9]=strusegood
+	
+	def usesta=db.rows("SELECT count(useful) from feedback where useful='satisfactory'")
+	String strusesta=usesta['count(useful)']
+	strusesta=strusesta.substring(1, strusesta.length()-1)
+	fblist[10]=strusesta
+	
+	def usepoor=db.rows("SELECT count(useful) from feedback where useful='poor'")
+	String strusepoor=usepoor['count(useful)']
+	strusepoor=strusepoor.substring(1, strusepoor.length()-1)
+	fblist[11]=strusepoor
+	
+	
+	
+	[gfblist:fblist]
 	}
 	def ControlPanel() {
 		def db=new Sql(dataSource)
@@ -925,7 +993,24 @@ def notifymanually()
 	
 	def saveChanges() {
 		print params
-		def db = new Sql(dataSource)
+		
+		
+		float sf=Float.parseFloat(String.valueOf(params['start']).replace(':','.'))
+		float ef=Float.parseFloat(String.valueOf(params['end']).replace(':','.'))
+		print 'Float cobversion is'+sf
+		if(params['start'].equals(params['end'])){
+		flash.message="Opening and Closing time should be different"
+		redirect(action:'ControlPanel');	
+		}else if(ef<sf){
+		flash.message="Please check the entered closing time.Center should close after its opening time. "
+		redirect(action:'ControlPanel');
+		}else if(!params['smsservice']){
+		flash.message="Please check Yes or No SMS Messagin service"
+		redirect(action:'ControlPanel');
+		
+	}else{
+		
+			def db = new Sql(dataSource)
 	
 		db.execute("UPDATE admin_settings SET value='${params["smsuser"]}' WHERE entry='smsuser'")
 		db.execute("UPDATE admin_settings SET value='${params["smspass"]}' WHERE entry='smspass'")
@@ -938,6 +1023,14 @@ def notifymanually()
 		
 		db.execute("UPDATE admin_settings SET value='${params["smscode"]}' WHERE entry='smscode'")
 		db.execute("UPDATE admin_settings SET value='${params["confirmedmsg"]}' WHERE entry='confirmmsg'")
+		
+		
+		db.execute("UPDATE admin_settings SET value='${params["smsservice"]}' WHERE entry='smsservice'")
+		db.execute("UPDATE admin_settings SET value='${params["emailservice"]}' WHERE entry='emailservice'")
+		
+		AdminSettingsController.smsservice=String.valueOf(params['smscode'])
+		AdminSettingsController.emailservice=String.valueOf(params['smscode'])
+		
 		AdminSettingsController.smscode=String.valueOf(params['smscode'])
 		AdminSettingsController.confirmedsms=String.valueOf(params['confirmedmsg'])
 			AdminSettingsController.smsuser=String.valueOf(params['smsuser'])
@@ -946,5 +1039,6 @@ def notifymanually()
 		
 		
 		redirect (controller: 'Admin', view:'index')
-	}
+		}
+		}
 }

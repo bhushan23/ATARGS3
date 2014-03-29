@@ -65,25 +65,23 @@
             </div>
             <!--/span-->
 
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-                <div class="list-group">
-                    <a href="#" class="list-group-item active">Radiology</a>
-                    <a href="#" class="list-group-item">Radiology Home</a>
-                    <a href="#" class="list-group-item">Schedule an appointment</a>
-                    <a href="#" class="list-group-item">Procedure Preparation</a>
-                    <a href="#" class="list-group-item">Imaging Services</a>
-                    <a href="#" class="list-group-item">Patient Resources</a>
-                    <a href="#" class="list-group-item">Patient Stories</a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="Div1" role="navigation">
+          
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
+				role="navigation">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">Radiology</a>
+					<a href="requirnment" class="list-group-item">Schedule an appointment</a>
+					<a href="${createLink(uri: '/document/getReport')}" class="list-group-item">Get Report</a> 
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="Div1" role="navigation">
                 <div class="list-group">
                     <a class="list-group-item active">Contact Us</a>
-                    <a class="list-group-item">020 - 2433 7313
+                    <a class="list-group-item">
                         <br />
-                        020 - 2433 4661
+                        020 - 2431 4661
                         <br />
-                        020 - 2433 1706</a>
+                        020 - 2433 7313 </a>
                     <a class="list-group-item active">Working Hours</a>
                     <a class="list-group-item">7:00 AM to 7:00 PM<br />
                         Holidays:<br />
@@ -91,6 +89,7 @@
 
                 </div>
             </div>
+          
             <!--/span-->
         </div>
         <!--/row-->

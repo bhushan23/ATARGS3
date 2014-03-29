@@ -63,7 +63,7 @@ grails {
         }
     }
 	mail {
-		host = "smtp.correo.yahoo.es"
+		host = "smtp.mail.yahoo.com"
 		port = 465
 		username = "noreply_bookmyscan"
 		password = "NoReply123"
@@ -71,8 +71,9 @@ grails {
 						 "mail.smtp.socketFactory.port":"465",
 						 "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
 						 "mail.smtp.socketFactory.fallback":"false"  ]
-		grails.mail.default.from="noreply_bookmyscan@yahoo.com"
 		
+		grails.mail.default.from="noreply_bookmyscan@yahoo.com"
+	
 	 }
   
 }

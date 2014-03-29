@@ -1,55 +1,105 @@
+
+		
+		
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
-		<title></title>
+		<meta name="layout" content="main">
+<r:require modules="bootstrap" />
+<r:layoutResources />
+		<title>Feedback</title>
+		<!-- Bootstrap core CSS -->
+<link rel="stylesheet"
+	href="${resource(dir: 'css', file: 'dashboard.css')}" type="text/css">
+<script src="${resource(dir: 'js', file: 'holder.js')}">
+	
+</script>
+
+<!-- Custom styles for this template -->
+<link href="dashboard.css" rel="stylesheet">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	
+</script>
 		</head>
 		<body>
-		<center><h1>FeedBack Form</h1></center><br><br>
+		<g:if test="${flash.messageFB}">
+									<div class="alert alert-danger">
+										${flash.messageFB}
+									</div>
+		</g:if>
+		<center><h1 class="text-muted">FeedBack Form</h1></center>
 		 <g:form controller="document"action="download">
-		<div>
-		 <label for='radio2'>How did you find the service at the front desk?</label>
-		 </div>
-		 <div>
-		 <input type="radio" value="poor" name="radio2">poor</input>
-                <input type="radio" value="satisfactory" name="radio2">satisfactory</input>
-                <input type="radio" value="good" name="radio2">good</input>
-         </div>
-         <br>         
-         <div>
-		 <label for='radio3'>How was the staff behaviour?</label>
-		 </div>
-		 <div>
-		 <input type="radio" value="poor" name="radio3">poor</input>
-                <input type="radio" value="satisfactory" name="radio3">satisfactory</input>
-                <input type="radio" value="good" name="radio3">good</input>
-         </div>
-         <br>  
-         <div>
-		 <label for='radio4'>Did the technician explain the procedure?</label>
-		 </div>
-		 <div>
-		 <input type="radio" value="poor" name="radio4">poor</input>
-                <input type="radio" value="satisfactory" name="radio4">satisfactory</input>
-                <input type="radio" value="good" name="radio4">good</input>
-         </div>
-         <br>  
-         <div>
-		 <label for='radio1'>Was the online appointment scheduling and reporting useful?</label>
-		 </div>
-		 <div>
-		 <input type="radio" value="poor" name="radio1">poor</input>
-                <input type="radio" value="satisfactory" name="radio1">satisfactory</input>
-                <input type="radio" value="good" name="radio1">good</input>
-         </div>
-         <br>  
-          
-		 <label for='ta'>Any Comments/Suggestions</label>
+		 <div class="table-responsive">
+
+					<table 	class="table table-striped">
+					<thead>
+
+							<tr>
+								
+								
+								
+							</tr>
+						</thead>
+		<tbody>
+		<tr>
+		 <td><label for='radio2'>How did you find the service at the front desk?</label></td>
 		 
-		 <g:textArea id="ta" name="ta" width="200" height="300"></g:textArea>
- <div> 
-   <g:submitButton name="submit" value="SUBMIT" action="download" /></div>  
-</g:form>
 		
+		 <td><input type="radio" value="Poor" name="radio2">&nbsp Poor
+                <input type="radio" value="Satisfactory" name="radio2">&nbsp Satisfactory
+                <input type="radio" value="Good" name="radio2">&nbsp Good</td>
+         
+         </tr>
+         <tr>
+         <td>
+		 <label for='radio3'>How was the staff behaviour?</label>
+		 </td>
+		 
+		 
+		 <td><input type="radio" value="Poor" name="radio3">&nbsp Poor
+                <input type="radio" value="Satisfactory" name="radio3">&nbsp Satisfactory
+                <input type="radio" value="Good" name="radio3">&nbsp Good</td>
+         </tr>
+         
+         <tr>
+         <td>
+		 <label for='radio4'>Did the technician explain the procedure?</label>
+		 </td>
+		 <td>
+		 <input type="radio" value="Poor" name="radio4">&nbsp Poor
+                <input type="radio" value="Satisfactory" name="radio4">&nbsp Satisfactory
+                <input type="radio" value="Good" name="radio4">&nbsp Good</td>
+         </tr>
+       
+         <tr>
+         <td>
+		 <label for='radio1'>Was the online appointment scheduling and reporting useful?</label>
+		 </td>
+		 <td>
+		 <input type="radio" value="Poor" name="radio1">&nbsp Poor
+                <input type="radio" value="Satisfactory" name="radio1">&nbsp Satisfactory
+                <input type="radio" value="Good" name="radio1">&nbsp Good</td>
+         </tr>
+          
+          <tr>
+          <td>
+		 <label for='ta'>Any Comments/Suggestions</label>
+		 </td>
+		 
+		 <td>
+		 <g:textArea id="ta" name="ta" width="200" height="300"></g:textArea>
+		 </td>
+		 </tr>
+	
+   
+   </table> 
+   </div>
+   <g:submitButton name="submit" class="btn btn-success" value="SUBMIT" action="download" />
+</g:form>
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 		</body>
 		</html>
