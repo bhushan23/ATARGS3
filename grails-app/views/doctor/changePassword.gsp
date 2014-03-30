@@ -72,8 +72,7 @@
 										</div>
 									</g:if></td>
 							</tr>
-							</table>
-						<table class="table table-striped">
+						
 							
 							<thead>
 								<tr>

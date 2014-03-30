@@ -67,10 +67,8 @@
 										</div>
 									</g:if></td>
 							</tr>
-							</table>
-						<table class="table table-striped">
-							
-							<thead>
+						
+						
 								<tr>
 									<th>Field</th>
 									<th>Value</th>
