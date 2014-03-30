@@ -131,10 +131,11 @@ $(function () {
       <div class="row">
         <div class="col-sm-3 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview</a></li>
+            <li ><a href="index">Dashboard</a></li>
             <li><g:remoteLink controller="Doctor" update="PatientTable" action="ReportButton">Reports</g:remoteLink></li>
             <%--<li><g:remoteLink controller="Doctor" update="PatientTable" action="Appointment">Get Appointment</g:remoteLink></li>
-             --%><li id="search"><a   href="#">Search</a></li>
+             --%>
+			<li><a href="changePassword">Change Password</a></li>
           <li >
 					<div class="bis_calendar row">
 					<table class="table">

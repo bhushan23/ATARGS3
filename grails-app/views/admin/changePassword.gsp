@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
 <meta name="layout" content="main">
 <r:require modules="bootstrap" />
 <r:layoutResources />
-<title>Feedback</title>
+<title>Edit Appointment</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -39,7 +38,7 @@
 
 		<div class="row">
 			<div class="col-sm-2 sidebar">
-	<ul class="nav nav-sidebar">
+				<ul class="nav nav-sidebar">
 					<li><a href="index">Dashboard</a></li>
 					
 					<li><a href="manageReceptionAccounts">Manage Reception Accounts</a></li>
@@ -49,84 +48,74 @@
 					<li><a href="ControlPanel">Settings</a></li>
 					<li><a href="changePassword">Change Password</a></li>
 				</ul>
+
 			</div>
 
-		<div class="col-sm-10 col-sm-offset-2 main">
-			<h1 class="page-header">Feedback</h1>
-			
+			<div class="col-sm-10 col-sm-offset-2 main">
+				<h1 class="page-header">Change Password</h1>
+
+
 				<div class="table-responsive">
-
-					<table 	class="table table-striped">
-						
-						<thead>
-
+					<g:form action="passwordChanged">
+						<table class="table table-striped">
 							<tr>
-								
-								<th></th>
-								<th>Good</th>
-								<th>Satisfactory</th>
-								<th>Poor</th>
+								<td><g:if test="${flash.messageCurPass}">
+										<div class="alert alert-danger">
+											${flash.messageCurPass}
+										</div>
+									</g:if></td>
+								<td><g:if test="${flash.messageEmptyPass}">
+										<div class="alert alert-danger">
+											${flash.messageEmptyPass}
+										</div>
+									</g:if></td>
+								<td><g:if test="${flash.messageNewPass}">
+										<div class="alert alert-danger">
+											${flash.messageNewPass}
+										</div>
+									</g:if></td>
 							</tr>
-							<tr>
-							<td>Service</td>
-							<td>${gfblist[0]}</td>
-							<td>${gfblist[1]}</td>
-							<td>${gfblist[2]}</td>
-							</tr>
-							<tr>
-							<td>Staff Behavior</td>
-							<td>  ${gfblist[3]}</td>
-							<td>  ${gfblist[4]}</td>
-							<td>  ${gfblist[5]}</td>
-							</tr>
-							<tr>
-							<td>Technician</td>
-							<td>  ${gfblist[6]}</td>
-							<td>  ${gfblist[7]}</td>
-							<td>  ${gfblist[8]}</td>
-							</tr>
-							<tr>
-							<td>Usefulness</td>
-							<td>  ${gfblist[9]}</td>
-							<td>  ${gfblist[10]}</td>
-							<td>  ${gfblist[11]}</td>
-							</tr>
-						</thead>
-						<tbody>
-							<g:each in="${patientList}">
-								<tr>
-									<td>
-										${it.service}
-									</td>
-									<td>
-										${it.staff_behaviour}
-									</td>
-									<td>
-										${it.technician_proc}
-									</td>
-									<td>
-										${it.useful}
-									</td>
-					
-							</tr>
-							${service}
-							<tr>
+							</table>
+						<table class="table table-striped">
 							
+							<thead>
+								<tr>
+									<th>Field</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tr>
+								<td>Enter current password</td>
+								<td><input type="password" name="curpassword" value="" /></td>
 							</tr>
-</g:each>
-						</tbody>
-					</table>
+							<tr>
+								<td>Enter new password</td>
+								<td><input type="password" name="newpassword" value="" /></td>
+							</tr>
+							<tr>
+								<td>Confirm new password</td>
+								<td><input type="password" name="confirmpassword" value="" />
+								</td>
+							</tr>
+						</table>
+						<br>
+						<input type="submit" value="Done"
+							class="btn btn-large btn-success" />
+					</g:form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	
+
 </body>
 </html>
+
+
+
 

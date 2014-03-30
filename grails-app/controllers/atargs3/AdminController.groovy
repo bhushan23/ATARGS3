@@ -443,7 +443,25 @@ class AdminController {
 		//d=sdf1.parse(sdf.format(d))
 		print d.getTimeString()
 		def result=db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper}")
+		int i=0
+		String str
 		
+		print(result.size)
+		while(i<result.size){
+			print(result.size)
+			str=result[i].scanof
+			result[i].scanof=""
+		   def scan=str.split(";")
+		   int j=0
+		   if(!scan[0].equalsIgnoreCase("")){
+			   while(j<scan.length){
+				   def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+				   result[i].scanof=result[i].scanof.concat(getValue.info+";")
+				   j++
+			   }
+		   }
+			i++;
+		}
 		[result:result]
 		
 	}
@@ -1041,4 +1059,43 @@ def notifymanually()
 		redirect (controller: 'Admin', view:'index')
 		}
 		}
+	
+	def changePassword(){
+	
+	
+}
+def passwordChanged(){
+	print("dfdf "+session.UserLoggedin)
+	def temp=Admin.findByUsername(session.UserLoggedin)
+	String plaincurpass=params['curpassword']
+	String plainnewpass=params['newpassword']
+	String plainconfirmedpass=params['confirmpassword']
+	String hashedcurpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plaincurpass);
+	String hashednewpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainnewpass);
+	String hashedconfirmedpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainconfirmedpass);
+	//String hashedcurpass=plaincurpass
+	//String hashednewpass=plainnewpass
+	//String hashedconfirmedpass=plainconfirmedpass
+	print(hashednewpass+"  helloooo "+hashedconfirmedpass)
+	if(!temp.password.equalsIgnoreCase(hashedcurpass)){
+		
+		flash.messageCurPass="Current Password entered is incorrect"
+		redirect(action:'changePassword')
+	}
+	else if(hashednewpass.equalsIgnoreCase("") && hashedconfirmedpass.equalsIgnoreCase("")){
+		flash.messageEmptyPass="The values for New Password and Confirm Password are not to be left blank"
+		redirect(action:'changePassword')
+	}
+	else if(!hashednewpass.equalsIgnoreCase(hashedconfirmedpass)){
+		flash.messageNewPass="New Password and Confirmed Password do not match"
+		redirect(action:'changePassword')
+	}
+	else{
+	temp.password=hashednewpass
+	print("hiii  "+hashednewpass)
+	temp.save();
+	
+	redirect(action:"index");
+	}
+}
 }

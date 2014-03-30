@@ -50,12 +50,13 @@
 					
 					<li><a href="feedres">Feedback</a></li>
 					<li><a href="ControlPanel">Settings</a></li>
+					<li><a href="changePassword">Change Password</a></li>
 				</ul>
 			</div>
 
 			<div class="col-sm-10 col-sm-offset-2 main">
 				<h1 class="page-header">Manage Doctor Accounts</h1>
-		
+				
 					<div class="table-responsive">
 
 						<table class="table table-striped">

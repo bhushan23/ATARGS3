@@ -15,6 +15,7 @@
 								<th>Machine</th>
 								<th>Appointment Timing</th>
 								<th>Mobile</th>
+								<th>View/Edit Appointment</th>
 							</tr>
 							<g:each in="${result}">
 								<tr>
@@ -36,7 +37,13 @@
 									<td>
 										${it.mobile}
 									</td>
-
+									<td><g:form action="editApp" method="post">
+												<div class="buttons">
+													<span class="button"> <g:link params="${[p:it.id]}" action="editApp">
+       									View/Edit</g:link>
+													</span>
+												</div>
+											</g:form></td>
 								</tr>
 							</g:each>
 						</table>

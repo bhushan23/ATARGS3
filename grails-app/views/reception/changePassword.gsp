@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +5,7 @@
 <meta name="layout" content="main">
 <r:require modules="bootstrap" />
 <r:layoutResources />
-<title>Dashboard Template for Bootstrap</title>
+<title>Edit Appointment</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -43,71 +41,69 @@
 				<ul class="nav nav-sidebar">
 					<li><a href="index">Dashboard</a></li>
 					<li><a href="getNewApp">New Appointments</a></li>
-					
+
 					<li><a href="uploadReport">Upload Reports</a></li>
 					<li><a href="viaSMS">Appointments taken via SMS</a></li>
-					<li><a href="changePassword">Change Password </a> </li>
-					<li><a href="patientHistory">Patient History </a> </li>
+					<li><a href="changePassword">Change Password</a></li>
 				</ul>
 
 			</div>
 
 			<div class="col-sm-10 col-sm-offset-2 main">
-				<h1 class="page-header">Appointments taken via SMS</h1>
+				<h1 class="page-header">Change Password</h1>
 
-					<div class="table-responsive">
 
+				<div class="table-responsive">
+					<g:form action="passwordChanged">
 						<table class="table table-striped">
-							<tr id="searchtext">
-
-								<th><g:remoteField name="A" action="Afunc"
-										update="PatientTable" /></th>
-								<th><g:remoteField name="FN" action="FNfunc"
-										update="PatientTable" /></th>
-								<th><g:remoteField name="LN" action="LNfunc"
-										update="PatientTable" /></th>
-								<th><g:remoteField name="M" action="Mfunc"
-										update="PatientTable" /></th>
-								<th><g:remoteField name="MOB" action="MOBfunc"
-										update="PatientTable" /></th>
+							<tr>
+								<td><g:if test="${flash.messageCurPass}">
+										<div class="alert alert-danger">
+											${flash.messageCurPass}
+										</div>
+									</g:if></td>
+								<td><g:if test="${flash.messageEmptyPass}">
+										<div class="alert alert-danger">
+											${flash.messageEmptyPass}
+										</div>
+									</g:if></td>
+								<td><g:if test="${flash.messageNewPass}">
+										<div class="alert alert-danger">
+											${flash.messageNewPass}
+										</div>
+									</g:if></td>
 							</tr>
+							</table>
+						<table class="table table-striped">
+							
 							<thead>
-
 								<tr>
-
-									<th>ID</th>
-									<th>Machine</th>
-									<th>Mobile No.</th>
-									<th>Appointment Timing</th>
-									<th>Edit Appointment</th>
+									<th>Field</th>
+									<th>Value</th>
 								</tr>
 							</thead>
-							<tbody>
-								<g:each in="${appViaSms}">
-    	<tr>
-    	<td>${it.id}</td>
-        <td>${it.machine}</td>
-        <td>${it.mobile}</td>
-        <td>${it.confirmed_date }
-        </td>
-        <td>
-        <g:form action="editSmsApp" method="post" >
-        	<div class="buttons">
- 			<span class="button">
-       		<g:link params="[p:"${it.id}"]" action="editSmsApp">
-       			Edit</g:link>
-        	</span>
-			</div>
-			</g:form>
-        </td>
-    	</tr>
-		</g:each>
-							</tbody>
+							<tr>
+								<td>Enter current password</td>
+								<td><input type="password" name="curpassword" value="" /></td>
+							</tr>
+							<tr>
+								<td>Enter new password</td>
+								<td><input type="password" name="newpassword" value="" /></td>
+							</tr>
+							<tr>
+								<td>Confirm new password</td>
+								<td><input type="password" name="confirmpassword" value="" />
+								</td>
+							</tr>
 						</table>
-					</div>
+						<br>
+						<input type="submit" value="Done"
+							class="btn btn-large btn-success" />
+					</g:form>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
 	<!-- Bootstrap core JavaScript
@@ -117,4 +113,7 @@
 
 </body>
 </html>
+
+
+
 

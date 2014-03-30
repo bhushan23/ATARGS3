@@ -129,197 +129,209 @@ $(function () {
 </head>
 
 <body>
-	<g:set var="months" value="${new java.text.DateFormatSymbols().months} "/>
-	<g:set var="today" value="${new Date()}"/>
+	<g:set var="months"
+		value="${new java.text.DateFormatSymbols().months} " />
+	<g:set var="today" value="${new Date()}" />
 
 
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-3 sidebar">
 				<ul class="nav nav-sidebar">
-					<li ><a href="index">Dashboard</a></li>
-				
-					<li  ><a href="getNewApp">New Appointments</a></li>
-				
-		
+					<li><a href="index">Dashboard</a></li>
+
+					<li><a href="getNewApp">New Appointments</a></li>
+
+
 					<li><a href="uploadReport">Upload Reports</a></li>
-					<li  ><a href="viaSMS">Appointments taken via SMS </a> </li>
-					
-					<li >
-					<div class="bis_calendar row">
-					<table class="table">
-						<tr class="monthAndYear">
-							<td style="width: 50%">
-								<div class="well well-lg">
-									<table class="table" border="0">
-										<tr>
-											<td colspan="7" class="monthAndYear">
-												<div class="visualyear" id="month">
-													<h4>${currentmonth } 
-													<g:if test="${nxtmonth == 1}">
+					<li><a href="viaSMS">Appointments taken via SMS </a></li>
+					<li ><a href="changePassword">Change Password </a> </li>
+					<li><a href="patientHistory">Patient History </a> </li>
+
+					<li>
+						<div class="bis_calendar row">
+							<table class="table">
+								<tr class="monthAndYear">
+									<td style="width: 50%">
+										<div class="well well-lg">
+											<table class="table" border="0">
+												<tr>
+													<td colspan="7" class="monthAndYear">
+														<div class="visualyear" id="month">
+															<h4>
+																${currentmonth }
+																<g:if test="${nxtmonth == 1}">
      													- ${nextmonth }
-													</g:if></h4>
-												</div>
-											</td>
-										</tr>
-										<!-- show DAYS OF WEEK HEADER -->
-										<tr class="days-month">
-											<td>S</td>
-											<td>M</td>
-											<td>T</td>
-											<td>W</td>
-											<td>T</td>
-											<td>F</td>
-											<td>S</td>
-										</tr>
-										<!-- previous days which are passed and cannot be selected. SHOW INACTIVE -->
-										<g:each in="${limits[0]..<limits[1] }">
-											<g:if
-												test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY}">
-												<tr>
-											</g:if>
-											<td id="datePassed">
-												<div id="dateoncal">
-													<p>
-														${it.getAt([Calendar.DATE])}
-													</p>
-												</div>
-											</td>
-											<g:if
-												test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SATURDAY}">
-												</tr>
-											</g:if>
-										</g:each>
-										<!-- Days which are yet to come. SHOW ACTIVE -->
-										<g:set var="i" value="${0}" />
-										<g:each in="${limits[1]..<limits[2] }">
-											<g:if
-												test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY}">
-												<tr>
-											</g:if>
-											<g:if test="${free[i] == 0}">
-												<td style="background-color: #FF6666">
-
-													<div class="tooltipdate" data-toggle="tooltip"
-														title="No slots available">
-
-														${it.getAt([Calendar.DATE])}
-													</div>
-											</g:if>
-											<g:else>
-												<td><g:remoteLink update="AppointmentTable"	action="ShowApp" params="[Year: "${it.getAt(Calendar.YEAR)}", Month: "${it.getAt(Calendar.MONTH)}", Day: "${it.getAt(Calendar.DAY_OF_MONTH)}"]">
-
-														<div class="tooltipdate" data-toggle="tooltip"
-															title="Slots Available: ${free[i] }">
-
-
-
-															${it.getAt([Calendar.DATE])}
-
+																</g:if>
+															</h4>
 														</div>
-
-													</g:remoteLink>
-													<div style="background-color: #F66666">
-														<div
-															style="background-color:#0FF333 ; width:${free[i] /totalNoOfIntervals *100}%; height:8px;">
-														</div>
-													</div></td>
-											</g:else>
-											<g:if
-												test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SATURDAY}">
+													</td>
 												</tr>
-											</g:if>
-											<g:set var="i" value="${i + 1}" />
-										</g:each>
+												<!-- show DAYS OF WEEK HEADER -->
+												<tr class="days-month">
+													<td>S</td>
+													<td>M</td>
+													<td>T</td>
+													<td>W</td>
+													<td>T</td>
+													<td>F</td>
+													<td>S</td>
+												</tr>
+												<!-- previous days which are passed and cannot be selected. SHOW INACTIVE -->
+												<g:each in="${limits[0]..<limits[1] }">
+													<g:if
+														test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY}">
+														<tr>
+													</g:if>
+													<td id="datePassed">
+														<div id="dateoncal">
+															<p>
+																${it.getAt([Calendar.DATE])}
+															</p>
+														</div>
+													</td>
+													<g:if
+														test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SATURDAY}">
+														</tr>
+													</g:if>
+												</g:each>
+												<!-- Days which are yet to come. SHOW ACTIVE -->
+												<g:set var="i" value="${0}" />
+												<g:each in="${limits[1]..<limits[2] }">
+													<g:if
+														test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY}">
+														<tr>
+													</g:if>
+													<g:if test="${free[i] == 0}">
+														<td style="background-color: #FF6666">
 
-									</table>
-								</div>
-							</td>
-				
-						</tr>
-					</table>
+															<div class="tooltipdate" data-toggle="tooltip"
+																title="No slots available">
 
-				</div>
-					
+																${it.getAt([Calendar.DATE])}
+															</div>
+													</g:if>
+													<g:else>
+														<td><g:remoteLink update="AppointmentTable"
+																action="ShowApp" params="[Year: "${it.getAt(Calendar.YEAR)}", Month: "${it.getAt(Calendar.MONTH)}", Day: "${it.getAt(Calendar.DAY_OF_MONTH)}"]">
+
+																<div class="tooltipdate" data-toggle="tooltip"
+																	title="Slots Available: ${free[i] }">
+
+
+
+																	${it.getAt([Calendar.DATE])}
+
+																</div>
+
+															</g:remoteLink>
+															<div style="background-color: #F66666">
+																<div
+																	style="background-color:#0FF333 ; width:${free[i] /totalNoOfIntervals *100}%; height:8px;">
+																</div>
+															</div></td>
+													</g:else>
+													<g:if
+														test="${it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SATURDAY}">
+														</tr>
+													</g:if>
+													<g:set var="i" value="${i + 1}" />
+												</g:each>
+
+											</table>
+										</div>
+									</td>
+
+								</tr>
+							</table>
+
+						</div>
+
 					</li>
 				</ul>
 
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 main">
-          <h1 class="page-header">Dashboard</h1><%--
+				<h1 class="page-header">Dashboard</h1>
+				<%--
                 <h2 class="sub-header">Today's Appointments</h2>
-          --%><div class="table-responsive">
-         
-         <table class="table table-striped">
-                  <tr id="searchtext">
-                  <g:remoteField name="FN" action="FNfunc" update="AppointmentTable"/>
-                  <g:remoteField name="LN" action="LNfunc" update="AppointmentTable"/>
-                  <g:remoteField name="A" action="Afunc" update="AppointmentTable" />
-                  <g:remoteField name="M" action="Mfunc" update="AppointmentTable"/>
-                  <g:remoteField name="MOB" action="MOBfunc" update="AppointmentTable"/>
-               </tr>
-               </table>
-              <div id="AppointmentTable">
-           
-            <table class="table table-striped">
-            
-           
-         
-           
-              <thead>
-                 
-                <tr>
-              
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Appointment Time</th> 
-                  <th>Scan Machine</th>
-                  <th>Scan of</th>
-                  <th>Mobile No</th>
-                  <th>View/Edit Appointment</th>
-                </tr>
-              </thead>
-              <tbody>
-               <g:each in="${result}">
-									<tr>
-								
-									<td>
-										${it.firstname}
-									</td>
-									<td>
-										${it.lastname}
-									</td>
-									<td>
-										${it.confirmed_date}
-									</td>
-									<td>
-										${it.machine}
-									</td>
-									<td>
-										${it.scanof}
-									</td>
-									<td>
-										${it.mobile}
-									</td>
-									
-									<td>
-										<g:form action="editApp" method="post" >
-        								<div class="buttons">
- 										<span class="button">
-       									<g:link params="[p:"${it.id}"]" action="editApp">
-       									View/Edit</g:link>
-        								</span>
-										</div>
-										</g:form>
-									</td>
+          --%>
+				<div class="table-responsive">
+
+					<table class="table table-striped">
+						<tr id="searchtext">
+							<th><g:remoteField name="FN" action="FNfunc"
+									update="AppointmentTable" /></th>
+							<th><g:remoteField name="LN" action="LNfunc"
+									update="AppointmentTable" /></th>
+							<th><g:remoteField name="A" action="Afunc"
+									update="AppointmentTable" /></th>
+							<th><g:remoteField name="M" action="Mfunc"
+									update="AppointmentTable" /></th>
+							<th><g:remoteField name="MOB" action="MOBfunc"
+									update="AppointmentTable" /></th>
+						</tr>
+					</table>
+					<div id="AppointmentTable">
+
+						<table class="table table-striped">
+
+
+
+
+							<thead>
+
+								<tr>
+
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Appointment Time</th>
+									<th>Scan Machine</th>
+									<th>Scan of</th>
+									<th>Mobile No</th>
+									<th>View/Edit Appointment</th>
 								</tr>
-							</g:each>
-              </tbody>
-            </table>
-            To take backup of tomorrow's appointments  &nbsp: &nbsp<g:link  controller="Login" action="takeBackup" class="btn btn-info">Click here</g:link>
-            </div>
-          </div>
-        </div>
+							</thead>
+							<tbody>
+								<g:each in="${result}">
+									<tr>
+
+										<td>
+											${it.firstname}
+										</td>
+										<td>
+											${it.lastname}
+										</td>
+										<td>
+											${it.confirmed_date}
+										</td>
+										<td>
+											${it.machine}
+										</td>
+										<td>
+											${it.scanof}
+										</td>
+										<td>
+											${it.mobile}
+										</td>
+
+										<td><g:form action="editApp" method="post">
+												<div class="buttons">
+													<span class="button"> <g:link params="${[p:it.id]}" action="editApp">
+       									View/Edit</g:link>
+													</span>
+												</div>
+											</g:form></td>
+									</tr>
+								</g:each>
+							</tbody>
+						</table>
+						To take backup of tomorrow's appointments &nbsp: &nbsp
+						<g:link controller="Login" action="takeBackup"
+							class="btn btn-info">Click here</g:link>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

@@ -23,6 +23,13 @@
 		<table>
 		<tr>
 		<td>
+		<g:if test="${flash.messageSal}">
+									<div class="alert alert-danger">
+										${flash.messageSal}
+									</div>
+		</g:if>
+		</td>
+		<td>
 		<g:if test="${flash.messageFN}">
 									<div class="alert alert-danger">
 										${flash.messageFN}
@@ -184,15 +191,15 @@
                         <table>
                             <tr>
                                 <td>
-                                	<input type="checkbox" name="scanpart" value="Abdomen/Pelvis" /> Abdomen/Pelvis <br />
-                                	<input type="checkbox" name="scanpart" value="Angiogram" /> Angiogram <br />
-                                    <input type="checkbox" name="scanpart" value="Brain" /> Brain <br />
-                                    <input type="checkbox" name="scanpart" value="Chest" /> Chest <br />
-                                    <input type="checkbox" name="scanpart" value="Joints" /> Joints <br />
-                                    <input type="checkbox" name="scanpart" value="Neck" /> Neck <br />
-                                    <input type="checkbox" name="scanpart" value="Orbits" /> Orbits <br />
-                                   	<input type="checkbox" name="scanpart" value="Spine" /> Spine <br />
-                                    <input type="checkbox" name="scanpart" value="Others" /> Others <br />
+                                	<input type="checkbox" name="scanpart" value="1" /> Abdomen/Pelvis <br />
+                                	<input type="checkbox" name="scanpart" value="2" /> Angiogram <br />
+                                    <input type="checkbox" name="scanpart" value="3" /> Brain <br />
+                                    <input type="checkbox" name="scanpart" value="4" /> Chest <br />
+                                    <input type="checkbox" name="scanpart" value="5" /> Joints <br />
+                                    <input type="checkbox" name="scanpart" value="6" /> Neck <br />
+                                    <input type="checkbox" name="scanpart" value="7" /> Orbits <br />
+                                   	<input type="checkbox" name="scanpart" value="8" /> Spine <br />
+                                    <input type="checkbox" name="scanpart" value="9" /> Others <br />
                                    
                                    
                                    
@@ -213,13 +220,13 @@
                     </div>
                     <div class="panel-body">
                     <ul style="list-style: none;">
-                    <li><input type="checkbox" name="diseasehistory" value="Allergic reaction to CT contrast (Gadolinium based)"/>&nbsp Allergic reaction to CT contrast (Gadolinium based)</li>
-                    <li><input type="checkbox" name="diseasehistory" value="Claustrophobia"/>&nbsp Claustrophobia</li>
-                    <li><input type="checkbox" name="diseasehistory" value="Diabetes"/>&nbsp Diabetes</li>
-                    <li><input type="checkbox" name="diseasehistory" value="Drug Allergy"/>&nbsp Drug Allergy</li>
-                    <li><input type="checkbox" name="diseasehistory" value="Kidney Disease"/>&nbsp Kidney Disease</li>
-                    <li><input type="checkbox" name="diseasehistory" value="Liver Disease"/>&nbsp Liver Disease</li>
-                    <li><input type="checkbox" name="diseasehistory" value="Latex Allergy"/>&nbsp Latex Allergy</li>
+                    <li><input type="checkbox" name="diseasehistory" value="10"/>&nbsp Allergic reaction to CT contrast (Gadolinium based)</li>
+                    <li><input type="checkbox" name="diseasehistory" value="11"/>&nbsp Claustrophobia</li>
+                    <li><input type="checkbox" name="diseasehistory" value="12"/>&nbsp Diabetes</li>
+                    <li><input type="checkbox" name="diseasehistory" value="13"/>&nbsp Drug Allergy</li>
+                    <li><input type="checkbox" name="diseasehistory" value="14"/>&nbsp Kidney Disease</li>
+                    <li><input type="checkbox" name="diseasehistory" value="15"/>&nbsp Liver Disease</li>
+                    <li><input type="checkbox" name="diseasehistory" value="16"/>&nbsp Latex Allergy</li>
                  	</ul>
                     </div>
                 </div>
@@ -230,60 +237,34 @@
                 <p>The following items may be harmful to you during the scan or may interfere with the examination. Please tick if any of the following is applicable.</p>
                 <ol>
                     <li>
-                        <input type="checkbox" name="harmful" value="Cardiac pacemaker or implanted cardioverter defibrillator/ICD"/>&nbsp Cardiac pacemaker or implanted cardioverter defibrillator/ICD</li>
+                        <input type="checkbox" name="harmful" value="17"/>&nbsp Cardiac pacemaker or implanted cardioverter defibrillator/ICD</li>
+           
                     <li>
-                        <input type="checkbox" name="harmful" value="Internal electrodes or wires (pacing wires, DBS or VNS wires)"/>&nbsp Internal electrodes or wires (pacing wires, DBS or VNS wires)</li>
+                        <input type="checkbox" name="harmful" value="18"/>&nbsp Implanted drug pump (for chemotherapy medicine, pain medicine)</li>
                     <li>
-                        <input type="checkbox" name="harmful" value="Artificial heart value, coil, filter and/or stent (Gianturco coil, IVC filter)"/>&nbsp Artificial heart value, coil, filter and/or stent (Gianturco coil, IVC filter)</li>
+                        <input type="checkbox" name="harmful" value="19"/>&nbsp External drug pump (for Insulin or other medicine)</li>
+                   
+                   
                     <li>
-                        <input type="checkbox" name="harmful" value="Aneurysm clip(s)"/>&nbsp Aneurysm clip(s)</li>
+                        <input type="checkbox" name="harmful" value="20"/>&nbsp Artificial joint and /or limb</li>
                     <li>
-                        <input type="checkbox" name="harmful" value="Neurostimulator-TENS Unit, Biostimulator, bone growth stimulator, DBS, VNS"/>&nbsp Neurostimulator-TENS Unit, Biostimulator, bone growth stimulator, DBS, VNS</li>
+                        <input type="checkbox" name="harmful" value="21"/>&nbsp Artificial eye and/or eyelid spring</li>
                     <li>
-                        <input type="checkbox" name="harmful" value="Implanted drug pump (for chemotherapy medicine, pain medicine)"/>&nbsp Implanted drug pump (for chemotherapy medicine, pain medicine)</li>
+                        <input type="checkbox" name="harmful" value="22"/>&nbsp Eye injury from a metal object (metal shavings, metal slivers)</li>
                     <li>
-                        <input type="checkbox" name="harmful" value="External drug pump (for Insulin or other medicine)"/>&nbsp External drug pump (for Insulin or other medicine)</li>
+                        <input type="checkbox" name="harmful" value="23"/>&nbsp Ear (Cochlear) implant, middle ear implant</li>
                     <li>
-                        <input type="checkbox" name="harmful" value="IV access port (Port-a-Cath, Broviac, PICC line, Swan-Gantz, Thermodilution)"/>&nbsp IV access port (Port-a-Cath, Broviac, PICC line, Swan-Gantz, Thermodilution)</li>
+                        <input type="checkbox" name="harmful" value="24"/>&nbsp Hearing aid(s)</li>
                     <li>
-                        <input type="checkbox" name="harmful" value="Implanted post surgical hardware (pins, rods, screws, plates, wires)"/>&nbsp Implanted post surgical hardware (pins, rods, screws, plates, wires)</li>
+                        <input type="checkbox" name="harmful" value="25"/>&nbsp False teeth/dentures, metallic removable dental work, braces, retainers</li>
+                 
                     <li>
-                        <input type="checkbox" name="harmful" value="Artificial joint and /or limb"/>&nbsp Artificial joint and /or limb</li>
+                        <input type="checkbox" name="harmful" value="26"/>&nbsp Injured by a metal object (shrapnel, bullet, BB) and required medical attention</li>
+           
                     <li>
-                        <input type="checkbox" name="harmful" value="Artificial eye and/or eyelid spring"/>&nbsp Artificial eye and/or eyelid spring</li>
+                        <input type="checkbox" name="harmful" value="27"/>&nbsp Body piercing, tattoo or permanent makeup</li>
                     <li>
-                        <input type="checkbox" name="harmful" value="Eye injury from a metal object (metal shavings, metal slivers)"/>&nbsp Eye injury from a metal object (metal shavings, metal slivers)</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Ear (Cochlear) implant, middle ear implant"/>&nbsp Ear (Cochlear) implant, middle ear implant</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Hearing aid(s)"/>&nbsp Hearing aid(s)</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="False teeth/dentures, metallic removable dental work, braces, retainers"/>&nbsp False teeth/dentures, metallic removable dental work, braces, retainers</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Any type of implant held in place by a magnet"/>&nbsp Any type of implant held in place by a magnet</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Injured by a metal object (shrapnel, bullet, BB) and required medical attention"/>&nbsp Injured by a metal object (shrapnel, bullet, BB) and required medical attention</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Medication patch (nitroglycerine, nicotine, contraceptive, estrogen)"/>&nbsp Medication patch (nitroglycerine, nicotine, contraceptive, estrogen)</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Shunt or Sophy adjustable and programmable pressure valve"/>&nbsp Shunt or Sophy adjustable and programmable pressure valve</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Spinal fixation device, spinal fusion and/or halo vest, spinal cord stimulator"/>&nbsp Spinal fixation device, spinal fusion and/or halo vest, spinal cord stimulator</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Surgical clips, staples or surgical mesh"/>&nbsp Surgical clips, staples or surgical mesh</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Tissue expander (breast)"/>&nbsp Tissue expander (breast)</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Penile implant"/>&nbsp Penile implant</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Pessary, IUD, Diaphragm"/>&nbsp Pessary, IUD, Diaphragm</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Radiation seeds (cancer treatment)"/>&nbsp Radiation seeds (cancer treatment)</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Body piercing, tattoo or permanent makeup"/>&nbsp Body piercing, tattoo or permanent makeup</li>
-                    <li>
-                        <input type="checkbox" name="harmful" value="Wig, hair implants"/>
-                        &nbsp Wig, hair implants</li>
+                        <input type="checkbox" name="harmful" value="28"/>&nbsp Wig, hair implants</li>
                 </ol>
                 <p><input type="checkbox" name="pregnant" value="Yes"/>&nbsp (If female) Are you pregnant?</p>
             </div>

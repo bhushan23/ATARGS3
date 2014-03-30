@@ -44,6 +44,7 @@
 					
 					<li><a href="feedres">Feedback</a></li>
 					<li><a href="ControlPanel">Settings</a></li>
+					<li><a href="changePassword">Change Password</a></li>
 				</ul>
 
 			</div>

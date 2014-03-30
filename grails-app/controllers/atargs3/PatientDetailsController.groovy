@@ -108,6 +108,7 @@ class PatientDetailsController {
 		
 		String tempMOB=params["mobile"]
 		String tempFN=params["firstname"]
+		String tempSal=params["salutation"]
 		String tempLN=params["lastname"]
 		String tempAGE=params["age"]
 		String email=params["email"]
@@ -125,6 +126,13 @@ class PatientDetailsController {
 		//print("hii"+ params["a"].toString().split(",").size())
 		//print(params["pregnant"])
 		boolean redirectFlag=false
+		
+		if(tempSal==null)
+		{
+			print( "hello")
+			flash.messageSal="Select Mr./Mrs./Miss"
+			redirectFlag=true
+		}
 		if(tempFN.equals(""))
 		{
 			flash.messageFN="Enter First Name."
@@ -172,7 +180,10 @@ class PatientDetailsController {
 		pd?.middlename = params["middlename"]
 		pd?.lastname = params["lastname"]
 		pd?.age = Integer.parseInt(params["age"])
-		pd?.gender = "Male"
+		if(params['salutation'].toString().equalsIgnoreCase("Mr"))
+		pd?.gender="Male"
+		else
+		pd?.gender="Female"
 		pd?.address = params["address"]
 		pd?.pincode = params["pincode"]
 		pd?.city = params["city"]
@@ -185,48 +196,52 @@ class PatientDetailsController {
 		pd?.priority3 = p3
 		pd?.appointmenttype = 1;
 		pd?.doc_id=Integer.parseInt( params["referral"])
-		
+		//pd?.AddToDisease(entry:"")
 		//String[] disease=params["diseasehistory"].toString().split(",")
 		//print("hgfffff "+params["diseasehistory"].length  )
 		
 		int i
 		if(params["diseasehistory"]!=null)
 		if(params["diseasehistory"].toString().split(",").size()==1)
-			pd?.disease=params["diseasehistory"]
+			pd?.disease=params["diseasehistory"]+";"
 		else if(params["diseasehistory"].length > 0){
 			String str=""
 			i=0
-			while(i<params["diseasehistory"].length){
-				str=str.concat(params["diseasehistory"][i])+"; "
+			while(i<(params["diseasehistory"].length)){
+				str=str.concat(params["diseasehistory"][i])+";"
 				i++
 			}
+			
 			pd?.disease=str
 		}
 		//String[] harmfulItems=params["harmful"].toString().split(",")
+		//print("fghfdfs   "+params["harmful"].class.toString())
 		if(params["harmful"]!=null)
-		if(params["harmful"].class.toString().equalsIgnoreCase("java.lang.String"))
-			pd?.harmfulitems=params["harmful"]
+		if(params["harmful"].class.toString().equalsIgnoreCase("class java.lang.String"))
+			pd?.harmfulitems=params["harmful"]+";"
 		else if(params["harmful"].length > 0){
 			String str=""
 			i=0
-			while(i<params["harmful"].length){
-				str=str.concat(params["harmful"][i])+";\n"
+			while(i<(params["harmful"].length)){
+				str=str.concat(params["harmful"][i])+";"
 				i++
 			}
+			
 			pd?.harmfulitems=str
 		}
 		
 		//String[] scan=params["scanpart"].toString().split(",")
 		if(params["scanpart"]!=null)
 		if(params["scanpart"].toString().split(",").size()==1)
-			pd?.scanof=params["scanpart"]
+			pd?.scanof=params["scanpart"]+";"
 		else if(params["scanpart"].length > 0){
 			String str=""
 			i=0
-			while(i<params["scanpart"].length){
-				str=str.concat(params["scanpart"][i])+"; "
+			while(i<(params["scanpart"].length)){
+				str=str.concat(params["scanpart"][i])+";"
 				i++
 			}
+			
 			pd?.scanof=str
 		}
 		
@@ -239,6 +254,7 @@ class PatientDetailsController {
 		render(view:'finish')
 		
 	}
+
 	def mriof() {
 		[machine:machine]
 	}

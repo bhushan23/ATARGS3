@@ -18,7 +18,7 @@ class LoginController {
 	def admin_login_function(){
 		String plainpass=params['password']
 		String hashedpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainpass);
-		//String hashedpass='admin'
+		//String hashedpass=plainpass
 		printf hashedpass
 		def temp = Admin.findWhere(username:params['username'],password:hashedpass)
 		
@@ -48,6 +48,7 @@ class LoginController {
 		else if(temp.confirmedFlag==1){
 			String plainpass=params['password']
 			String hashedpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainpass);
+			//String hashedpass=plainpass
 			UserLoggedin= Doctor.findWhere(username:params['username'],password:hashedpass)
 			session.UserLoggedin= UserLoggedin
 			session['usertype']="DOCTOR"

@@ -44,7 +44,8 @@
 
 					<li><a href="uploadReport">Upload Reports</a></li>
 					<li><a href="viaSMS">Appointments taken via SMS</a></li>
-
+					<li  ><a href="changePassword">Change Password </a> </li>
+					<li><a href="patientHistory">Patient History </a> </li>
 				</ul>
 
 			</div>
@@ -66,29 +67,38 @@
 								<tr>
 
 									<td>First Name</td>
-									<td><input type="text" name="firstname" /></td>
+									<td><input type="text" name="firstname" value="${it.firstname }"/></td>
 								</tr>
 								<tr>
 
 									<td>Middle Name</td>
-									<td><input type="text" name="middlename" /></td>
+									<td><input type="text" name="middlename" value="${it.middlename }"/></td>
 								</tr>
 								<tr>
 									<td>Last Name</td>
-									<td><input type="text" name="lastname" /></td>
+									<td><input type="text" name="lastname" value="${it.lastname }"/></td>
 								</tr>
 								<tr>
 									<td>Gender</td>
 									<td><select name="gender">
-
-											<option value="Male">Male</option>
-											<option value="Female">Female</option>
+											<g:if test="${it.gender == 'Male'}">
+											<option value="Male" selected>Male</option>
+											</g:if>
+											<g:else>
+											<option value="Male" >Male</option>
+											</g:else>
+											<g:if test="${it.gender == 'Female'}">
+											<option value="Female" selected>Female</option>
+											</g:if>
+											<g:else>
+											<option value="Female" >Female</option>
+											</g:else>
 
 									</select></td>
 								</tr>
 								<tr>
 									<td>Age</td>
-									<td><input type="text" name="age" /></td>
+									<td><input type="text" name="age" value="${it.age }"/></td>
 								</tr>
 								<tr>
 									<td>Mobile No.</td>
@@ -96,23 +106,23 @@
 								</tr>
 								<tr>
 									<td>Email</td>
-									<td><input type="email" name="email"></td>
+									<td><input type="email" name="email" value="${it.email }" size="40"/></td>
 								</tr>
 								<tr>
 									<td>Address</td>
-									<td><input type="text" name="address"></td>
+									<td><input type="text" name="address" value="${it.address }"/></td>
 								</tr>
 								<tr>
 									<td>Pincode</td>
-									<td><input type="text" name="pincode"></td>
+									<td><input type="text" name="pincode" value="${it.pincode }"/></td>
 								</tr>
 								<tr>
 									<td>City</td>
-									<td><input type="text" name="city" /></td>
+									<td><input type="text" name="city" value="${it.city }"/></td>
 								</tr>
 								<tr>
 									<td>State</td>
-									<td><input type="text" name="state" /></td>
+									<td><input type="text" name="state" value="${it.state }"/></td>
 								</tr>
 								<tr>
 									<td>Referral Doctor</td>
@@ -136,118 +146,138 @@
 								<tr>
 
 									<td>Scan of</td>
-									<td><input type="checkbox" name="scanpart"
-										value="Abdomen/Pelvis" /> Abdomen/Pelvis <br /> <input
-										type="checkbox" name="scanpart" value="Angiogram" />
-										Angiogram <br /> <input type="checkbox" name="scanpart"
-										value="Brain" /> Brain <br /> <input type="checkbox"
-										name="scanpart" value="Chest" /> Chest <br /> <input
-										type="checkbox" name="scanpart" value="Joints" /> Joints <br />
-										<input type="checkbox" name="scanpart" value="Neck" /> Neck <br />
-										<input type="checkbox" name="scanpart" value="Orbits" />
-										Orbits <br /> <input type="checkbox" name="scanpart"
-										value="Spine" /> Spine <br /> <input type="checkbox"
-										name="scanpart" value="Others" /> Others <br /></td>
+									<td><g:if test="${checkBoxInfo[0] == 1}">
+											<input type="checkbox" name="scanpart" value="1" checked /> Abdomen/Pelvis <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="1" /> Abdomen/Pelvis <br />
+										</g:else> <g:if test="${checkBoxInfo[1] == 1}">
+											<input type="checkbox" name="scanpart" value="2" checked /> Angiogram <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="2" /> Angiogram <br />
+										</g:else> <g:if test="${checkBoxInfo[2] == 1}">
+											<input type="checkbox" name="scanpart" value="3" checked /> Brain <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="3" /> Brain <br />
+										</g:else> <g:if test="${checkBoxInfo[3] == 1}">
+											<input type="checkbox" name="scanpart" value="4" checked /> Chest <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="4" /> Chest <br />
+										</g:else> <g:if test="${checkBoxInfo[4] == 1}">
+											<input type="checkbox" name="scanpart" value="5" checked /> Joints <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="5" /> Joints <br />
+										</g:else> <g:if test="${checkBoxInfo[5] == 1}">
+											<input type="checkbox" name="scanpart" value="6" checked /> Neck <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="6" /> Neck <br />
+										</g:else> <g:if test="${checkBoxInfo[6] == 1}">
+											<input type="checkbox" name="scanpart" value="7" checked /> Orbits <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="7" /> Orbits <br />
+										</g:else> <g:if test="${checkBoxInfo[7] == 1}">
+											<input type="checkbox" name="scanpart" value="8" checked /> Spine <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="8" /> Spine <br />
+										</g:else> <g:if test="${checkBoxInfo[8] == 1}">
+											<input type="checkbox" name="scanpart" value="9" checked /> Others <br />
+										</g:if> <g:else>
+											<input type="checkbox" name="scanpart" value="9" /> Others <br />
+										</g:else></td>
+
 								</tr>
 								<tr>
 
 									<td>Disease(s)(if any)</td>
-									<td><input type="checkbox" name="diseasehistory"
-										value="Allergic reaction to CT contrast (Gadolinium based)" />&nbsp
-										Allergic reaction to CT contrast (Gadolinium based)<br /> <input
-										type="checkbox" name="diseasehistory" value="Claustrophobia" />&nbsp
-										Claustrophobia<br /> <input type="checkbox"
-										name="diseasehistory" value="Diabetes" />&nbsp Diabetes<br />
-										<input type="checkbox" name="diseasehistory"
-										value="Drug Allergy" />&nbsp Drug Allergy<br /> <input
-										type="checkbox" name="diseasehistory" value="Kidney Disease" />&nbsp
-										Kidney Disease<br /> <input type="checkbox"
-										name="diseasehistory" value="Liver Disease" />&nbsp Liver
-										Disease<br /> <input type="checkbox" name="diseasehistory"
-										value="Latex Allergy" />&nbsp Latex Allergy<br /></td>
-
+									<td><g:if test="${checkBoxInfo[9] == 1}">
+											<input type="checkbox" name="diseasehistory" value="10"
+												checked />&nbsp Allergic reaction to CT contrast (Gadolinium based)<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="diseasehistory" value="10" />&nbsp Allergic reaction to CT contrast (Gadolinium based)<br />
+										</g:else> <g:if test="${checkBoxInfo[10] == 1}">
+											<input type="checkbox" name="diseasehistory" value="11"
+												checked />&nbsp Claustrophobia<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="diseasehistory" value="11" />&nbsp Claustrophobia<br />
+										</g:else> <g:if test="${checkBoxInfo[11] == 1}">
+											<input type="checkbox" name="diseasehistory" value="12"
+												checked />&nbsp Diabetes<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="diseasehistory" value="12" />&nbsp Diabetes<br />
+										</g:else> <g:if test="${checkBoxInfo[12] == 1}">
+											<input type="checkbox" name="diseasehistory" value="13"
+												checked />&nbsp Drug Allergy<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="diseasehistory" value="13" />&nbsp Drug Allergy<br />
+										</g:else> <g:if test="${checkBoxInfo[13] == 1}">
+											<input type="checkbox" name="diseasehistory" value="14"
+												checked />&nbsp Kidney Disease<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="diseasehistory" value="14" />&nbsp Kidney Disease<br />
+										</g:else> <g:if test="${checkBoxInfo[14] == 1}">
+											<input type="checkbox" name="diseasehistory" value="15"
+												checked />&nbsp Liver Disease<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="diseasehistory" value="15" />&nbsp Liver Disease<br />
+										</g:else> <g:if test="${checkBoxInfo[15] == 1}">
+											<input type="checkbox" name="diseasehistory" value="16"
+												checked />&nbsp Latex Allergy<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="diseasehistory" value="16" />&nbsp Latex Allergy<br />
+										</g:else></td>
 								</tr>
 								<tr>
 
 									<td>Harmful Item(s)(if any)</td>
-									<td><input type="checkbox" name="harmful"
-										value="Cardiac pacemaker or implanted cardioverter defibrillator/ICD" />&nbsp
-										Cardiac pacemaker or implanted cardioverter defibrillator/ICD<br />
-
-										<input type="checkbox" name="harmful"
-										value="Internal electrodes or wires (pacing wires, DBS or VNS wires)" />&nbsp
-										Internal electrodes or wires (pacing wires, DBS or VNS wires)<br />
-
-										<input type="checkbox" name="harmful"
-										value="Artificial heart value, coil, filter and/or stent (Gianturco coil, IVC filter)" />&nbsp
-										Artificial heart value, coil, filter and/or stent (Gianturco
-										coil, IVC filter)<br /> <input type="checkbox" name="harmful"
-										value="Aneurysm clip(s)" />&nbsp Aneurysm clip(s)<br /> <input
-										type="checkbox" name="harmful"
-										value="Neurostimulator-TENS Unit, Biostimulator, bone growth stimulator, DBS, VNS" />&nbsp
-										Neurostimulator-TENS Unit, Biostimulator, bone growth
-										stimulator, DBS, VNS<br /> <input type="checkbox"
-										name="harmful"
-										value="Implanted drug pump (for chemotherapy medicine, pain medicine)" />&nbsp
-										Implanted drug pump (for chemotherapy medicine, pain medicine)<br />
-
-										<input type="checkbox" name="harmful"
-										value="External drug pump (for Insulin or other medicine)" />&nbsp
-										External drug pump (for Insulin or other medicine)<br /> <input
-										type="checkbox" name="harmful"
-										value="IV access port (Port-a-Cath, Broviac, PICC line, Swan-Gantz, Thermodilution)" />&nbsp
-										IV access port (Port-a-Cath, Broviac, PICC line, Swan-Gantz,
-										Thermodilution)<br /> <input type="checkbox" name="harmful"
-										value="Implanted post surgical hardware (pins, rods, screws, plates, wires)" />&nbsp
-										Implanted post surgical hardware (pins, rods, screws, plates,
-										wires)<br /> <input type="checkbox" name="harmful"
-										value="Artificial joint and /or limb" />&nbsp Artificial joint
-										and /or limb<br /> <input type="checkbox" name="harmful"
-										value="Artificial eye and/or eyelid spring" />&nbsp Artificial
-										eye and/or eyelid spring<br /> <input type="checkbox"
-										name="harmful"
-										value="Eye injury from a metal object (metal shavings, metal slivers)" />&nbsp
-										Eye injury from a metal object (metal shavings, metal slivers)<br />
-
-										<input type="checkbox" name="harmful"
-										value="Ear (Cochlear) implant, middle ear implant" />&nbsp Ear
-										(Cochlear) implant, middle ear implant<br /> <input
-										type="checkbox" name="harmful" value="Hearing aid(s)" />&nbsp
-										Hearing aid(s)<br /> <input type="checkbox" name="harmful"
-										value="False teeth/dentures, metallic removable dental work, braces, retainers" />&nbsp
-										False teeth/dentures, metallic removable dental work, braces,
-										retainers<br /> <input type="checkbox" name="harmful"
-										value="Any type of implant held in place by a magnet" />&nbsp
-										Any type of implant held in place by a magnet<br /> <input
-										type="checkbox" name="harmful"
-										value="Injured by a metal object (shrapnel, bullet, BB) and required medical attention" />&nbsp
-										Injured by a metal object (shrapnel, bullet, BB) and required
-										medical attention<br /> <input type="checkbox" name="harmful"
-										value="Medication patch (nitroglycerine, nicotine, contraceptive, estrogen)" />&nbsp
-										Medication patch (nitroglycerine, nicotine, contraceptive,
-										estrogen)<br /> <input type="checkbox" name="harmful"
-										value="Shunt or Sophy adjustable and programmable pressure valve" />&nbsp
-										Shunt or Sophy adjustable and programmable pressure valve<br />
-
-										<input type="checkbox" name="harmful"
-										value="Spinal fixation device, spinal fusion and/or halo vest, spinal cord stimulator" />&nbsp
-										Spinal fixation device, spinal fusion and/or halo vest, spinal
-										cord stimulator<br /> <input type="checkbox" name="harmful"
-										value="Surgical clips, staples or surgical mesh" />&nbsp
-										Surgical clips, staples or surgical mesh<br /> <input
-										type="checkbox" name="harmful"
-										value="Tissue expander (breast)" />&nbsp Tissue expander
-										(breast)<br /> <input type="checkbox" name="harmful"
-										value="Penile implant" />&nbsp Penile implant<br /> <input
-										type="checkbox" name="harmful" value="Pessary, IUD, Diaphragm" />&nbsp
-										Pessary, IUD, Diaphragm<br /> <input type="checkbox"
-										name="harmful" value="Radiation seeds (cancer treatment)" />&nbsp
-										Radiation seeds (cancer treatment)<br /> <input
-										type="checkbox" name="harmful"
-										value="Body piercing, tattoo or permanent makeup" />&nbsp Body
-										piercing, tattoo or permanent makeup<br /> <input
-										type="checkbox" name="harmful" value="Wig, hair implants" />
-										&nbsp Wig, hair implants<br /></td>
+									<td><g:if test="${checkBoxInfo[16] == 1}">
+											<input type="checkbox" name="harmful" value="17" checked />&nbsp Cardiac pacemaker or implanted cardioverter defibrillator/ICD<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="17" />&nbsp Cardiac pacemaker or implanted cardioverter defibrillator/ICD<br />
+										</g:else> <g:if test="${checkBoxInfo[17] == 1}">
+											<input type="checkbox" name="harmful" value="18" checked />&nbsp Implanted drug pump (for chemotherapy medicine, pain medicine)<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="18" />&nbsp Implanted drug pump (for chemotherapy medicine, pain medicine)<br />
+										</g:else> <g:if test="${checkBoxInfo[18] == 1}">
+											<input type="checkbox" name="harmful" value="19" checked />&nbsp External drug pump (for Insulin or other medicine)<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="19" />&nbsp External drug pump (for Insulin or other medicine)<br />
+										</g:else> <g:if test="${checkBoxInfo[19] == 1}">
+											<input type="checkbox" name="harmful" value="20" checked />&nbsp Artificial joint and /or limb<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="20" />&nbsp Artificial joint and /or limb<br />
+										</g:else> <g:if test="${checkBoxInfo[20] == 1}">
+											<input type="checkbox" name="harmful" value="21" checked />&nbsp Artificial eye and/or eyelid spring<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="21" />&nbsp Artificial eye and/or eyelid spring<br />
+										</g:else> <g:if test="${checkBoxInfo[21] == 1}">
+											<input type="checkbox" name="harmful" value="22" checked />&nbsp Eye injury from a metal object (metal shavings, metal slivers)<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="22" />&nbsp Eye injury from a metal object (metal shavings, metal slivers)<br />
+										</g:else> <g:if test="${checkBoxInfo[22] == 1}">
+											<input type="checkbox" name="harmful" value="23" checked />&nbsp Ear (Cochlear) implant, middle ear implant<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="23" />&nbsp Ear (Cochlear) implant, middle ear implant<br />
+										</g:else> <g:if test="${checkBoxInfo[23] == 1}">
+											<input type="checkbox" name="harmful" value="24" checked />&nbsp Hearing aid(s)<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="24" />&nbsp Hearing aid(s)<br />
+										</g:else> <g:if test="${checkBoxInfo[24] == 1}">
+											<input type="checkbox" name="harmful" value="25" checked />&nbsp False teeth/dentures, metallic removable dental work, braces, retainers<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="25" />&nbsp False teeth/dentures, metallic removable dental work, braces, retainers<br />
+										</g:else> <g:if test="${checkBoxInfo[25] == 1}">
+											<input type="checkbox" name="harmful" value="26" checked />&nbsp Injured by a metal object (shrapnel, bullet, BB) and required medical attention<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="26" />&nbsp Injured by a metal object (shrapnel, bullet, BB) and required medical attention<br />
+										</g:else> <g:if test="${checkBoxInfo[26] == 1}">
+											<input type="checkbox" name="harmful" value="27" checked />&nbsp Body piercing, tattoo or permanent makeup<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="27" />&nbsp Body piercing, tattoo or permanent makeup<br />
+										</g:else> <g:if test="${checkBoxInfo[27] == 1}">
+											<input type="checkbox" name="harmful" value="28" checked />&nbsp Wig, hair implants<br />
+										</g:if> <g:else>
+											<input type="checkbox" name="harmful" value="28" />&nbsp Wig, hair implants<br />
+										</g:else>
+										</td>
 
 								</tr>
 								<tr>
@@ -261,8 +291,14 @@
 
 									<td>
 										<p>
+											<g:if test="${it.pregnant=='Yes' }">
+											<input type="checkbox" name="pregnant" value="Yes" checked/>&nbsp
+											(If female) Are you pregnant?
+											</g:if>
+											<g:else>
 											<input type="checkbox" name="pregnant" value="Yes" />&nbsp
 											(If female) Are you pregnant?
+											</g:else>
 										</p>
 										<br> <g:actionSubmit class="btn btn-info" value="Done" />
 									</td>

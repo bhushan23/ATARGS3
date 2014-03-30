@@ -46,7 +46,8 @@
 					
 					<li><a href="uploadReport">Upload Reports</a></li>
 					<li><a href="viaSMS">Appointments taken via SMS</a></li>
-				
+					<li  ><a href="changePassword">Change Password </a> </li>
+					<li><a href="patientHistory">Patient History </a> </li>
 				</ul>
 
 			</div>
