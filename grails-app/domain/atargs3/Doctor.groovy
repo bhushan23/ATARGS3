@@ -31,6 +31,7 @@ class Doctor {
 	String toString() {
 		"${username}"
 	}
+
 	def beforeInsert() {
 		encodePassword()
 	  }

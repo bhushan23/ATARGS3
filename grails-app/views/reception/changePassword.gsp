@@ -20,14 +20,6 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 	
 </script>
-<script>
-	$(document).ready(function() {
-		$("#searchtext").hide();
-		$("#search").click(function() {
-			$("#searchtext").toggle();
-		});
-	});
-</script>
 
 </head>
 
@@ -38,15 +30,18 @@
 
 		<div class="row">
 			<div class="col-sm-2 sidebar">
+				
 				<ul class="nav nav-sidebar">
 					<li><a href="index">Dashboard</a></li>
+
 					<li><a href="getNewApp">New Appointments</a></li>
 
-					<li><a href="uploadReport">Upload Reports</a></li>
-					<li><a href="viaSMS">Appointments taken via SMS</a></li>
-					<li><a href="changePassword">Change Password</a></li>
-				</ul>
 
+					<li><a href="uploadReport">Upload Reports</a></li>
+					<li><a href="viaSMS">Appointments taken via SMS </a></li>
+					<li ><a href="changePassword">Change Password </a> </li>
+					<li><a href="patientHistory">Patient History </a> </li>
+				</ul>
 			</div>
 
 			<div class="col-sm-10 col-sm-offset-2 main">
@@ -55,6 +50,7 @@
 
 				<div class="table-responsive">
 					<g:form action="passwordChanged">
+						
 						<table class="table table-striped">
 							<tr>
 								<td><g:if test="${flash.messageCurPass}">
@@ -73,8 +69,7 @@
 										</div>
 									</g:if></td>
 							</tr>
-							</table>
-						<table class="table table-striped">
+						
 							
 							<thead>
 								<tr>
@@ -84,20 +79,20 @@
 							</thead>
 							<tr>
 								<td>Enter current password</td>
-								<td><input type="password" name="curpassword" value="" /></td>
+								<td><input type="password" name="curpassword" value="" required/></td>
 							</tr>
 							<tr>
 								<td>Enter new password</td>
-								<td><input type="password" name="newpassword" value="" /></td>
+								<td><input type="password" name="newpassword" value="" required/></td>
 							</tr>
 							<tr>
 								<td>Confirm new password</td>
-								<td><input type="password" name="confirmpassword" value="" />
+								<td><input type="password" name="confirmpassword" value="" required/>
 								</td>
 							</tr>
 						</table>
 						<br>
-						<input type="submit" value="Done"
+						<input type="submit" value="Change Password"
 							class="btn btn-large btn-success" />
 					</g:form>
 				</div>

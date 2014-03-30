@@ -83,15 +83,15 @@
 							</thead>
 							<tr>
 								<td>Enter current password</td>
-								<td><input type="password" name="curpassword" value="" /></td>
+								<td><input type="password" name="curpassword" value="" required/></td>
 							</tr>
 							<tr>
 								<td>Enter new password</td>
-								<td><input type="password" name="newpassword" value="" /></td>
+								<td><input type="password" name="newpassword" value="" required/></td>
 							</tr>
 							<tr>
 								<td>Confirm new password</td>
-								<td><input type="password" name="confirmpassword" value="" />
+								<td><input type="password" name="confirmpassword" value="" required/>
 								</td>
 							</tr>
 						</table>

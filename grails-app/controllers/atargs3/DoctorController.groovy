@@ -224,34 +224,27 @@ def passwordChanged(){
 	print("dfdf "+session.UserLoggedin)
 	def temp=Doctor.findByUsername(session.UserLoggedin)
 	String plaincurpass=params['curpassword']
-	String plainnewpass=params['newpassword']
-	String plainconfirmedpass=params['confirmpassword']
-	String hashedcurpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plaincurpass);
-	String hashednewpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainnewpass);
-	String hashedconfirmedpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainconfirmedpass);
-	//String hashedcurpass=plaincurpass
-	//String hashednewpass=plainnewpass
-	//String hashedconfirmedpass=plainconfirmedpass
-	print(hashednewpass+"  helloooo "+hashedconfirmedpass)
-	if(!temp.password.equalsIgnoreCase(hashedcurpass)){
-		
-		flash.messageCurPass="Current Password entered is incorrect"
-		redirect(action:'changePassword')
-	}
-	else if(hashednewpass.equalsIgnoreCase("") && hashedconfirmedpass.equalsIgnoreCase("")){
-		flash.messageEmptyPass="The values for New Password and Confirm Password are not to be left blank"
-		redirect(action:'changePassword')
-	}
-	else if(!hashednewpass.equalsIgnoreCase(hashedconfirmedpass)){
-		flash.messageNewPass="New Password and Confirmed Password do not match"
-		redirect(action:'changePassword')
-	}
-	else{
-	temp.password=hashednewpass
-	print("hiii  "+hashednewpass)
-	temp.save();
+	 String plainnewpass=params['newpassword']
+	 String plainconfirmedpass=params['confirmpassword']
+	if(plainnewpass.equals(plainconfirmedpass)){ 
+	 String hashedcurpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plaincurpass);
+	 String hashednewpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainnewpass);
 	
-	redirect(action:"index");
-	}
+	 if(!temp.password.equals(hashedcurpass)){
+		 
+		 flash.messageCurPass="Current Password entered is incorrect"
+		 redirect(action:'changePassword')
+	 }
+	
+	 else{
+	 temp.password=hashednewpass
+	 print("hiii  "+hashednewpass)
+	 temp.save();
+	 
+	 redirect(action:"index");
+	 }}else{
+ flash.messageCurPass="Password Not matched"
+	 	redirect(action:"changePassword")
+	 }
 }
 }
