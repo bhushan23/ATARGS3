@@ -93,18 +93,7 @@ body {
 
 					</g:if>
 
-					<g:if test="${doctorInstance?.password}">
-
-						<tr>
-							<td><span id="password-label" class="property-label"><g:message
-										code="doctor.password.label" default="Password" /></span></td>
-							<td><span class="property-value"
-								aria-labelledby="password-label"><g:fieldValue
-										bean="${doctorInstance}" field="password" /></span></td>
-						</tr>
-
-					</g:if>
-
+					
 					<g:if test="${doctorInstance?.address}">
 					<tr>
 						<td><span id="address-label"
