@@ -56,6 +56,6 @@ class SendsmsController {
 
 	print "SMS service is not started"
 	}
-
+}
 	
 }
