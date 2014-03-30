@@ -33,7 +33,7 @@
 		<g:message code="reception.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label></td>
-	<td><g:textField name="password" required="" value="${receptionInstance?.password}"/></td>
+	<td><g:passwordField name="password" required="" value="${receptionInstance?.password}"/></td>
 </div></tr>
 
 <tr><div class="fieldcontain ${hasErrors(bean: receptionInstance, field: 'address', 'error')} required">

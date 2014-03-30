@@ -25,5 +25,18 @@ class Reception {
 	String toString(){
 		return "$username"
 	}
-    
+    	def beforeInsert() {
+		encodePassword()
+	  }
+	
+	  def beforeUpdate() {
+		if (isDirty('password')) {
+		  encodePassword()
+		}
+	  }
+	
+	  protected void encodePassword() {
+		password = org.apache.commons.codec.digest.DigestUtils.sha256Hex(password);
+	  }
+
 }
