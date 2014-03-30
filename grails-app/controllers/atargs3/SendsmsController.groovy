@@ -1,10 +1,11 @@
 package atargs3
 
-
+import java.io.*;
 class SendsmsController {
 
 	static def smslane_single_no(String msisdn,String msg)
 	{
+	
 	if(AdminSettingsController.smsservice){
 		print "sending to "+msisdn+" and msg is "+msg
 		String user,password,sid,fl
@@ -30,10 +31,12 @@ class SendsmsController {
 		//Push the HTTP Request
 		URL url = new URL("http://smslane.com/vendorsms/pushsms.aspx");
 		URLConnection conn = url.openConnection();
+	
 		conn.setDoOutput(true);
 		OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
 		wr.write(data);
 		wr.flush();
+		
 		//Read The Response
 		BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		String line;
@@ -47,9 +50,12 @@ class SendsmsController {
 		System.out.println(retval);
 		def rsp = retval;
 		print rsp
+	
 		}
 	}else{
+
 	print "SMS service is not started"
 	}
-	}
+
+	
 }
