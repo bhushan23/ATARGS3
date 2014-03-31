@@ -40,10 +40,10 @@
 			<div class="col-sm-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li ><a href="index">Dashboard</a></li>
-            <li><g:remoteLink controller="Doctor" update="PatientTable" action="ReportButton">Reports</g:remoteLink></li>
+<%--            <li><g:remoteLink controller="Doctor" update="PatientTable" action="ReportButton">Reports</g:remoteLink></li>--%>
             <%--<li><g:remoteLink controller="Doctor" update="PatientTable" action="Appointment">Get Appointment</g:remoteLink></li>
              --%>
-			<li><a href="changePassword">Change Password</a></li>
+<%--			<li><a href="changePassword">Change Password</a></li>--%>
 				</ul>
 
 			</div>
