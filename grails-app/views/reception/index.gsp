@@ -46,7 +46,7 @@ function showmonth() {
 	var datestr = date.toLocaleDateString();
 	var month1 = itoa(date.getMonth());
 	alert(month1)
-	document.getElementById("month").innerHTML= itoa(date.getMonth()) + "Hello
+	document.getElementById("month").innerHTML= itoa(date.getMonth()) + "Hello"
 	document.getElementById("month").innerHTML= "Hello"
 }
 String function itoa(int month) {
@@ -56,9 +56,9 @@ String function itoa(int month) {
 	case 1:
 		return "February";
 	case 2:
-		return "March;
+		return "March";
 	case 3:
-		return "April;
+		return "April";
 	case 4:
 		return "May";
 	case 5:
