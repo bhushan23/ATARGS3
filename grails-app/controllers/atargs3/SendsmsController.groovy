@@ -1,6 +1,6 @@
 package atargs3
 
-import java.io.*;
+
 class SendsmsController {
 
 	static def smslane_single_no(String msisdn,String msg)
