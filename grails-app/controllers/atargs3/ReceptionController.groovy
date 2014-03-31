@@ -972,7 +972,7 @@ def changePassword(){
 	 String plainconfirmedpass=params['confirmpassword']
 	if(plainnewpass.equals(plainconfirmedpass)){ 
 	 String hashedcurpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plaincurpass);
-	 String hashednewpass=	 org.apache.commons.codec.digest.DigestUtils.sha256Hex(plainnewpass);
+
 	
 	 if(!temp.password.equals(hashedcurpass)){
 		 
@@ -981,10 +981,8 @@ def changePassword(){
 	 }
 	
 	 else{
-	 temp.password=hashednewpass
-	 print("hiii  "+hashednewpass)
+	 temp.password=plainnewpass
 	 temp.save();
-	 
 	 redirect(action:"index");
 	 }}else{
  flash.messageCurPass="Password Not matched"
