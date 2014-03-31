@@ -86,9 +86,7 @@ body {
 
 					<div class="buttons">
 						<span class="formButton"> <input type="submit"
-							value="Login" class="btn btn-large btn-info"></input> <g:link
-								controller="login" action="SignupAsReceptionist"
-								class="btn btn-large btn-success">Sign up </g:link>
+							value="Login" class="btn btn-large btn-info"></input> 
 						</span>
 					</div>
 				</g:form>
