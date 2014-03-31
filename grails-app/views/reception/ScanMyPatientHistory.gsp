@@ -1,32 +1,25 @@
 <html>
 <head>
-<title>Scan My Patient</title>
+<title>Scan My Appointments</title>
 <g:javascript library="jquery" />
 <r:layoutResources />
 </head>
 <body>
 	<table class="table table-striped">
-
-
-
-
 		<thead>
-
 			<tr>
-
 				<th>First Name</th>
 				<th>Last Name</th>
-				<th>Age</th>
+				<th>Appointment Time</th>
 				<th>Scan Machine</th>
+				<th>Scan of</th>
 				<th>Mobile No</th>
-				<th>Reports</th>
-
+				<th>Report</th>
 			</tr>
 		</thead>
 		<tbody>
-			<g:each in="${patientList}">
+			<g:each in="${result}">
 				<tr>
-
 					<td>
 						${it.firstname}
 					</td>
@@ -34,21 +27,25 @@
 						${it.lastname}
 					</td>
 					<td>
-						${it.age}
+						${it.confirmed_date}
 					</td>
 					<td>
 						${it.machine}
 					</td>
 					<td>
+						${it.scanof}
+					</td>
+					<td>
 						${it.mobile}
 					</td>
-					<g:if test="${it.file!=null}">
-						<td><g:link style="color:blue" controller="Doctor"
-								action="getReport" params="${[patientId:it.id]}">
-										Download Report
-										</g:link></td>
-					</g:if>
-
+					<td><g:form action="editApp" method="post">
+							<div class="buttons">
+								<span class="button"> <g:link params="${[p:it.id]}"
+										action="editApp">
+       									View</g:link>
+								</span>
+							</div>
+						</g:form></td>
 				</tr>
 			</g:each>
 		</tbody>

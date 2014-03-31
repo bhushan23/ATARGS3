@@ -49,6 +49,11 @@
 										${flash.messageSUMMARY}
 									</div>
 					</g:if>
+					<g:if test="${flash.messageEMAIL}">
+									<div class="alert alert-danger">
+										${flash.messageEMAIL}
+									</div>
+					</g:if>
                     <div>				<label for='sum'>Enter Summary:</label>
 			
 			<g:textArea id="sum" name="sum" width="200" height="300" value='${patient_details?.summary}'></g:textArea></div>

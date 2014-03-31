@@ -139,15 +139,16 @@ $(function () {
 			<div class="col-sm-3 sidebar">
 				<ul class="nav nav-sidebar">
 					<li><a href="index">Dashboard</a></li>
-
+					<li><a href="#" id="search">Search</a></li>
 					<li><a href="getNewApp">New Appointments</a></li>
-
-
 					<li><a href="uploadReport">Upload Reports</a></li>
 					<li><a href="viaSMS">Appointments taken via SMS </a></li>
 					<li ><a href="changePassword">Change Password </a> </li>
 					<li><a href="patientHistory">Patient History </a> </li>
-
+					
+<%--					<li><g:remoteLink controller="Reception" update="PatientTable"--%>
+<%--							action="ReportButton">Reports</g:remoteLink></li>--%>
+							
 					<li>
 						<div class="bis_calendar row">
 							<table class="table">
@@ -258,19 +259,19 @@ $(function () {
           --%>
 				<div class="table-responsive">
 
-					<table class="table table-striped">
-						<tr id="searchtext">
-							<th><g:remoteField name="FN" action="FNfunc"
-									update="AppointmentTable" /></th>
-							<th><g:remoteField name="LN" action="LNfunc"
-									update="AppointmentTable" /></th>
-							<th><g:remoteField name="A" action="Afunc"
-									update="AppointmentTable" /></th>
-							<th><g:remoteField name="M" action="Mfunc"
-									update="AppointmentTable" /></th>
-							<th><g:remoteField name="MOB" action="MOBfunc"
-									update="AppointmentTable" /></th>
-						</tr>
+					<table>
+						<tr id="searchtext"><td>
+							<g:remoteField name="FN" action="FNfunc"
+									update="AppointmentTable" placeholder="first name" size="8"/>
+							<g:remoteField name="LN" action="LNfunc"
+									update="AppointmentTable" placeholder="surname" size="8"/>
+							<g:remoteField name="A" action="Afunc"
+									update="AppointmentTable" placeholder="age" size="14"/>
+							<g:remoteField name="M" action="Mfunc"
+									update="AppointmentTable" placeholder="m/c" size="18"/>
+							<g:remoteField name="MOB" action="MOBfunc"
+									update="AppointmentTable" placeholder="mobile" size="10"/>
+						</td></tr>
 					</table>
 					<div id="AppointmentTable">
 
@@ -328,7 +329,11 @@ $(function () {
 						</table>
 						To take backup of tomorrow's appointments &nbsp: &nbsp
 						<g:link controller="Login" action="takeBackup"
-							class="btn btn-info">Click here</g:link>
+							class="btn btn-info">Click here</g:link><br><br>
+						 Make CT appointments unavailable  &nbsp: &nbsp<g:link  action="cancelCTApp" class="btn btn-danger">OK</g:link>
+						<br>
+						<br>
+						Make MRI appointments unavailable : &nbsp<g:link  action="cancelMRIApp" class="btn btn-danger">OK</g:link>
 					</div>
 				</div>
 			</div>

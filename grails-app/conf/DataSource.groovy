@@ -53,7 +53,7 @@ environments {
 	development {
 		dataSource {
 			username = "root"
-			password = "username123"
+			password = ""
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"
@@ -64,7 +64,7 @@ environments {
 	test {
 		dataSource {
 			username = "root"
-			password = "username123"
+			password = ""
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"
@@ -76,7 +76,7 @@ environments {
 	production {
 		dataSource {
 			username = "root"
-			password = "username123"
+			password = ""
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"
