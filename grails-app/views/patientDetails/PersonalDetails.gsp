@@ -117,27 +117,27 @@
                             <tr>
                                 <td>Mobile No.</td>
                                 <td>
-                                    <input type="text" name="mobile" value=${tempMOB}></td>
+                                    <input type="number" name="mobile" minlength="10" maxlength="10" value=${tempMOB} > </td>
                             </tr>
                             <tr>
                                 <td>Email</td>
                                 <td>
-                                    <input type="email" name="email" value=${email}></td>
+                                    <input type="email" name="email" maxlength="210" value=${email} ></td>
                             </tr>
                             <tr>
                                 <td>Address</td>
                                 <td>
-                                    <input type="text" name="address" value=${historyAddress}></td>
+                                    <input type="text" name="address" maxlength="210" value=${historyAddress} ></td>
                             </tr>
                             <tr>
                                 <td>Pincode</td>
                                 <td>
-                                    <input type="text" name="pincode" value=${historyPincode}></td>
+                                    <input type="text" name="pincode" maxlength="200" value=${historyPincode} ></td>
                             </tr>
                             <tr>
                                 <td>City</td>
                                 <td>
-                                    <input type="text" name="city" value=${historyCity}></td>
+                                    <input type="text" name="city"  maxlength="200" value=${historyCity}></td>
                             </tr>
                             <tr>
                                 <td>State</td>
