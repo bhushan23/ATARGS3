@@ -143,12 +143,12 @@ $(function () {
 					<li><a href="getNewApp">New Appointments</a></li>
 					<li><a href="uploadReport">Upload Reports</a></li>
 					<li><a href="viaSMS">Appointments taken via SMS </a></li>
-					<li ><a href="changePassword">Change Password </a> </li>
-					<li><a href="patientHistory">Patient History </a> </li>
-					
-<%--					<li><g:remoteLink controller="Reception" update="PatientTable"--%>
-<%--							action="ReportButton">Reports</g:remoteLink></li>--%>
-							
+					<li><a href="changePassword">Change Password </a></li>
+					<li><a href="patientHistory">Patient History </a></li>
+
+					<%--					<li><g:remoteLink controller="Reception" update="PatientTable"--%>
+					<%--							action="ReportButton">Reports</g:remoteLink></li>--%>
+
 					<li>
 						<div class="bis_calendar row">
 							<table class="table">
@@ -252,88 +252,95 @@ $(function () {
 				</ul>
 
 			</div>
-			<div class="col-sm-9 col-sm-offset-3 main">
-				<h1 class="page-header">Dashboard</h1>
-				<%--
+			<div id="mainSubPage">
+				<div class="col-sm-9 col-sm-offset-3 main">
+					<h1 class="page-header">Dashboard</h1>
+					<%--
                 <h2 class="sub-header">Today's Appointments</h2>
           --%>
-				<div class="table-responsive">
+					<div class="table-responsive">
 
-					<table>
-						<tr id="searchtext"><td>
-							<g:remoteField name="FN" action="FNfunc"
-									update="AppointmentTable" placeholder="first name" size="8"/>
-							<g:remoteField name="LN" action="LNfunc"
-									update="AppointmentTable" placeholder="surname" size="8"/>
-							<g:remoteField name="A" action="Afunc"
-									update="AppointmentTable" placeholder="age" size="14"/>
-							<g:remoteField name="M" action="Mfunc"
-									update="AppointmentTable" placeholder="m/c" size="18"/>
-							<g:remoteField name="MOB" action="MOBfunc"
-									update="AppointmentTable" placeholder="mobile" size="10"/>
-						</td></tr>
-					</table>
-					<div id="AppointmentTable">
-
-						<table class="table table-striped">
-
-
-
-
-							<thead>
-
-								<tr>
-
-									<th>First Name</th>
-									<th>Last Name</th>
-									<th>Appointment Time</th>
-									<th>Scan Machine</th>
-									<th>Scan of</th>
-									<th>Mobile No</th>
-									<th>View/Edit Appointment</th>
+						<div class="btn-group">
+							<table>
+								<tr id="searchtext">
+									<td><g:remoteField name="FN" action="FNfunc"
+											update="AppointmentTable" placeholder="first name" size="8" />
+										<g:remoteField name="LN" action="LNfunc"
+											update="AppointmentTable" placeholder="surname" size="8" />
+										<g:remoteField name="A" action="Afunc"
+											update="AppointmentTable" placeholder="age" size="14" /> <g:remoteField
+											name="M" action="Mfunc" update="AppointmentTable"
+											placeholder="m/c" size="18" /> <g:remoteField name="MOB"
+											action="MOBfunc" update="AppointmentTable"
+											placeholder="mobile" size="10" /> <g:submitToRemote
+											update="mainSubPage" type="reset" class="btn-warning"
+											value="reset" /></td>
 								</tr>
-							</thead>
-							<tbody>
-								<g:each in="${result}">
+							</table>
+						</div>
+						<div id="AppointmentTable">
+
+							<table class="table table-striped">
+
+
+
+
+								<thead>
+
 									<tr>
 
-										<td>
-											${it.firstname}
-										</td>
-										<td>
-											${it.lastname}
-										</td>
-										<td>
-											${it.confirmed_date}
-										</td>
-										<td>
-											${it.machine}
-										</td>
-										<td>
-											${it.scanof}
-										</td>
-										<td>
-											${it.mobile}
-										</td>
-
-										<td><g:form action="editApp" method="post">
-												<div class="buttons">
-													<span class="button"> <g:link params="${[p:it.id]}" action="editApp">
-       									View/Edit</g:link>
-													</span>
-												</div>
-											</g:form></td>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Appointment Time</th>
+										<th>Scan Machine</th>
+										<th>Scan of</th>
+										<th>Mobile No</th>
+										<th>View/Edit Appointment</th>
 									</tr>
-								</g:each>
-							</tbody>
-						</table>
-						To take backup of tomorrow's appointments &nbsp: &nbsp
-						<g:link controller="Login" action="takeBackup"
-							class="btn btn-info">Click here</g:link><br><br>
-						 Make CT appointments unavailable  &nbsp: &nbsp<g:link  action="cancelCTApp" class="btn btn-danger">OK</g:link>
-						<br>
-						<br>
-						Make MRI appointments unavailable : &nbsp<g:link  action="cancelMRIApp" class="btn btn-danger">OK</g:link>
+								</thead>
+								<tbody>
+									<g:each in="${result}">
+										<tr>
+
+											<td>
+												${it.firstname}
+											</td>
+											<td>
+												${it.lastname}
+											</td>
+											<td>
+												${it.confirmed_date}
+											</td>
+											<td>
+												${it.machine}
+											</td>
+											<td>
+												${it.scanof}
+											</td>
+											<td>
+												${it.mobile}
+											</td>
+
+											<td><g:form action="editApp" method="post">
+													<div class="buttons">
+														<span class="button"> <g:link params="${[p:it.id]}"
+																action="editApp">
+       									View/Edit</g:link>
+														</span>
+													</div>
+												</g:form></td>
+										</tr>
+									</g:each>
+								</tbody>
+							</table>
+							To take backup of tomorrow's appointments &nbsp: &nbsp
+							<g:link controller="Login" action="takeBackup"
+								class="btn btn-info">Click here</g:link>
+							<br> <br> Make CT appointments unavailable &nbsp: &nbsp
+							<g:link action="cancelCTApp" class="btn btn-danger">OK</g:link>
+							<br> <br> Make MRI appointments unavailable : &nbsp
+							<g:link action="cancelMRIApp" class="btn btn-danger">OK</g:link>
+						</div>
 					</div>
 				</div>
 			</div>
