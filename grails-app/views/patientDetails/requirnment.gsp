@@ -82,10 +82,7 @@
                         020 - 2431 4661
                         <br />
                         020 - 2433 7313 </a>
-                    <a class="list-group-item active">Working Hours</a>
-                    <a class="list-group-item">7:00 AM to 7:00 PM<br />
-                        Holidays:<br />
-                        Republic Day, Independence Day</a>
+                    
 
                 </div>
             </div>

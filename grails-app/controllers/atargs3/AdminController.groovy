@@ -614,7 +614,7 @@ def notifymanually()
 		
 		float sf=Float.parseFloat(String.valueOf(params['start']).replace(':','.'))
 		float ef=Float.parseFloat(String.valueOf(params['end']).replace(':','.'))
-		print 'Float cobversion is'+sf
+		
 		if(params['start'].equals(params['end'])){
 		flash.message="Opening and Closing time should be different"
 		redirect(action:'ControlPanel');	
@@ -622,7 +622,11 @@ def notifymanually()
 		flash.message="Please check the entered closing time.Center should close after its opening time. "
 		redirect(action:'ControlPanel');
 		}else if(!params['smsservice']){
-		flash.message="Please check Yes or No SMS Messagin service"
+		flash.message="Please check Yes or No SMS Messaging service"
+		redirect(action:'ControlPanel');
+		
+	}else if(!params['emailservice']){
+		flash.message="Please check Yes or No email service"
 		redirect(action:'ControlPanel');
 		
 	}else{
