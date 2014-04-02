@@ -242,9 +242,7 @@ document.write(" - " + month[to.getMonth()]);
 											name="M" action="Mfunc" update="AppointmentTable"
 											placeholder="m/c" size="18" /> <g:remoteField name="MOB"
 											action="MOBfunc" update="AppointmentTable"
-											placeholder="mobile" size="10" /> <g:submitToRemote
-											update="mainSubPage" type="reset" class="btn-warning"
-											value="reset" /></td>
+											placeholder="mobile" size="10" />
 								</tr>
 							</table>
 						</div>
