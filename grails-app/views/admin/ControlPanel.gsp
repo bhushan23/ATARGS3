@@ -71,6 +71,9 @@
 
 						<td>Opening Time</td>
 						<td><select name="start">
+							<option value="${startTime}">
+								${startTime}
+							</option>
 								<g:each in="${0..23}">
 									<option value="${it}:00">
 										${it}:00
@@ -84,6 +87,9 @@
 					<tr>
 						<td>Closing Time</td>
 						<td><select name="end" >
+							<option value="${endTime}">
+							${endTime}
+							</option>
 								<g:each in="${0..23}">
 									<option value="${it}:00">
 										${it}:00
