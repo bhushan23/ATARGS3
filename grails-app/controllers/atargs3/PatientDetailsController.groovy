@@ -196,6 +196,7 @@ class PatientDetailsController {
 		pd?.priority3 = p3
 		pd?.appointmenttype = 1;
 		pd?.doc_id=Integer.parseInt( params["referral"])
+		pd?.clinicalhistory=params["history"].toString().trim()
 		//pd?.AddToDisease(entry:"")
 		//String[] disease=params["diseasehistory"].toString().split(",")
 		//print("hgfffff "+params["diseasehistory"].length  )

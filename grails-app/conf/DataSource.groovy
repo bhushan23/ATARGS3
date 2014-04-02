@@ -52,8 +52,8 @@ hibernate {
 environments {
 	development {
 		dataSource {
-			username = "root"
-			password = "username123"
+			username = "pds"
+			password = "pds"
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"
@@ -63,8 +63,8 @@ environments {
 	}
 	test {
 		dataSource {
-			username = "root"
-			password = "username123"
+			username = "pds"
+			password = "pds"
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"
@@ -75,8 +75,8 @@ environments {
 	}
 	production {
 		dataSource {
-			username = "root"
-			password = "username123"
+			username = "pds"
+			password = "pds"
 			pooled = true
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/dummy"

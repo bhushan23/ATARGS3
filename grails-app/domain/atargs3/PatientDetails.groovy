@@ -37,8 +37,8 @@ class PatientDetails {
 	String appointmenttype
 	
 	String scanof=""
-	String disease="None"
-	String harmfulitems="None"
+	String disease=""
+	String harmfulitems=""
 	String pregnant="-"
 
 	static constraints = {
