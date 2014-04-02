@@ -29,31 +29,43 @@ invokeTag('captureHead','sitemesh',24,[:],1)
 printHtmlPart(4)
 createTagBody(1, {->
 printHtmlPart(5)
-createTagBody(2, {->
+if(true && (flash.message)) {
 printHtmlPart(6)
-if(true && (flash.messageSUMMARY)) {
+expressionOut.print(flash.message)
 printHtmlPart(7)
-expressionOut.print(flash.messageSUMMARY)
-printHtmlPart(8)
 }
+printHtmlPart(8)
+createTagBody(2, {->
 printHtmlPart(9)
-invokeTag('textArea','g',52,['id':("sum"),'name':("sum"),'width':("200"),'height':("300"),'value':(patient_details?.summary)],-1)
+if(true && (flash.messageSUMMARY)) {
 printHtmlPart(10)
-invokeTag('submitButton','g',55,['name':("upload"),'class':("btn btn-large btn-info"),'value':("Upload"),'onclick':("return Checkfiles(this);")],-1)
+expressionOut.print(flash.messageSUMMARY)
 printHtmlPart(11)
-})
-invokeTag('uploadForm','g',55,['action':("upload")],2)
+}
 printHtmlPart(12)
-})
-invokeTag('captureBody','sitemesh',55,[:],1)
+if(true && (flash.messageEMAIL)) {
+printHtmlPart(10)
+expressionOut.print(flash.messageEMAIL)
+printHtmlPart(11)
+}
 printHtmlPart(13)
+invokeTag('textArea','g',59,['id':("sum"),'name':("sum"),'width':("200"),'height':("300"),'value':(patient_details?.summary)],-1)
+printHtmlPart(14)
+invokeTag('submitButton','g',60,['name':("upload"),'class':("btn btn-large btn-info"),'value':("Upload"),'onclick':("return Checkfiles(this);")],-1)
+printHtmlPart(15)
+})
+invokeTag('uploadForm','g',63,['action':("upload")],2)
+printHtmlPart(16)
+})
+invokeTag('captureBody','sitemesh',66,[:],1)
+printHtmlPart(17)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1389151424000L
+public static final long LAST_MODIFIED = 1396254091000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

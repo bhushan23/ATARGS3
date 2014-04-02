@@ -274,10 +274,10 @@
 								</tr>
 								<tr>
 									<td>Clinical History</td>
-<%--									<td><textarea name="history" rows="4" cols="40" >--%>
-<%--										${it.clinicalhistory }--%>
-<%--									</textarea></td>--%>
-									<td><g:textArea name="history" rows="4" cols="40">${it.clinicalhistory }</g:textArea></td>
+									<td><textarea name="history" rows="4" cols="40"
+											style="width: 25%">
+											${it.clinicalhistory }
+										</textarea></td>
 								</tr>
 								<tr>
 									<td></td>

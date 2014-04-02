@@ -45,118 +45,124 @@ invokeTag('captureHead','sitemesh',129,[:],1)
 printHtmlPart(7)
 createTagBody(1, {->
 printHtmlPart(8)
-invokeTag('set','g',132,['var':("months"),'value':("${new java.text.DateFormatSymbols().months} ")],-1)
+invokeTag('set','g',133,['var':("months"),'value':("${new java.text.DateFormatSymbols().months} ")],-1)
 printHtmlPart(8)
-invokeTag('set','g',133,['var':("today"),'value':(new Date())],-1)
+invokeTag('set','g',134,['var':("today"),'value':(new Date())],-1)
 printHtmlPart(9)
 expressionOut.print(currentmonth)
 printHtmlPart(10)
 if(true && (nxtmonth == 1)) {
 printHtmlPart(11)
 expressionOut.print(nextmonth)
+printHtmlPart(10)
+}
 printHtmlPart(12)
+for( _it28646424 in (limits[0]..<limits[1]) ) {
+changeItVariable(_it28646424)
+printHtmlPart(13)
+if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY)) {
+printHtmlPart(14)
+}
+printHtmlPart(15)
+expressionOut.print(it.getAt([Calendar.DATE]))
+printHtmlPart(16)
+if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SATURDAY)) {
+printHtmlPart(17)
+}
+printHtmlPart(18)
+}
+printHtmlPart(19)
+invokeTag('set','g',197,['var':("i"),'value':(0)],-1)
+printHtmlPart(18)
+for( _it21464884 in (limits[1]..<limits[2]) ) {
+changeItVariable(_it21464884)
+printHtmlPart(13)
+if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY)) {
+printHtmlPart(14)
 }
 printHtmlPart(13)
-for( _it418628 in (limits[0]..<limits[1]) ) {
-changeItVariable(_it418628)
-printHtmlPart(14)
-if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY)) {
-printHtmlPart(15)
-}
-printHtmlPart(16)
-expressionOut.print(it.getAt([Calendar.DATE]))
-printHtmlPart(17)
-if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SATURDAY)) {
-printHtmlPart(18)
-}
-printHtmlPart(19)
-}
-printHtmlPart(20)
-invokeTag('set','g',194,['var':("i"),'value':(0)],-1)
-printHtmlPart(19)
-for( _it23015278 in (limits[1]..<limits[2]) ) {
-changeItVariable(_it23015278)
-printHtmlPart(14)
-if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY)) {
-printHtmlPart(15)
-}
-printHtmlPart(14)
 if(true && (free[i] == 0)) {
-printHtmlPart(21)
+printHtmlPart(20)
 expressionOut.print(it.getAt([Calendar.DATE]))
-printHtmlPart(22)
+printHtmlPart(21)
 }
 else {
-printHtmlPart(23)
+printHtmlPart(22)
 createTagBody(4, {->
-printHtmlPart(24)
+printHtmlPart(23)
 expressionOut.print(free[i])
-printHtmlPart(25)
+printHtmlPart(24)
 expressionOut.print(it.getAt([Calendar.DATE]))
-printHtmlPart(26)
+printHtmlPart(25)
 })
-invokeTag('remoteLink','g',221,['update':("AppointmentTable"),'action':("ShowApp"),'params':([Year: "${it.getAt(Calendar.YEAR)}", Month: "${it.getAt(Calendar.MONTH)}", Day: "${it.getAt(Calendar.DAY_OF_MONTH)}"])],4)
-printHtmlPart(27)
+invokeTag('remoteLink','g',220,['update':("AppointmentTable"),'action':("ShowApp"),'params':([Year: "${it.getAt(Calendar.YEAR)}", Month: "${it.getAt(Calendar.MONTH)}", Day: "${it.getAt(Calendar.DAY_OF_MONTH)}"])],4)
+printHtmlPart(26)
 expressionOut.print(free[i] /totalNoOfIntervals *100)
-printHtmlPart(28)
+printHtmlPart(27)
 }
-printHtmlPart(14)
+printHtmlPart(13)
 if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SATURDAY)) {
+printHtmlPart(17)
+}
+printHtmlPart(13)
+invokeTag('set','g',236,['var':("i"),'value':(i + 1)],-1)
 printHtmlPart(18)
 }
-printHtmlPart(14)
-invokeTag('set','g',232,['var':("i"),'value':(i + 1)],-1)
-printHtmlPart(19)
-}
+printHtmlPart(28)
+invokeTag('remoteField','g',258,['name':("FN"),'action':("FNfunc"),'update':("AppointmentTable"),'placeholder':("first name"),'size':("8")],-1)
 printHtmlPart(29)
-invokeTag('remoteField','g',255,['name':("FN"),'action':("FNfunc"),'update':("AppointmentTable")],-1)
+invokeTag('remoteField','g',264,['name':("LN"),'action':("LNfunc"),'update':("AppointmentTable"),'placeholder':("surname"),'size':("8")],-1)
+printHtmlPart(29)
+invokeTag('remoteField','g',266,['name':("A"),'action':("Afunc"),'update':("AppointmentTable"),'placeholder':("age"),'size':("14")],-1)
+printHtmlPart(29)
+invokeTag('remoteField','g',267,['name':("M"),'action':("Mfunc"),'update':("AppointmentTable"),'placeholder':("m/c"),'size':("18")],-1)
+printHtmlPart(29)
+invokeTag('remoteField','g',270,['name':("MOB"),'action':("MOBfunc"),'update':("AppointmentTable"),'placeholder':("mobile"),'size':("10")],-1)
 printHtmlPart(30)
-invokeTag('remoteField','g',256,['name':("LN"),'action':("LNfunc"),'update':("AppointmentTable")],-1)
-printHtmlPart(30)
-invokeTag('remoteField','g',257,['name':("A"),'action':("Afunc"),'update':("AppointmentTable")],-1)
-printHtmlPart(30)
-invokeTag('remoteField','g',257,['name':("M"),'action':("Mfunc"),'update':("AppointmentTable")],-1)
-printHtmlPart(30)
-invokeTag('remoteField','g',259,['name':("MOB"),'action':("MOBfunc"),'update':("AppointmentTable")],-1)
+for( _it16607649 in (result) ) {
+changeItVariable(_it16607649)
 printHtmlPart(31)
-for( _it2289631 in (result) ) {
-changeItVariable(_it2289631)
-printHtmlPart(32)
 expressionOut.print(it.firstname)
-printHtmlPart(33)
+printHtmlPart(32)
 expressionOut.print(it.lastname)
-printHtmlPart(33)
+printHtmlPart(32)
 expressionOut.print(it.confirmed_date)
-printHtmlPart(33)
+printHtmlPart(32)
 expressionOut.print(it.machine)
-printHtmlPart(33)
+printHtmlPart(32)
 expressionOut.print(it.scanof)
-printHtmlPart(33)
+printHtmlPart(32)
 expressionOut.print(it.mobile)
-printHtmlPart(34)
+printHtmlPart(33)
 createTagBody(3, {->
-printHtmlPart(35)
-createClosureForHtmlPart(36, 4)
-invokeTag('link','g',309,['params':([p:"${it.id}"]),'action':("editApp")],4)
+printHtmlPart(34)
+createClosureForHtmlPart(35, 4)
+invokeTag('link','g',316,['params':([p:it.id]),'action':("editApp")],4)
+printHtmlPart(36)
+})
+invokeTag('form','g',319,['action':("editApp"),'method':("post")],3)
 printHtmlPart(37)
-})
-invokeTag('form','g',310,['action':("editApp"),'method':("post")],3)
-printHtmlPart(38)
 }
-printHtmlPart(39)
-createClosureForHtmlPart(40, 2)
-invokeTag('link','g',319,['controller':("Login"),'action':("takeBackup"),'class':("btn btn-info")],2)
-printHtmlPart(41)
-})
-invokeTag('captureBody','sitemesh',328,[:],1)
+printHtmlPart(38)
+createClosureForHtmlPart(39, 2)
+invokeTag('link','g',325,['controller':("Login"),'action':("takeBackup"),'class':("btn btn-info")],2)
+printHtmlPart(40)
+createClosureForHtmlPart(41, 2)
+invokeTag('link','g',330,['action':("cancelCTApp"),'class':("btn btn-danger")],2)
 printHtmlPart(42)
+createClosureForHtmlPart(41, 2)
+invokeTag('link','g',333,['action':("cancelMRIApp"),'class':("btn btn-danger")],2)
+printHtmlPart(43)
+})
+invokeTag('captureBody','sitemesh',343,[:],1)
+printHtmlPart(44)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394731644028L
+public static final long LAST_MODIFIED = 1396263613000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

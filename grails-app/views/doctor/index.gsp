@@ -241,10 +241,10 @@ $(function () {
 				<h2 class="sub-header">Patients</h2>
 				<div class="table-responsive">
 
-					<table class="table table-striped">
+					<table>
 						<tr id="searchtext"><td>
 							<g:remoteField name="FN" action="FNfunc"
-									update="PatientTable" placeholder="first name" size="13" />
+									update="PatientTable" placeholder="first name" size="14" />
 							<g:remoteField name="LN" action="LNfunc"
 									update="PatientTable" placeholder="surname" size="13" />
 							<g:remoteField name="A" action="Afunc"

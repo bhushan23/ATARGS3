@@ -4,9 +4,8 @@
 	<title> Book My Scan </title>	
 	<script>
 	function filledSlot() {
-		alert("That slot is already occupied.\n Note: BLUE Slots are occupied and WHITE are free.");
+		alert("That slot is already occupied.\n Note: Blue Slots are occupied while white are free.");
 	}
-	
 	</script>
 	</head>
 	<body class="hero-unit" style="width:40%">
@@ -28,12 +27,10 @@
 				
 			</g:if>
 			<g:else>
-			
 				<div style="background-color:#F5F5F5; margin:4px">
 				<g:link action="TimeSelected" params="[slot: it]">
 				${it}:00 - Free Slot</g:link>
 				</div>
-			
 			</g:else>
 			<g:set var="current" value="${current + 1 }"/>
 			<g:set var="j" value="${j + m }"/>

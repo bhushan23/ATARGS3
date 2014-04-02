@@ -16,7 +16,7 @@ function showmonth() {
 	var datestr = date.toLocaleDateString();
 	var month1 = itoa(date.getMonth());
 	alert(month1)
-	document.getElementById("month").innerHTML= itoa(date.getMonth()) + "Hello"
+	document.getElementById("month").innerHTML= itoa(date.getMonth()) + "Hello
 	document.getElementById("month").innerHTML= "Hello"
 }
 String function itoa(int month) {
@@ -26,9 +26,9 @@ String function itoa(int month) {
 	case 1:
 		return "February";
 	case 2:
-		return "March";
+		return "March;
 	case 3:
-		return "April";
+		return "April;
 	case 4:
 		return "May";
 	case 5:
@@ -99,11 +99,34 @@ $(function () {
 </head>
 
 <body onload="showmonth('sdas');">
-	
-	<div class="container" >
-<br>
-<br>
-<br>
+	<div class="navbar navbar-top navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">PDS</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="PatientIndex.html">For Patients</a></li>
+					<li><a href="#about">For Referring Physicans</a></li>
+					<li><a href="#about">Meet Our Experts</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact Us</a></li>
+				</ul>
+			</div>
+			<!-- /.nav-collapse -->
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /.navbar -->
+	<div class="container">
+
 		<div class="masthead">
 			<h3 class="text-muted">Schedule an Appointment</h3>
 			
@@ -112,21 +135,22 @@ $(function () {
 
 		<!-- Jumbotron -->
 		<div class="jumbotron jumbo">
-			<h1>Date and Time</h1>
-			<h3>Select three priorities for your appointment</h3>
+			<h1>Date and Time
 			<!--<g:link action="PersonalDetails" class="btn btn-info"> Next Step &raquo;</g:link></h1>-->
 		</div>
 
 		<!-- Example row of columns -->
 		<div class="row" id="content">
 			<div class="col-lg-12">
-				
-				
-				<g:if test="${counter == 0}"> <h3 class="alert alert-success"> Please Select Your First Priority </h3></g:if>
-				<g:elseif test="${counter == 1}"><h3 class="alert alert-success">First Priority Saved. Select Second Priority </h3></g:elseif>
-				<g:elseif test="${counter == 2}"> <h3 class="alert alert-success"> Second Priority Saved. Select Third Priority </h3></g:elseif>
-				<g:else> <h3 class="alert alert-danger">Please reset and start over again. There seems to be some problem </h3></g:else>
-			
+				<h3>
+				Enter three priorities for your appointment
+				<br>
+				<br>
+				<g:if test="${counter == 0}">Please Select Your First Priority</g:if>
+				<g:elseif test="${counter == 1}">First Priority Saved. Select Second Priority</g:elseif>
+				<g:elseif test="${counter == 2}">Second of Three Priority Saved. Select Third Priority</g:elseif>
+				<g:else>Please reset and start over again. There seems to be some problem</g:else>
+				</h3>
 
 				<div class="bis_calendar row">
 					<table class="table" border="0">

@@ -560,7 +560,7 @@ class ReceptionController {
 			checkBoxInfo[Integer.parseInt(checked[i])-1]=1
 			i++;
 		}
-		print("hello "+checkBoxInfo+"  sdf"+result)
+		print("hello "+checkBoxInfo)
 		[req_entry:result,checkBoxInfo:checkBoxInfo]
 
 	}
@@ -585,7 +585,7 @@ class ReceptionController {
 			entry?.pregnant="-"
 		else if(params["pregnant"].toString().equalsIgnoreCase("Yes"))
 			entry?.pregnant="Yes"
-		entry.clinicalhistory=params["history"].toString().trim()
+		entry.clinicalhistory=params["history"]
 		int i
 		if(params["diseasehistory"]!=null){
 			if(params["diseasehistory"].toString().split(",").size()==1)
@@ -766,7 +766,7 @@ class ReceptionController {
 			smsEntry?.pregnant="Yes"
 
 		if(params["history"]!=null)
-			smsEntry.clinicalhistory=params["history"].toString().trim()
+			smsEntry.clinicalhistory=params["history"]
 
 		smsEntry.save()
 
