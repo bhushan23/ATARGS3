@@ -33,47 +33,6 @@ $("#searchtext").hide();
     });
 </script>
 
-<script type="text/javascript">
-function showmonth() {
-	alert("I am called");
-	var date = new Date()
-	var datestr = date.toLocaleDateString();
-	var month1 = itoa(date.getMonth());
-	alert(month1)
-	document.getElementById("month").innerHTML= itoa(date.getMonth()) + "Hello
-	document.getElementById("month").innerHTML= "Hello"
-}
-String function itoa(int month) {
-	switch(month) {
-	case 0:
-		return "January";
-	case 1:
-		return "February";
-	case 2:
-		return "March;
-	case 3:
-		return "April;
-	case 4:
-		return "May";
-	case 5:
-		return "June";
-	case 6:
-		return "July";
-	case 7:
-		return "August";
-	case 8:
-		return "September"
-	case 9:
-		return "October";
-	case 10:
-		return "November";
-	case 11:
-		return "December";
-	}
-}
-window.onload =showmonth;
-</script>
-
 <style>
 #emptyldate {
 	background-color: #F66666;
@@ -148,7 +107,20 @@ $(function () {
 												<tr>
 													<td colspan="7" class="monthAndYear">
 														<div class="visualyear" id="month">
-															<h4>January</h4>
+															<h4><script>
+
+var month = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var from = new Date();
+var to = new Date();
+
+
+document.write(month[from.getMonth()]);
+to.setDate(to.getDate() + 21);
+if (from.getMonth() != to.getMonth()) {
+document.write(" - " + month[to.getMonth()]);
+}
+
+</script></h4>
 														</div>
 													</td>
 												</tr>
