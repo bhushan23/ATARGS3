@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,48 +6,6 @@
 <r:require modules="bootstrap" />
 <r:layoutResources />
 <meta name="layout" content="main" />
- 
-
-<script type="text/javascript">
-function showmonth() {
-	alert("I am called");
-	var date = new Date()
-	var datestr = date.toLocaleDateString();
-	var month1 = itoa(date.getMonth());
-	alert(month1)
-	document.getElementById("month").innerHTML= itoa(date.getMonth()) + "Hello
-	document.getElementById("month").innerHTML= "Hello"
-}
-String function itoa(int month) {
-	switch(month) {
-	case 0:
-		return "January";
-	case 1:
-		return "February";
-	case 2:
-		return "March;
-	case 3:
-		return "April;
-	case 4:
-		return "May";
-	case 5:
-		return "June";
-	case 6:
-		return "July";
-	case 7:
-		return "August";
-	case 8:
-		return "September"
-	case 9:
-		return "October";
-	case 10:
-		return "November";
-	case 11:
-		return "December";
-	}
-}
-window.onload =showmonth;
-</script>
 
 <style>
 #emptyldate {
