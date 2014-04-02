@@ -118,10 +118,20 @@ $(function () {
 										<tr>
 											<td colspan="7" class="monthAndYear">
 												<div class="visualyear" id="month">
-													<h4>${currentmonth } 
-													<g:if test="${nxtmonth == 1}">
-     													- ${nextmonth }
-													</g:if></h4>
+													<h4><script>
+														
+														var month = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+														var from = new Date();
+														var to = new Date();
+
+																									
+														document.write(month[from.getMonth()]);
+														to.setDate(to.getDate() + 21);
+														if (from.getMonth() != to.getMonth()) {
+															document.write(" - " + month[to.getMonth()]);
+														}
+															
+													</script> </h4>
 												</div>
 											</td>
 										</tr>
