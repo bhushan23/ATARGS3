@@ -383,16 +383,7 @@ class PatientDetailsController {
 		if(intervals==0)
 		freeslots[0]=0
 		
-		def currentmonth = new Date().format("MMMM")
-		def nextmonth=new Date()
-		int nxtmonth=0
-		if((new Date().format("MM")).equalsIgnoreCase((new Date()+21).format("MM")))
-		print("hello")
-		else
-		nxtmonth=1
-		
-		nextmonth.putAt(Calendar.MONTH, new Date().getAt(Calendar.MONTH)+1)
-		[limits: [prestart, start, last], counter: counter, free: freeslots,totalNoOfIntervals:totalNoOfIntervals,currentmonth:currentmonth,nextmonth:nextmonth.format("MMMM"),nxtmonth:nxtmonth]
+		[limits: [prestart, start, last], counter: counter, free: freeslots,totalNoOfIntervals:totalNoOfIntervals]
 		
 	}
 
