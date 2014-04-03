@@ -19,18 +19,29 @@
 	
 </script>
 
+<script type="text/javascript">
+	function clearSearch() {
+		document.getElementById("fn").value = "";
+		document.getElementById("ln").value = "";
+		document.getElementById("age").value = "";
+		document.getElementById("mac").value = "";
+		document.getElementById("mob").value = "";
+	}
+</script>
+
 <!-- Custom styles for this template -->
 <link href="dashboard.css" rel="stylesheet">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	
 </script>
 <script>
-    $(document).ready(function () {
-$("#searchtext").hide();
-        $("#search").click(function () {
-                      $("#searchtext").toggle();
-        });
-    });
+	$(document).ready(function() {
+		$("#searchtext").hide();
+		$("#search").click(function() {
+			$("#searchtext").toggle();
+		});
+	});
 </script>
 
 <style>
@@ -73,11 +84,11 @@ a {
 }
 </style>
 <script type="text/javascript">
-$(function () {
-    $(".tooltipdate").tooltip({
-        title : 'Suresh Put here some no. of  vacant slots'
-    });
-});
+	$(function() {
+		$(".tooltipdate").tooltip({
+			title : 'Suresh Put here some no. of  vacant slots'
+		});
+	});
 </script>
 
 </head>
@@ -90,13 +101,16 @@ $(function () {
 		<div class="row">
 			<div class="col-sm-3 sidebar">
 				<ul class="nav nav-sidebar">
-					<li><a href="index">Dashboard</a></li>
-					<li><a href="#" id="search">Search</a></li>
+					
+					
 					<li><g:remoteLink controller="Doctor" update="PatientTable"
-							action="ReportButton">Reports</g:remoteLink></li>
+							action="ReportButton" before="clearSearch()">Reports</g:remoteLink></li>
+					<li><a href="#" id="search">Search</a></li>
 					<%--<li><g:remoteLink controller="Doctor" update="PatientTable" action="Appointment">Get Appointment</g:remoteLink></li>
              --%>
 					<li><a href="changePassword">Change Password</a></li>
+					<li><g:remoteLink controller="Doctor" update="PatientTable"
+							action="dashboard" before="clearSearch()">Bird's Eye View</g:remoteLink></li>
 					<li>
 						<div class="bis_calendar row">
 							<table class="table">
@@ -107,20 +121,40 @@ $(function () {
 												<tr>
 													<td colspan="7" class="monthAndYear">
 														<div class="visualyear" id="month">
-															<h4><script>
+															<h4>
+																<script>
+																	var month = [
+																			"Jan",
+																			"Feb",
+																			"Mar",
+																			"Apr",
+																			"May",
+																			"June",
+																			"July",
+																			"Aug",
+																			"Sep",
+																			"Oct",
+																			"Nov",
+																			"Dec" ];
+																	var from = new Date();
+																	var to = new Date();
 
-var month = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-var from = new Date();
-var to = new Date();
-
-
-document.write(month[from.getMonth()]);
-to.setDate(to.getDate() + 21);
-if (from.getMonth() != to.getMonth()) {
-document.write(" - " + month[to.getMonth()]);
-}
-
-</script></h4>
+																	document
+																			.write(month[from
+																					.getMonth()]);
+																	to
+																			.setDate(to
+																					.getDate() + 21);
+																	if (from
+																			.getMonth() != to
+																			.getMonth()) {
+																		document
+																				.write(" - "
+																						+ month[to
+																								.getMonth()]);
+																	}
+																</script>
+															</h4>
 														</div>
 													</td>
 												</tr>
@@ -169,8 +203,8 @@ document.write(" - " + month[to.getMonth()]);
 															</div>
 													</g:if>
 													<g:else>
-														<td><g:remoteLink update="PatientTable"
-																action="GetDate" params="[Year: "${it.getAt(Calendar.YEAR)}", Month: "${it.getAt(Calendar.MONTH)}", Day: "${it.getAt(Calendar.DAY_OF_MONTH)}"]">
+														<td><g:remoteLink update="PatientTable" before="clearSearch()"
+																action="GetDate" params="${[Year: it.getAt(Calendar.YEAR), Month: it.getAt(Calendar.MONTH), Day: it.getAt(Calendar.DAY_OF_MONTH)]}">
 
 																<div class="tooltipdate" data-toggle="tooltip"
 																	title="Slots Available: ${free[i] }">
@@ -214,18 +248,19 @@ document.write(" - " + month[to.getMonth()]);
 				<div class="table-responsive">
 
 					<table>
-						<tr id="searchtext"><td>
-							<g:remoteField name="FN" action="FNfunc"
-									update="PatientTable" placeholder="first name" size="14" />
-							<g:remoteField name="LN" action="LNfunc"
-									update="PatientTable" placeholder="surname" size="13" />
-							<g:remoteField name="A" action="Afunc"
-									update="PatientTable" placeholder="age" size="5" />
-							<g:remoteField name="M" action="Mfunc"
-									update="PatientTable" placeholder="m/c" size="17	" />
-							<g:remoteField name="MOB" action="MOBfunc"
-									update="PatientTable" placeholder="mobile" size="15" />
-						</td></tr>
+						<tr id="searchtext">
+							<td><g:remoteField name="FN" action="FNfunc" id="fn"
+									update="PatientTable" placeholder="first name" size="14" /> <g:remoteField
+									name="LN" action="LNfunc" update="PatientTable" id="ln"
+									placeholder="surname" size="13" /> <g:remoteField name="A" id="age"
+									action="Afunc" update="PatientTable" placeholder="age" size="5" />
+								<g:remoteField name="M" action="Mfunc" update="PatientTable" id="mac"
+									placeholder="m/c" size="17	" /> <g:remoteField name="MOB" id="mob"
+									action="MOBfunc" update="PatientTable" placeholder="mobile"
+									size="15" /> <g:submitToRemote before="clearSearch()"
+									class="btn-warning" update="PatientTable" value="Reset"
+									action="resetSearch" /></td>
+						</tr>
 					</table>
 					<div id="PatientTable">
 

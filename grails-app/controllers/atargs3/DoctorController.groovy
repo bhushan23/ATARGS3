@@ -15,8 +15,28 @@ class DoctorController {
 	def A="^"
 	def M="^"
 	def MOB="^"
+	def reportFlag=false
 	String queryDate
-	static boolean todayFlag
+	static boolean todayFlag=true
+	
+	def resetSearch()
+	{
+		FN="^"
+		LN="^"
+		A="^"
+		M="^"
+		MOB="^"
+		def myPatients
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		myPatients = db.rows(query)
+		render(view:"ScanMyPatients",model:[patientList:myPatients])
+	}
+	
 	def create(){
 		
 	}
@@ -36,6 +56,7 @@ class DoctorController {
 		redirect(action:'create')
 
 		todayFlag=true
+		reportFlag=false
 		db=new Sql(dataSource)
 		username = String.valueOf(session.UserLoggedin)
 		print username
@@ -93,53 +114,86 @@ class DoctorController {
 	}
 	static scaffold=Doctor
 	
+	def dashboard()
+	{
+		todayFlag=true
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		def myPatients = db.rows(query)
+		render(view:"ScanMyPatients",model:[patientList:myPatients])
+	}
+	
 	def FNfunc(){
-		FN="^"+params.value
+		/*FN="^"+params.value
 		def myPatients
 		if(todayFlag)
 		myPatients = db.rows("Select * from patient_details Where doc_id=${myId[0]} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
 		else
 		myPatients = db.rows("Select * from patient_details where doc_id=${myId[0]} and confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		render(view:"ScanMyPatients",model:[patientList:myPatients])*/
+		FN="^"+params.value
+		def myPatients
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		myPatients = db.rows(query)
 		render(view:"ScanMyPatients",model:[patientList:myPatients])
 	}
 	
 	def LNfunc(){
 		LN="^"+params.value
 		def myPatients
-		if(todayFlag)
-		myPatients = db.rows("Select * from patient_details Where doc_id=${myId[0]} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
-		else
-		myPatients = db.rows("Select * from patient_details where doc_id=${myId[0]} and confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		myPatients = db.rows(query)
 		render(view:"ScanMyPatients",model:[patientList:myPatients])
 	}
 	
 	def Afunc(){
 		A="^"+params.value
 		def myPatients
-		if(todayFlag)
-		myPatients = db.rows("Select * from patient_details Where doc_id=${myId[0]} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
-		else
-		myPatients = db.rows("Select * from patient_details where doc_id=${myId[0]} and confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		myPatients = db.rows(query)
 		render(view:"ScanMyPatients",model:[patientList:myPatients])
 	}
 	
 	def Mfunc(){
 		M="^"+params.value
 		def myPatients
-		if(todayFlag)
-		myPatients = db.rows("Select * from patient_details Where doc_id=${myId[0]} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
-		else
-		myPatients = db.rows("Select * from patient_details where doc_id=${myId[0]} and confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		myPatients = db.rows(query)
 		render(view:"ScanMyPatients",model:[patientList:myPatients])
 	}
 	
 	def MOBfunc(){
 		MOB="^"+params.value
 		def myPatients
-		if(todayFlag)
-		myPatients = db.rows("Select * from patient_details Where doc_id=${myId[0]} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
-		else
-		myPatients = db.rows("Select * from patient_details where doc_id=${myId[0]} and confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		myPatients = db.rows(query)
 		render(view:"ScanMyPatients",model:[patientList:myPatients])
 	}
 def getappointment(){
@@ -201,13 +255,35 @@ def getaptnow(){
 	if(Integer.parseInt(params["Day"])<=9)
 		day="0"+Integer.parseInt(params["Day"])
 	queryDate="^"+year+"-"+month+"-"+day
-	def myPatients=db.rows("Select * from patient_details where doc_id=${myId[0]} and confirmed_date REGEXP ${queryDate}")
-	render(view:"ScanMyPatients",model:[patientList:myPatients])
+	def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		def myPatients = db.rows(query)
+		render(view:"ScanMyPatients",model:[patientList:myPatients])
 	}
 	
 	def ReportButton()
 	{
+		/*reportFlag=true
 		def myPatients=db.rows("Select * from patient_details where doc_id=${myId[0]} and file regexp '^'")
+		render(view:"ScanMyPatients",model:[patientList:myPatients])*/
+		def myPatients
+		FN="^"
+		LN="^"
+		A="^"
+		M="^"
+		MOB="^"
+		reportFlag=!reportFlag
+		def query="Select * from patient_details where doc_id=${myId[0]}"
+		if(reportFlag)
+			query+=" and file regexp '^'"
+		if(!todayFlag)
+			query+=" and confirmed_date REGEXP ${queryDate}"
+		query+=" and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}"
+		myPatients = db.rows(query)
 		render(view:"ScanMyPatients",model:[patientList:myPatients])
 	}
 	

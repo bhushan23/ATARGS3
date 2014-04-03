@@ -19,7 +19,7 @@ class AdminSettingsController {
 static String smsuser;
 static String smspass;
 static boolean smsservice;
-static boolean emailservice;
+static boolean emailservice=true;
 	static String confirmedsms;
 	def index() {
 		redirect(view:"ControlPanel")

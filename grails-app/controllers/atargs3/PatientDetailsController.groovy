@@ -153,7 +153,7 @@ class PatientDetailsController {
 			flash.messageMOB="Enter 10-digit Mobile Number."
 			redirectFlag=true
 		}
-		if(!email.equals("")&&!redirectFlag)
+		if(!email.equals("")&&!redirectFlag&&AdminSettingsController.emailservice)
 		{
 			try{
 			sendMail {
