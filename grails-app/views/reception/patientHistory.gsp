@@ -16,6 +16,16 @@
 	
 </script>
 
+<script type="text/javascript">
+	function clearSearch() {
+		document.getElementById("fn").value = "";
+		document.getElementById("ln").value = "";
+		document.getElementById("age").value = "";
+		document.getElementById("mac").value = "";
+		document.getElementById("mob").value = "";
+	}
+</script>
+
 <!-- Custom styles for this template -->
 <link href="dashboard.css" rel="stylesheet">
 <script
@@ -58,17 +68,20 @@
 				<div class="table-responsive">
 
 					<table>
-<%--						<tr id="searchtext">--%>
-							<td><g:remoteField name="FN" action="FNfunc2"
-									update="PatientHistoryTable" placeholder="first name" size="11" />
-								<g:remoteField name="LN" action="LNfunc2"
-									update="PatientHistoryTable" placeholder="surname" size="10" />
-								<g:remoteField name="A" action="Afunc2"
-									update="PatientHistoryTable" placeholder="age" size="21" /> <g:remoteField
-									name="M" action="Mfunc2" update="PatientHistoryTable"
-									placeholder="m/c" size="24" /> <g:remoteField name="MOB"
-									action="MOBfunc2" update="PatientHistoryTable"
-									placeholder="mobile" size="12" /></td>
+						<%--						<tr id="searchtext">--%>
+						<td><g:remoteField name="FN" action="FNfunc2" id="fn"
+								update="PatientHistoryTable" placeholder="first name" size="11" />
+							<g:remoteField name="LN" action="LNfunc2" id="ln"
+								update="PatientHistoryTable" placeholder="surname" size="10" />
+							<g:remoteField name="A" action="Afunc2" id="age"
+								update="PatientHistoryTable" placeholder="age" size="21" /> <g:remoteField
+								id="mac" name="M" action="Mfunc2" update="PatientHistoryTable"
+								placeholder="m/c" size="24" /> <g:remoteField name="MOB" id="mob"
+								action="MOBfunc2" update="PatientHistoryTable"
+								placeholder="mobile" size="12" /> <g:submitToRemote
+								before="clearSearch()" class="btn-warning"
+								update="PatientHistoryTable" value="Reset"
+								action="resetSearchPatHist" /></td>
 						</tr>
 					</table>
 
@@ -92,7 +105,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<g:each in="${history}">
+								<g:each in="${result}">
 									<tr>
 
 										<td>

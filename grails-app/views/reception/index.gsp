@@ -23,6 +23,16 @@
 	
 </script>
 
+<script type="text/javascript">
+	function clearSearch() {
+		document.getElementById("fn").value = "";
+		document.getElementById("ln").value = "";
+		document.getElementById("age").value = "";
+		document.getElementById("mac").value = "";
+		document.getElementById("mob").value = "";
+	}
+</script>
+
 <!-- Custom styles for this template -->
 
 <script
@@ -80,11 +90,11 @@ a {
 }
 </style>
 <script type="text/javascript">
-$(function () {
-    $(".tooltipdate").tooltip({
-        title : 'Suresh Put here some no. of  vacant slots'
-    });
-});
+	$(function() {
+		$(".tooltipdate").tooltip({
+			title : 'Suresh Put here some no. of  vacant slots'
+		});
+	});
 </script>
 </head>
 
@@ -120,20 +130,38 @@ $(function () {
 													<td colspan="7" class="monthAndYear">
 														<div class="visualyear" id="month">
 															<h4>
-															<script>
+																<script>
+																	var month = [
+																			"Jan",
+																			"Feb",
+																			"Mar",
+																			"Apr",
+																			"May",
+																			"June",
+																			"July",
+																			"Aug",
+																			"Sep",
+																			"Oct",
+																			"Nov",
+																			"Dec" ];
+																	var from = new Date();
+																	var to = new Date();
 
-var month = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-var from = new Date();
-var to = new Date();
-
-
-document.write(month[from.getMonth()]);
-to.setDate(to.getDate() + 21);
-if (from.getMonth() != to.getMonth()) {
-document.write(" - " + month[to.getMonth()]);
-}
-
-</script>
+																	document
+																			.write(month[from
+																					.getMonth()]);
+																	to
+																			.setDate(to
+																					.getDate() + 21);
+																	if (from
+																			.getMonth() != to
+																			.getMonth()) {
+																		document
+																				.write(" - "
+																						+ month[to
+																								.getMonth()]);
+																	}
+																</script>
 															</h4>
 														</div>
 													</td>
@@ -233,16 +261,18 @@ document.write(" - " + month[to.getMonth()]);
 						<div class="btn-group">
 							<table>
 								<tr id="searchtext">
-									<td><g:remoteField name="FN" action="FNfunc"
-											update="AppointmentTable" placeholder="first name" size="8" />
-										<g:remoteField name="LN" action="LNfunc"
-											update="AppointmentTable" placeholder="surname" size="8" />
-										<g:remoteField name="A" action="Afunc"
-											update="AppointmentTable" placeholder="age" size="14" /> <g:remoteField
-											name="M" action="Mfunc" update="AppointmentTable"
-											placeholder="m/c" size="18" /> <g:remoteField name="MOB"
+									<td><g:remoteField id="fn" name="FN" action="FNfunc"
+											update="AppointmentTable" placeholder="first name" size="7" />
+										<g:remoteField id="ln" name="LN" action="LNfunc"
+											update="AppointmentTable" placeholder="surname" size="7" />
+										<g:remoteField name="A" action="Afunc" id="age"
+											update="AppointmentTable" placeholder="age" size="15" /> <g:remoteField
+											name="M" action="Mfunc" update="AppointmentTable" id="mac"
+											placeholder="m/c" size="18" /> <g:remoteField name="MOB" id="mob"
 											action="MOBfunc" update="AppointmentTable"
-											placeholder="mobile" size="10" />
+											placeholder="mobile" size="10" /> <g:submitToRemote
+											before="clearSearch()" class="btn-warning"
+											update="AppointmentTable" value="Reset" action="resetSearch" />
 								</tr>
 							</table>
 						</div>
@@ -262,7 +292,7 @@ document.write(" - " + month[to.getMonth()]);
 										<th>Appointment Time</th>
 										<th>Scan Machine</th>
 										<th>Scan of</th>
-										<th>Mobile No</th>
+										<th>Mobile   No</th>
 										<th>View/Edit Appointment</th>
 									</tr>
 								</thead>

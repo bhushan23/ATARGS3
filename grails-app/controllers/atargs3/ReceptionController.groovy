@@ -26,6 +26,28 @@ class ReceptionController {
 	String queryDate
 	static boolean todayFlag
 
+	def resetSearchPatHist()
+	{
+		FN2="^"
+		LN2="^"
+		A2="^"
+		M2="^"
+		MOB2="^"
+		def myPatients=db.rows("Select * from patient_details Where file is not null")
+		render(view:"ScanMyPatientHistory",model:[result:myPatients])
+	}
+	
+	def resetSearch()
+	{
+		FN="^"
+		LN="^"
+		A="^"
+		M="^"
+		MOB="^"
+		def myPatients=db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper}")
+		render(view:"ScanMyAppointments",model:[result:myPatients])
+	}
+	
 	def FNfunc(){
 		FN="^"+params.value
 		def myPatients
@@ -1026,7 +1048,7 @@ class ReceptionController {
 			}
 			i++;
 		}
-		[history:result]
+		[result:result]
 	}
 	
 	def FNfunc2(){

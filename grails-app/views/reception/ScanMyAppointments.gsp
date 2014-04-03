@@ -21,7 +21,7 @@
 									<th>Appointment Time</th>
 									<th>Scan Machine</th>
 									<th>Scan of</th>
-									<th>Mobile No</th>
+									<th>Mobile   No</th>
 									<th>View/Edit Appointment</th>
 								</tr>
 							</thead>
