@@ -3,5 +3,5 @@ ATARGS
 
 Appointment Tracking and Report Generation System
 
-
-Do not, I repeat DO NOT for heaven's sake PUT YOUR WAR FILES IN PROJECT!!!
+1) Do not put unneccessary file in project such as WAR file
+2) Remove all files from web-app/upload-check
