@@ -646,8 +646,8 @@ def notifymanually()
 		db.execute("UPDATE admin_settings SET value='${params["confirmedmsg"]}' WHERE entry='confirmmsg'")
 		
 		
-		db.execute("UPDATE admin_settings SET value='${params["smsservice"]}' WHERE entry='smsservice'")
-		db.execute("UPDATE admin_settings SET value='${params["emailservice"]}' WHERE entry='emailservice'")
+		db.execute("UPDATE admin_settings SET value='${params["smsservice"]}' WHERE entry='usesmsservice'")
+		db.execute("UPDATE admin_settings SET value='${params["emailservice"]}' WHERE entry='useemailservice'")
 		
 		AdminSettingsController.smsservice=String.valueOf(params['smsservice'])
 		AdminSettingsController.emailservice=String.valueOf(params['emailservice'])
