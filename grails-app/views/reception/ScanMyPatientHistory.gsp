@@ -38,10 +38,10 @@
 					<td>
 						${it.mobile}
 					</td>
-					<td><g:form action="editApp" method="post">
+					<td><g:form action="patientDetails" method="post">
 							<div class="buttons">
 								<span class="button"> <g:link params="${[p:it.id]}"
-										action="editApp">
+										action="patientDetails">
        									View</g:link>
 								</span>
 							</div>

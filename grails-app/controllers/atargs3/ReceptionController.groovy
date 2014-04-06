@@ -34,6 +34,23 @@ class ReceptionController {
 		M2="^"
 		MOB2="^"
 		def myPatients=db.rows("Select * from patient_details Where file is not null")
+		String str
+		int i=0
+		while(i<myPatients.size){
+			//print(myPatients.size)
+			str=myPatients[i].scanof
+			myPatients[i].scanof=""
+			def scan=str.split(";")
+			int j=0
+			if(!scan[0].equalsIgnoreCase("")){
+				while(j<scan.length){
+					def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+					myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+					j++
+				}
+			}
+			i++;
+		}
 		render(view:"ScanMyPatientHistory",model:[result:myPatients])
 	}
 	
@@ -45,6 +62,23 @@ class ReceptionController {
 		M="^"
 		MOB="^"
 		def myPatients=db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper}")
+		String str
+		int i=0
+		while(i<myPatients.size){
+			//print(myPatients.size)
+			str=myPatients[i].scanof
+			myPatients[i].scanof=""
+			def scan=str.split(";")
+			int j=0
+			if(!scan[0].equalsIgnoreCase("")){
+				while(j<scan.length){
+					def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+					myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+					j++
+				}
+			}
+			i++;
+		}
 		render(view:"ScanMyAppointments",model:[result:myPatients])
 	}
 	
@@ -55,6 +89,24 @@ class ReceptionController {
 			myPatients = db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
 		else
 			myPatients = db.rows("Select * from patient_details where confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		
+			String str
+			int i=0
+			while(i<myPatients.size){
+				//print(myPatients.size)
+				str=myPatients[i].scanof
+				myPatients[i].scanof=""
+				def scan=str.split(";")
+				int j=0
+				if(!scan[0].equalsIgnoreCase("")){
+					while(j<scan.length){
+						def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+						myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+						j++
+					}
+				}
+				i++;
+			}
 		render(view:"ScanMyAppointments",model:[result:myPatients])
 	}
 
@@ -65,6 +117,24 @@ class ReceptionController {
 			myPatients = db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
 		else
 			myPatients = db.rows("Select * from patient_details where confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		
+			String str
+			int i=0
+			while(i<myPatients.size){
+				//print(myPatients.size)
+				str=myPatients[i].scanof
+				myPatients[i].scanof=""
+				def scan=str.split(";")
+				int j=0
+				if(!scan[0].equalsIgnoreCase("")){
+					while(j<scan.length){
+						def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+						myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+						j++
+					}
+				}
+				i++;
+			}
 		render(view:"ScanMyAppointments",model:[result:myPatients])
 	}
 
@@ -75,6 +145,24 @@ class ReceptionController {
 			myPatients = db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
 		else
 			myPatients = db.rows("Select * from patient_details where confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		
+			String str
+			int i=0
+			while(i<myPatients.size){
+				//print(myPatients.size)
+				str=myPatients[i].scanof
+				myPatients[i].scanof=""
+				def scan=str.split(";")
+				int j=0
+				if(!scan[0].equalsIgnoreCase("")){
+					while(j<scan.length){
+						def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+						myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+						j++
+					}
+				}
+				i++;
+			}
 		render(view:"ScanMyAppointments",model:[result:myPatients])
 	}
 
@@ -85,6 +173,24 @@ class ReceptionController {
 			myPatients = db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
 		else
 			myPatients = db.rows("Select * from patient_details where confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		
+			String str
+			int i=0
+			while(i<myPatients.size){
+				//print(myPatients.size)
+				str=myPatients[i].scanof
+				myPatients[i].scanof=""
+				def scan=str.split(";")
+				int j=0
+				if(!scan[0].equalsIgnoreCase("")){
+					while(j<scan.length){
+						def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+						myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+						j++
+					}
+				}
+				i++;
+			}
 		render(view:"ScanMyAppointments",model:[result:myPatients])
 	}
 
@@ -95,6 +201,24 @@ class ReceptionController {
 			myPatients = db.rows("Select * from patient_details Where confirmed_date>=${lower} AND confirmed_date < ${upper} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
 		else
 			myPatients = db.rows("Select * from patient_details where confirmed_date REGEXP ${queryDate} and firstname REGEXP ${FN} and lastname REGEXP ${LN} and age REGEXP ${A} and machine REGEXP ${M} and mobile REGEXP ${MOB}")
+		
+			String str
+			int i=0
+			while(i<myPatients.size){
+				//print(myPatients.size)
+				str=myPatients[i].scanof
+				myPatients[i].scanof=""
+				def scan=str.split(";")
+				int j=0
+				if(!scan[0].equalsIgnoreCase("")){
+					while(j<scan.length){
+						def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+						myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+						j++
+					}
+				}
+				i++;
+			}
 		render(view:"ScanMyAppointments",model:[result:myPatients])
 	}
 	def create(){
@@ -165,7 +289,7 @@ class ReceptionController {
 		}
 		def freeslots = new int[21];
 		d = new Date()
-		d.putAt(Calendar.HOUR, 0)
+		d.putAt(Calendar.HOUR_OF_DAY, 0)
 		d.putAt(Calendar.MINUTE, 0)
 		d.putAt(Calendar.SECOND, 0)
 		def t1 = AdminSettings.findByEntry("centerStartTime")
@@ -175,7 +299,7 @@ class ReceptionController {
 		String t22 = t2.value.toString()
 
 		int time_req=60
-
+		
 		int starttime = Integer.parseInt(t11.split(":")[0]) * 60 + Integer.parseInt(t11.split(":")[1])
 		int endtime = Integer.parseInt(t22.split(":")[0]) * 60 + Integer.parseInt(t22.split(":")[1])
 		int starttime_min=Integer.parseInt(t11.split(":")[1])
@@ -183,6 +307,7 @@ class ReceptionController {
 		int intervals = workinghours / time_req;
 		int totalNoOfIntervals=intervals
 		for ( i = 0 ; i < 21; i++){
+			
 			freeslots[i] = intervals - PatientDetails.countByConfirmedDateBetween(d, d + 1);
 
 			d++;
@@ -517,6 +642,7 @@ class ReceptionController {
 			//				String msisdn=res211.substring(1, res211.length()-1)
 			//				entryToBeUpdated.mobile
 
+			if(temp!=null){
 			try{
 				sendMail {
 					multipart true
@@ -535,8 +661,9 @@ class ReceptionController {
 				render(view:"selectFile")
 				return
 			}
+			}
 
-			SendsmsController.smslane_single_no("91"+entryToBeUpdated.mobile,"Your Report is ready.You can download it by using the foll otp(one time password ${otp}) ")
+			SendsmsController.smslane_single_no("91"+entryToBeUpdated.mobile,"Your Report is ready.You can download it by using the following otp(one time password ${otp}) ")
 			if(temp!=null)
 				SendsmsController.smslane_single_no("91"+temp.mobile,"Report of your patient ${entryToBeUpdated.firstname}  ${entryToBeUpdated.lastname} is ready.Summary:${sum}.You can download it. ")
 
@@ -597,7 +724,7 @@ class ReceptionController {
 			entry?.pregnant="-"
 		else if(params["pregnant"].toString().equalsIgnoreCase("Yes"))
 			entry?.pregnant="Yes"
-		entry.clinicalhistory=params["history"]
+		entry.clinicalhistory=params["history"].toString().trim()
 		int i
 		if(params["diseasehistory"]!=null){
 			if(params["diseasehistory"].toString().split(",").size()==1)
@@ -778,7 +905,7 @@ class ReceptionController {
 			smsEntry?.pregnant="Yes"
 
 		if(params["history"]!=null)
-			smsEntry.clinicalhistory=params["history"]
+			smsEntry.clinicalhistory=params["history"].toString().trim()
 
 		smsEntry.save()
 
@@ -1055,6 +1182,24 @@ class ReceptionController {
 		FN2="^"+params.value
 		def myPatients
 		myPatients = db.rows("Select * from patient_details Where firstname REGEXP ${FN2} and lastname REGEXP ${LN2} and age REGEXP ${A2} and machine REGEXP ${M2} and mobile REGEXP ${MOB2} and file != 'null'")
+		String str
+		int i=0
+		while(i<myPatients.size){
+			//print(myPatients.size)
+			str=myPatients[i].scanof
+			myPatients[i].scanof=""
+			def scan=str.split(";")
+			int j=0
+			if(!scan[0].equalsIgnoreCase("")){
+				while(j<scan.length){
+					def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+					myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+					j++
+				}
+			}
+			i++;
+		}
+		
 		render(view:"ScanMyPatientHistory",model:[result:myPatients])
 	}
 
@@ -1062,6 +1207,24 @@ class ReceptionController {
 		LN2="^"+params.value
 		def myPatients
 		myPatients = db.rows("Select * from patient_details Where firstname REGEXP ${FN2} and lastname REGEXP ${LN2} and age REGEXP ${A2} and machine REGEXP ${M2} and mobile REGEXP ${MOB2} and file != 'null'")
+		String str
+		int i=0
+		while(i<myPatients.size){
+			//print(myPatients.size)
+			str=myPatients[i].scanof
+			myPatients[i].scanof=""
+			def scan=str.split(";")
+			int j=0
+			if(!scan[0].equalsIgnoreCase("")){
+				while(j<scan.length){
+					def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+					myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+					j++
+				}
+			}
+			i++;
+		}
+		
 		render(view:"ScanMyPatientHistory",model:[result:myPatients])
 	}
 
@@ -1069,6 +1232,24 @@ class ReceptionController {
 		A2="^"+params.value
 		def myPatients
 		myPatients = db.rows("Select * from patient_details Where firstname REGEXP ${FN2} and lastname REGEXP ${LN2} and age REGEXP ${A2} and machine REGEXP ${M2} and mobile REGEXP ${MOB2} and file != 'null'")
+		String str
+		int i=0
+		while(i<myPatients.size){
+			//print(myPatients.size)
+			str=myPatients[i].scanof
+			myPatients[i].scanof=""
+			def scan=str.split(";")
+			int j=0
+			if(!scan[0].equalsIgnoreCase("")){
+				while(j<scan.length){
+					def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+					myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+					j++
+				}
+			}
+			i++;
+		}
+		
 		render(view:"ScanMyPatientHistory",model:[result:myPatients])
 	}
 
@@ -1076,6 +1257,24 @@ class ReceptionController {
 		M2="^"+params.value
 		def myPatients
 		myPatients = db.rows("Select * from patient_details Where firstname REGEXP ${FN2} and lastname REGEXP ${LN2} and age REGEXP ${A2} and machine REGEXP ${M2} and mobile REGEXP ${MOB2} and file != 'null'")
+		String str
+		int i=0
+		while(i<myPatients.size){
+			//print(myPatients.size)
+			str=myPatients[i].scanof
+			myPatients[i].scanof=""
+			def scan=str.split(";")
+			int j=0
+			if(!scan[0].equalsIgnoreCase("")){
+				while(j<scan.length){
+					def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+					myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+					j++
+				}
+			}
+			i++;
+		}
+		
 		render(view:"ScanMyPatientHistory",model:[result:myPatients])
 	}
 
@@ -1083,7 +1282,57 @@ class ReceptionController {
 		MOB2="^"+params.value
 		def myPatients
 		myPatients = db.rows("Select * from patient_details Where firstname REGEXP ${FN2} and lastname REGEXP ${LN2} and age REGEXP ${A2} and machine REGEXP ${M2} and mobile REGEXP ${MOB2} and file != 'null'")
+		String str
+		int i=0
+		while(i<myPatients.size){
+			//print(myPatients.size)
+			str=myPatients[i].scanof
+			myPatients[i].scanof=""
+			def scan=str.split(";")
+			int j=0
+			if(!scan[0].equalsIgnoreCase("")){
+				while(j<scan.length){
+					def getValue=ScanInformation.get(Integer.parseInt(scan[j]))
+					myPatients[i].scanof=myPatients[i].scanof.concat(getValue.info+";")
+					j++
+				}
+			}
+			i++;
+		}
+		
 		render(view:"ScanMyPatientHistory",model:[result:myPatients])
+	}
+	
+	def patientDetails(){
+		def entry=PatientDetails.get(params.get("p"))
+		def db=new Sql(dataSource)
+		def result=db.rows("Select * from patient_details Where id=${params.get("p")}")
+		def checkBoxInfo=new int[28]
+		print("hiiii   "+entry.scanof.concat(entry.disease).concat(entry.harmfulitems))
+		//print("hiii   "+entry.scanof.class.toString())
+		def checked=entry.scanof.concat(entry.disease).concat(entry.harmfulitems).split(";")
+		print(checked[0].class.toString())
+		int i=0
+		while(i<checked.length && !checked[0].equalsIgnoreCase("")){
+			checkBoxInfo[Integer.parseInt(checked[i])-1]=1
+			i++;
+		}
+		print("hello "+checkBoxInfo)
+		[req_entry:result,checkBoxInfo:checkBoxInfo]
+	}
+	
+	def getReport(){
+		if(String.valueOf(session['usertype']).equals("GuestUser"))
+		redirect(action:'create')
+
+		println params.patientId
+		def temp=PatientDetails.findById(params.patientId)
+		def fl=new File(temp.file)
+		println fl.name+" "+fl.absolutePath+" "+fl.size()
+		response.setContentType("application/pdf")
+		response.setHeader("Content-disposition", "attachment;fileName=\"${fl.name}\"")
+		response.outputStream<<fl.bytes
+		
 	}
 
 

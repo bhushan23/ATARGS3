@@ -26,7 +26,7 @@ def dataSource
 				String getpriority="priority"+choice
 				def temp=PatientDetails.findWhere(mobile:"${sender}")
 				if(temp==null)
-				render("we don't have any appointment booked from this mobile number please call customer care")
+				render("We don't have any appointment booked from this mobile number.Please call customer care")
 				else{
 
 
@@ -61,7 +61,7 @@ def dataSource
 								 
 								}
 									}else{
-							render("Your Appointment is Online. You will shortly receive about confirmation Appontment date")
+							render("You have already booked your appointment using the Online Booking Facility. You will be shortly informed about the confirmation of your Appointment")
 						}
 					}else{
 
@@ -92,7 +92,7 @@ def dataSource
 				String getpriority="priority"+choice
 				def temp=PatientDetails.findWhere(mobile:"${sender}")
 				if(temp==null)
-					render("we don't have any appointment booked from this mobile number please call customer care")
+					render("We don't have any appointment booked from this mobile number. Please call customer care")
 				else{
 
 
@@ -116,14 +116,14 @@ def dataSource
 								
 									}else{
 									//Appointment not available please TRY AGAIN
-									render("Sorry. Your Previous Priorities are NOT AVAILABLE Please BOOK APPOINTMENT AGAIN")
+									render("Sorry. Your Previous Priorities are NOT AVAILABLE. Please BOOK APPOINTMENT AGAIN")
 									}
 							
 							
 							
 								}
 						}else{
-							render("Your Appointment is Online. You will shortly receive about confirmation Appontment date")
+							render("You have already booked your appointment using the Online Booking Facility. You will be shortly informed about the confirmation of your Appointment")
 						}
 					}else{
 
@@ -158,7 +158,7 @@ String shortcode=AdminSettingsController.smscode;
 				String getpriority="priority"+choice
 				def temp=PatientDetails.findWhere(mobile:"${sender}")
 				if(temp==null)
-					render("we don't have any appointment booked from this mobile number please call customer care")
+					render("We don't have any appointment booked from this mobile number.Please call customer care")
 				else{
 
 
@@ -169,7 +169,7 @@ String shortcode=AdminSettingsController.smscode;
 							temp.confirmedDate=temp.priority3
 							render("Your Appointment of Date '${temp.confirmedDate}' has been confirmed "+AdminSettingsController.confirmedsms)
 						}else{
-							render("Your Appointment is Online. You will shortly receive about confirmation Appontment date")
+							render("You have already booked your appointment using the Online Booking Facility. You will be shortly informed about the confirmation of your Appointment")
 						}
 					}else{
 
@@ -198,14 +198,14 @@ String shortcode=AdminSettingsController.smscode;
 
 			def temp=PatientDetails.findWhere(mobile:"${sender}")
 			if(temp==null)
-				render("we don't have any appointment booked from this mobil number please call customer care")
+				render("We don't have any appointment booked from this mobile number.Please call customer care")
 			else{
 				PatientDetails.executeUpdate("delete PatientDetails p where p.mobile =:sender1",[sender1:sender])
 				render("Your Appointment has been Canceled. To book an appointment type ${shortcode} {date E.g. 2014-01-24} Machine {MRI or CT}")
 			}
 		}
 		else
-			render("Invalid Message Please take care of Message Format")
+			render("Invalid Message. Please take care of Message Format")
 	}
 
 	def getbydate(){
@@ -304,7 +304,7 @@ String shortcode=AdminSettingsController.smscode;
 					
 					if(cur_date > d1){
 
-						render("Date you have requested has already passed. please Message valid date.$cur_date and $d1")
+						render("Date you have requested has already passed. Please Message valid date.$cur_date and $d1")
 					}
 
 					else {
@@ -389,9 +389,9 @@ String shortcode=AdminSettingsController.smscode;
 						pd?.firstname = "fname"
 						pd?.middlename = "mname"
 						pd?.lastname ="lname"
-						pd?.age = 12
+						pd?.age = 40
 						pd?.gender = "Male"
-						pd?.address = "a"
+						pd?.address = ""
 						pd?.machine = machineselected
 						//pd?.email = "email@em.com"
 						pd?.mobile = sender
@@ -416,7 +416,7 @@ String shortcode=AdminSettingsController.smscode;
 					render("Please input Correct MSG eg. ${shortcode} 2014-01-01 MRI ${sender}  ${msg}")
 				}
 			}else{
-				render("We have encounter an appointment from this number to get another appointment please proceed previous appointment or call customer care")
+				render("We have encountered an appointment from this number. To get another appointment please proceed previous appointment or call customer care")
 			}
 		
 		}else{
@@ -448,7 +448,7 @@ String shortcode=AdminSettingsController.smscode;
 
 				def temp = PatientDetails.findWhere(mobile:senderc)
 				if(temp==null)
-					render ("Your Appointment has not confirmed Please call Customer Care 918983062202")
+					render ("Your Appointment has not been confirmed. Please call Customer Care 918983062202")
 				else{
 					String to_confirm="priority"+choice
 					switch(Integer.parseInt(choice)){
@@ -462,7 +462,7 @@ String shortcode=AdminSettingsController.smscode;
 							temp.confirmedDate=temp.priority1
 							break;
 						default:
-							render("Your Appointment has not confirmed Please call Customer Care 918983062202")
+							render("Your Appointment has not been confirmed. Please call Customer Care 918983062202")
 					}
 
 					String confirmeddate=String.valueOf(temp.confirmedDate);

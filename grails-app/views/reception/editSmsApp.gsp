@@ -83,16 +83,13 @@
 									<td><select name="gender">
 											<g:if test="${it.gender == 'Male'}">
 											<option value="Male" selected>Male</option>
-											</g:if>
-											<g:else>
-											<option value="Male" >Male</option>
-											</g:else>
-											<g:if test="${it.gender == 'Female'}">
-											<option value="Female" selected>Female</option>
-											</g:if>
-											<g:else>
 											<option value="Female" >Female</option>
-											</g:else>
+											</g:if>
+											<g:elseif test="${it.gender == 'Female'}">
+											<option value="Female" selected>Female</option>
+											<option value="Male" >Male</option>
+											</g:elseif>
+											
 
 									</select></td>
 								</tr>
@@ -283,7 +280,7 @@
 								<tr>
 									<td>Clinical History</td>
 									<td><textarea name="history" rows="4" cols="40"
-											style="width: 25%"></textarea></td>
+											style="width: 25%">${it.clinicalhistory }</textarea></td>
 								</tr>
 								<tr>
 									<td></td>

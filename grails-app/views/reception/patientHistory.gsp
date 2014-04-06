@@ -7,7 +7,7 @@
 <meta name="layout" content="main">
 <r:require modules="bootstrap" />
 <r:layoutResources />
-<title>New Appointments</title>
+<title>Patient History</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
@@ -76,8 +76,8 @@
 							<g:remoteField name="A" action="Afunc2" id="age"
 								update="PatientHistoryTable" placeholder="age" size="21" /> <g:remoteField
 								id="mac" name="M" action="Mfunc2" update="PatientHistoryTable"
-								placeholder="m/c" size="24" /> <g:remoteField name="MOB" id="mob"
-								action="MOBfunc2" update="PatientHistoryTable"
+								placeholder="m/c" size="24" /> <g:remoteField name="MOB"
+								id="mob" action="MOBfunc2" update="PatientHistoryTable"
 								placeholder="mobile" size="12" /> <g:submitToRemote
 								before="clearSearch()" class="btn-warning"
 								update="PatientHistoryTable" value="Reset"
@@ -101,6 +101,7 @@
 									<th>Scan Machine</th>
 									<th>Scan of</th>
 									<th>Mobile No</th>
+									<th>Patient Details</th>
 									<th>Report</th>
 								</tr>
 							</thead>
@@ -127,14 +128,19 @@
 											${it.mobile}
 										</td>
 
-										<td><g:form action="editApp" method="post">
+										<td><g:form action="patientDetails" method="post">
 												<div class="buttons">
 													<span class="button"> <g:link params="${[p:it.id]}"
-															action="editApp">
+															action="patientDetails">
        									View</g:link>
 													</span>
 												</div>
 											</g:form></td>
+										<td>
+										<g:link  controller="Reception"
+													action="getReport" params="${[patientId:it.id]}">View
+													</g:link>
+													</td>
 									</tr>
 								</g:each>
 							</tbody>

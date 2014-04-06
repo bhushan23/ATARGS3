@@ -75,7 +75,7 @@
 
 								<tr>
 
-									<th>ID</th>
+									
 									<th>Machine</th>
 									<th>Mobile No.</th>
 									<th>Appointment Timing</th>
@@ -85,7 +85,7 @@
 							<tbody>
 								<g:each in="${appViaSms}">
     	<tr>
-    	<td>${it.id}</td>
+    	
         <td>${it.machine}</td>
         <td>${it.mobile}</td>
         <td>${it.confirmed_date }
