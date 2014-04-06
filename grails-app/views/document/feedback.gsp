@@ -28,8 +28,15 @@
 										${flash.messageFB}
 									</div>
 		</g:if>
+		
+		<g:if test="${flash.messageDL}">
+									<div class="alert alert-danger">
+										${flash.messageDL}
+									</div>
+		</g:if>
+		
 		<center><h1 class="text-muted">FeedBack Form</h1></center>
-		 <g:form controller="document"action="download">
+		 <g:form controller="document"action="savefeedback">
 		 <div class="table-responsive">
 
 					<table 	class="table table-striped">
@@ -95,7 +102,7 @@
    
    </table> 
    </div>
-   <g:submitButton name="submit" class="btn btn-success" value="SUBMIT" action="download" />
+   <g:submitButton name="submit" class="btn btn-success" value="SUBMIT" action="savefeedback" />
 </g:form>
 		<!-- Bootstrap core JavaScript
     ================================================== -->
