@@ -52,26 +52,29 @@ expressionOut.print(flash.message)
 printHtmlPart(15)
 }
 printHtmlPart(16)
-createClosureForHtmlPart(17, 4)
-invokeTag('link','g',91,['controller':("login"),'action':("SignupAsReceptionist"),'class':("btn btn-large btn-success")],4)
-printHtmlPart(18)
 })
-invokeTag('form','g',94,['action':("admin_login_function"),'method':("post"),'class':("form-signin")],3)
+invokeTag('form','g',90,['action':("admin_login_function"),'method':("post"),'class':("form-signin")],3)
 printHtmlPart(11)
 }
-printHtmlPart(19)
+printHtmlPart(17)
 })
-invokeTag('captureBody','sitemesh',99,[:],1)
-printHtmlPart(20)
+invokeTag('captureBody','sitemesh',91,[:],1)
+printHtmlPart(18)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1389680214000L
+public static final long LAST_MODIFIED = 1396770998544L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [91, 91, 91, 91, 91, 91, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 5, 5, 6, 6, 8, 8, 8, 8, 8, 8, 8, 42, 42, 43, 50, 50, 50, 50, 52, 52, 57, 57, 57, 61, 61, 62, 62, 63, 66, 72, 72, 72, 72, 74, 74, 77, 77, 90, 90, 90, 90, 90, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91],
+	sourceName = "login.gsp"
+)
+class ___LineNumberPlaceholder { }

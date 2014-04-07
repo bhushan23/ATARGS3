@@ -7,7 +7,7 @@
 <meta name="layout" content="main">
 <r:require modules="bootstrap" />
 <r:layoutResources />
-<title>Dashboard Template for Bootstrap</title>
+<title>Appointments taken via SMS</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"

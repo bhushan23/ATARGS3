@@ -10,7 +10,7 @@
 <meta name="layout" content="main">
 <r:require modules="bootstrap" />
 <r:layoutResources />
-<title>Dashboard Template for Bootstrap</title>
+<title>Dashboard</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"

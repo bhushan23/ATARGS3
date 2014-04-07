@@ -5,7 +5,7 @@
 <meta name="layout" content="main">
 <r:require modules="bootstrap" />
 <r:layoutResources />
-<title>Edit Appointment</title>
+<title>Change Password</title>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet"
