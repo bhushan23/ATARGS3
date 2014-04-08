@@ -61,7 +61,7 @@ body {
 			<g:hasErrors bean="${receptionInstance}">
 			<ul class="errors" role="alert">
 				<g:eachError bean="${receptionInstance}" var="error">
-				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+				<li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="The entered ${error.field} is already in use.Please enter another one. "/></li>
 				</g:eachError>
 			</ul>
 			</g:hasErrors>

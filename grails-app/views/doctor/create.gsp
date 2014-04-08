@@ -1,9 +1,13 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
 		
-	<style type="text/css">
+		<g:set var="entityName" value="${message(code: 'doctor.label', default: 'Doctor')}" />
+		<title><g:message code="default.create.label" args="[entityName]" /></title>
+	
+		<style type="text/css">
 body {
 	padding-top: 40px;
 	padding-bottom: 40px;
@@ -37,28 +41,29 @@ body {
 </style>
 	</head>
 	<body>
-	<div class="container">
+		<div class="container">
 <br>
 <br>
 	<div class="form-signin">
 					<div class="input">
 						
 						<g:if test="${flash.message}">
-								<div class="alert alert-danger">
+								<div class="alert alert -danger">
 									${flash.message}
 								</div>
 							
 						</g:if>
-		<legend><h2>Create New Refferal Doctor Account</h2></legend>
+		<legend><h2>Create New Doctor Account</h2></legend>
+		
 		<div id="create-doctor" class="content scaffold-create" role="main">
-			
+		
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<g:hasErrors bean="${doctorInstance}">
 			<ul class="alert alert-danger" role="alert">
 				<g:eachError bean="${doctorInstance}" var="error">
-				<li   <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>> <g:message error="Invalid ${error.field} "/></li>
+				<li   <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>> <g:message error="The entered ${error.field} is already in use.Please enter another one. "/></li>
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
@@ -68,13 +73,11 @@ body {
 				</fieldset>
 				<fieldset class="buttons">
 				
-					<g:submitButton	 style="width:150px" name="create" class="save btn btn-large btn-info" value="Create" />
+					<g:submitButton name="create" class="save btn btn-lg btn-info" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
 			</g:form>
 		</div>
 		</div>
-	
-		
 		</div>
 		</div>
 	</body>

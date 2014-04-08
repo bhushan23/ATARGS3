@@ -37,7 +37,7 @@
 	</label>
 </td><td>
 
-<g:passwordField name="password" required="" value="${doctorInstance?.password}" style="height:100%"/>
+<g:passwordField name="password" required="" value="" style="height:100%"/>
 </td></div></tr>
 
 <tr>
@@ -60,10 +60,10 @@
 </tr>
 
 <tr>
-<div class="fieldcontain ${hasErrors(bean: doctorInstance, field: 'email', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: doctorInstance, field: 'email', 'error')} required">
 <td>	<label for="email">
 		<g:message code="doctor.email.label" default="Email" />
-		
+		<span class="required-indicator">*</span>
 	</label>
 </td><td>	<g:field type="email" name="email" value="${doctorInstance?.email}"  style="width:60%" class="input-block-level"/></td>
 </div></tr>

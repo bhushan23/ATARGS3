@@ -52,7 +52,7 @@ body {
 								</div>
 							
 						</g:if>
-		<legend><h2>Create New Account</h2></legend>
+		<legend><h2>Create New Reception Account</h2></legend>
 		
 		<div id="create-reception" class="content scaffold-create" role="main">
 		
@@ -62,7 +62,7 @@ body {
 			<g:hasErrors bean="${receptionInstance}">
 			<ul class="alert alert-danger" role="alert">
 				<g:eachError bean="${receptionInstance}" var="error">
-				<li   <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>> <g:message error="Invalid ${error.field} "/></li>
+				<li   <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>> <g:message error="The entered ${error.field} is already in use.Please enter another one. "/></li>
 				</g:eachError>
 			</ul>
 			</g:hasErrors>

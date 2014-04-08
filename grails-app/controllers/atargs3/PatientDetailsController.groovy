@@ -21,7 +21,7 @@ class PatientDetailsController {
 	static int age;
 	int time_req,total_no_of_slots   //k is no_of_slots in 1 hour,time_req is the time required for a single CT or MRI scan
 	float k
-	def historyMN, historyAddress, historyCity, historyState, historyClinicalHistory,historyPincode
+	def historyMN, historyAddress, historyCity, historyState, historyClinicalHistory,historyPincode,historyPregnant
 	//static scaffold = PatientDetails
 
 	/*ORGANISED CODE*/
@@ -102,7 +102,10 @@ class PatientDetailsController {
 		redirect (action: "SelectDate")
 	}
 	
-	def PersonalDetails={}
+	def PersonalDetails(){
+		
+		
+	}
 	
 	def savePersonalDetails() {
 		
@@ -118,8 +121,46 @@ class PatientDetailsController {
 		historyCity=params["city"]
 		historyState=params["state"]
 		historyClinicalHistory=params["history"]
+		historyPregnant=params["pregnant"]
 		//int s=params["a"].toString().split(",").size()
 		
+		//print("fgdgd   "+params["diseasehistory"][0])
+		def checkBoxInfo=new int[28]
+		if(params["diseasehistory"]!=null){
+			if(params["diseasehistory"].class.toString().equalsIgnoreCase("class java.lang.String"))
+				checkBoxInfo[Integer.parseInt(params["diseasehistory"])-1]=1
+			else{
+			int i=0
+			while(i<(params["diseasehistory"].length)){
+				checkBoxInfo[Integer.parseInt(params["diseasehistory"][i])-1]=1
+				i++
+			}
+			}
+		}
+		if(params["harmful"]!=null){
+			if(params["harmful"].class.toString().equalsIgnoreCase("class java.lang.String"))
+				checkBoxInfo[Integer.parseInt(params["harmful"])-1]=1
+			else{
+			int i=0
+			while(i<(params["harmful"].length)){
+				checkBoxInfo[Integer.parseInt(params["harmful"][i])-1]=1
+				i++
+			}
+			}
+		}
+		if(params["scanpart"]!=null){
+			if(params["scanpart"].class.toString().equalsIgnoreCase("class java.lang.String"))
+				checkBoxInfo[Integer.parseInt(params["scanpart"])-1]=1
+			else{
+			int i=0
+			while(i<(params["scanpart"].length)){
+				checkBoxInfo[Integer.parseInt(params["scanpart"][i])-1]=1
+				i++
+			}
+			}
+		}
+		
+		print("fgdfg  "+checkBoxInfo)
 		
 		//disease=
 		//print(params.a[0])
@@ -170,7 +211,7 @@ class PatientDetailsController {
 		}
 		if(redirectFlag)
 		{
-			render(view:"PersonalDetails", model:[machine:machine,doctors:docList,tempMOB:tempMOB,tempFN:tempFN,tempLN:tempLN,tempAGE:tempAGE,email:email,historyMN:historyMN,historyAddress:historyAddress, historyCity:historyCity, historyState:historyState, historyClinicalHistory:historyClinicalHistory,historyPincode:historyPincode])
+			render(view:"PersonalDetails", model:[machine:machine,doctors:docList,tempMOB:tempMOB,tempFN:tempFN,tempLN:tempLN,tempAGE:tempAGE,email:email,historyMN:historyMN,historyAddress:historyAddress, historyCity:historyCity, historyState:historyState, historyClinicalHistory:historyClinicalHistory,historyPincode:historyPincode,checkBoxInfo:checkBoxInfo,historyPregnant:historyPregnant])
 			return
 		}
 
@@ -529,14 +570,16 @@ class PatientDetailsController {
 		{
 			def db=new Sql(dataSource)
 			docList=db.rows("Select * from doctor")
-			render(view:"PersonalDetails", model:[machine:machine,doctors:docList])
+			def checkBoxInfo=new int[28]
+			historyPregnant="No"
+			print("check  "+checkBoxInfo+"  "+historyPregnant)
+			
+			render(view:"PersonalDetails", model:[machine:machine,doctors:docList,checkBoxInfo:checkBoxInfo,historyPregnant:historyPregnant])
 		}
 
 	}
 
-	def PersonalDetails() {
-		
-	}
+	
 
 
 	def ContactDetails() {
