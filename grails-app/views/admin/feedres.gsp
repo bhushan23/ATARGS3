@@ -68,25 +68,25 @@
 								<th>Poor</th>
 							</tr>
 							<tr>
-							<td>Service</td>
+							<td>Service given at the front desk</td>
 							<td>${gfblist[0]}</td>
 							<td>${gfblist[1]}</td>
 							<td>${gfblist[2]}</td>
 							</tr>
 							<tr>
-							<td>Staff Behavior</td>
+							<td>Staff Behaviour</td>
 							<td>  ${gfblist[3]}</td>
 							<td>  ${gfblist[4]}</td>
 							<td>  ${gfblist[5]}</td>
 							</tr>
 							<tr>
-							<td>Technician</td>
+							<td>Procedure explanation by the Technician</td>
 							<td>  ${gfblist[6]}</td>
 							<td>  ${gfblist[7]}</td>
 							<td>  ${gfblist[8]}</td>
 							</tr>
 							<tr>
-							<td>Usefulness</td>
+							<td>Usefulness of online appointment scheduling and report downloading facility</td>
 							<td>  ${gfblist[9]}</td>
 							<td>  ${gfblist[10]}</td>
 							<td>  ${gfblist[11]}</td>

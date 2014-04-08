@@ -626,9 +626,14 @@ class ReceptionController {
 			for(int i=0;i<temp3.length();i++){
 				val3=val3+(int)temp3.charAt(i);
 			}
-
-			otp=(val1*val2)+val3;
-
+			int minimum=1
+			int maximum=49
+			int r
+//			Random r=new Random()
+			r = minimum + (int)(Math.random()*maximum);
+			otp=(val1*val2)+val3+r;
+			
+			
 			//db.execute("UPDATE patient set otp='$otp' where id='$ppid'")
 
 
@@ -636,6 +641,7 @@ class ReceptionController {
 			//			entryToBeUpdated.expDate=sdue
 			entryToBeUpdated.docid=documentInstance.id
 			entryToBeUpdated.otp=otp
+			
 
 			//				def result11 = db.rows("SELECT contact FROM patient WHERE id='$ppid'")
 			//				String res211= result11['contact']
@@ -648,7 +654,7 @@ class ReceptionController {
 					multipart true
 					to  temp.email
 					subject "Report of  ${entryToBeUpdated.firstname}  ${entryToBeUpdated.lastname} Sent from Atargs"
-					body "This is the detailed ${entryToBeUpdated.machine} report of ${entryToBeUpdated.firstname}  ${entryToBeUpdated.lastname}.Please check it.\nThank you\nPOONA HOSPITAL"
+					body "This is the detailed ${entryToBeUpdated.machine} report of ${entryToBeUpdated.firstname}  ${entryToBeUpdated.lastname}.Please check it.\nThank you\nPoona Diagnostic Services"
 
 					//attachBytes 'Marks1','application/pdf', new File('/home/amr/Desktop/ADS TA Marks Sem 1 AY 13-14.pdf').readBytes()
 					attachBytes tobemail,'application/pdf',f1.readBytes()
@@ -662,8 +668,28 @@ class ReceptionController {
 				return
 			}
 			}
+			
 
-			SendsmsController.smslane_single_no("91"+entryToBeUpdated.mobile,"Your Report is ready.You can download it by using the following otp(one time password ${otp}) ")
+			SendsmsController.smslane_single_no("91"+entryToBeUpdated.mobile,"Your Report is ready.You can download it by using the foll otp(one time password ${otp}) \nThank you\nPoona Diagnostic Services")
+			print "email: "+entryToBeUpdated.email
+			if(!entryToBeUpdated.email.equalsIgnoreCase("")){
+			try{
+				sendMail {
+					multipart true
+					to  entryToBeUpdated.email
+					subject "OTP of  ${entryToBeUpdated.firstname}  ${entryToBeUpdated.lastname} Sent from Atargs"
+					body "Your Report for ${entryToBeUpdated.machine} is ready.You can download it by using the following One Time Password(OTP) : ${otp}"
+
+				}
+			}catch(Exception e){
+				System.out.println(e.printStackTrace());
+				print "email: "+entryToBeUpdated.email
+				flash.messageEMAIL="Check Internet Connection."
+				return
+			}
+			}
+
+			
 			if(temp!=null)
 				SendsmsController.smslane_single_no("91"+temp.mobile,"Report of your patient ${entryToBeUpdated.firstname}  ${entryToBeUpdated.lastname} is ready.Summary:${sum}.You can download it. ")
 

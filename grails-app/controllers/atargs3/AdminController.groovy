@@ -622,11 +622,11 @@ def notifymanually()
 		flash.message="Please check the entered closing time.Center should close after its opening time. "
 		redirect(action:'ControlPanel');
 		}else if(!params['smsservice']){
-		flash.message="Please check Yes or No SMS Messaging service"
+		flash.message="Please select Yes or No for SMS Messaging service"
 		redirect(action:'ControlPanel');
 		
 	}else if(!params['emailservice']){
-		flash.message="Please check Yes or No email service"
+		flash.message="Please select Yes or No for email service"
 		redirect(action:'ControlPanel');
 		
 	}else{

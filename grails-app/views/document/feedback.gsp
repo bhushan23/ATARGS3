@@ -71,7 +71,7 @@
          
          <tr>
          <td>
-		 <label for='radio4'>Did the technician explain the procedure?</label>
+		 <label for='radio4'>How was the explanation regarding the procedure given by the technician? </label>
 		 </td>
 		 <td>
 		 <input type="radio" value="Poor" name="radio4">&nbsp Poor
