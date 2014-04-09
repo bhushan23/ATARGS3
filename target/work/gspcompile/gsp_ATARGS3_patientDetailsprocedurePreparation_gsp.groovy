@@ -19,34 +19,46 @@ printHtmlPart(1)
 invokeTag('captureMeta','sitemesh',5,['gsp_sm_xmlClosingForEmptyTag':(""),'http-equiv':("X-UA-Compatible"),'content':("IE=edge")],-1)
 printHtmlPart(1)
 invokeTag('captureMeta','sitemesh',6,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("viewport"),'content':("width=device-width, initial-scale=1.0")],-1)
-printHtmlPart(2)
+printHtmlPart(1)
 createTagBody(2, {->
-createClosureForHtmlPart(3, 3)
-invokeTag('captureTitle','sitemesh',8,[:],3)
+createClosureForHtmlPart(2, 3)
+invokeTag('captureTitle','sitemesh',7,[:],3)
 })
-invokeTag('wrapTitleTag','sitemesh',8,[:],2)
+invokeTag('wrapTitleTag','sitemesh',7,[:],2)
 printHtmlPart(1)
-invokeTag('require','r',9,['modules':("bootstrap")],-1)
+invokeTag('require','r',8,['modules':("bootstrap")],-1)
 printHtmlPart(1)
-invokeTag('layoutResources','r',10,[:],-1)
-printHtmlPart(4)
+invokeTag('layoutResources','r',9,[:],-1)
+printHtmlPart(1)
+invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("layout"),'content':("main")],-1)
+printHtmlPart(3)
 expressionOut.print(resource(dir: 'css', file: 'offcanvas.css'))
-printHtmlPart(5)
+printHtmlPart(4)
 })
 invokeTag('captureHead','sitemesh',15,[:],1)
-printHtmlPart(2)
-createClosureForHtmlPart(6, 1)
-invokeTag('captureBody','sitemesh',121,[:],1)
+printHtmlPart(5)
+createTagBody(1, {->
+printHtmlPart(6)
+expressionOut.print(createLink(uri: '/document/getReport'))
 printHtmlPart(7)
+})
+invokeTag('captureBody','sitemesh',114,[:],1)
+printHtmlPart(8)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388914154000L
+public static final long LAST_MODIFIED = 1396765909791L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 5, 5, 6, 6, 7, 7, 7, 7, 7, 7, 8, 8, 9, 9, 10, 10, 10, 13, 13, 15, 15, 17, 87, 87, 87, 87, 114, 114, 114, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	sourceName = "procedurePreparation.gsp"
+)
+class ___LineNumberPlaceholder { }

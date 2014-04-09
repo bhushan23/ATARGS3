@@ -47,8 +47,8 @@ invokeTag('remoteField','g',81,['name':("MOB"),'id':("mob"),'action':("MOBfunc2"
 printHtmlPart(10)
 invokeTag('submitToRemote','g',84,['before':("clearSearch()"),'class':("btn-warning"),'update':("PatientHistoryTable"),'value':("Reset"),'action':("resetSearchPatHist")],-1)
 printHtmlPart(11)
-for( _it23954192 in (result) ) {
-changeItVariable(_it23954192)
+for( _it11770815 in (result) ) {
+changeItVariable(_it11770815)
 printHtmlPart(12)
 expressionOut.print(it.firstname)
 printHtmlPart(13)

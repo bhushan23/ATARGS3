@@ -28,75 +28,65 @@ invokeTag('captureTitle','sitemesh',7,[:],3)
 invokeTag('wrapTitleTag','sitemesh',7,[:],2)
 printHtmlPart(2)
 })
-invokeTag('captureHead','sitemesh',8,[:],1)
-printHtmlPart(2)
-createTagBody(1, {->
+invokeTag('captureHead','sitemesh',40,[:],1)
 printHtmlPart(3)
-invokeTag('message','g',15,['code':("default.link.skip.label"),'default':("Skip to content&hellip;")],-1)
+createTagBody(1, {->
 printHtmlPart(4)
-expressionOut.print(createLink(uri: '/'))
+invokeTag('message','g',47,['code':("Edit Entered Details")],-1)
 printHtmlPart(5)
-invokeTag('message','g',18,['code':("default.home.label")],-1)
-printHtmlPart(6)
-createTagBody(2, {->
-invokeTag('message','g',19,['code':("default.list.label"),'args':([entityName])],-1)
-})
-invokeTag('link','g',19,['class':("list"),'action':("index")],2)
-printHtmlPart(7)
-createTagBody(2, {->
-invokeTag('message','g',20,['code':("default.new.label"),'args':([entityName])],-1)
-})
-invokeTag('link','g',20,['class':("create"),'action':("create")],2)
-printHtmlPart(8)
-invokeTag('message','g',24,['code':("default.edit.label"),'args':([entityName])],-1)
-printHtmlPart(9)
 if(true && (flash.message)) {
-printHtmlPart(10)
+printHtmlPart(6)
 expressionOut.print(flash.message)
-printHtmlPart(11)
+printHtmlPart(7)
 }
-printHtmlPart(12)
+printHtmlPart(8)
 createTagBody(2, {->
-printHtmlPart(13)
+printHtmlPart(9)
 createTagBody(3, {->
-printHtmlPart(14)
+printHtmlPart(10)
 if(true && (error in org.springframework.validation.FieldError)) {
-printHtmlPart(15)
+printHtmlPart(11)
 expressionOut.print(error.field)
-printHtmlPart(16)
+printHtmlPart(12)
 }
-printHtmlPart(17)
-invokeTag('message','g',31,['error':(error)],-1)
-printHtmlPart(18)
+printHtmlPart(13)
+invokeTag('message','g',55,['error':("The entered ${error.field} is already in use.Please enter another one. ")],-1)
+printHtmlPart(14)
 })
-invokeTag('eachError','g',32,['bean':(doctorInstance),'var':("error")],3)
+invokeTag('eachError','g',55,['bean':(doctorInstance),'var':("error")],3)
+printHtmlPart(15)
+})
+invokeTag('hasErrors','g',55,['bean':(doctorInstance)],2)
+printHtmlPart(8)
+createTagBody(2, {->
+printHtmlPart(16)
+invokeTag('hiddenField','g',59,['name':("version"),'value':(doctorInstance?.version)],-1)
+printHtmlPart(17)
+invokeTag('render','g',61,['template':("form")],-1)
+printHtmlPart(18)
+invokeTag('actionSubmit','g',63,['class':("save btn btn-info"),'action':("update"),'value':(message(code: 'default.button.update.label', default: 'Update'))],-1)
 printHtmlPart(19)
 })
-invokeTag('hasErrors','g',34,['bean':(doctorInstance)],2)
-printHtmlPart(12)
-createTagBody(2, {->
+invokeTag('form','g',63,['url':([resource:doctorInstance, action:'update']),'method':("PUT")],2)
 printHtmlPart(20)
-invokeTag('hiddenField','g',36,['name':("version"),'value':(doctorInstance?.version)],-1)
+})
+invokeTag('captureBody','sitemesh',63,[:],1)
 printHtmlPart(21)
-invokeTag('render','g',38,['template':("form")],-1)
-printHtmlPart(22)
-invokeTag('actionSubmit','g',41,['class':("save"),'action':("update"),'value':(message(code: 'default.button.update.label', default: 'Update'))],-1)
-printHtmlPart(23)
-})
-invokeTag('form','g',43,['url':([resource:doctorInstance, action:'update']),'method':("PUT")],2)
-printHtmlPart(24)
-})
-invokeTag('captureBody','sitemesh',48,[:],1)
-printHtmlPart(25)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394771841578L
+public static final long LAST_MODIFIED = 1396981921828L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 64, 64, 64, 64, 64, 64, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 40, 40, 41, 47, 47, 47, 47, 48, 48, 50, 50, 50, 50, 51, 51, 52, 52, 52, 52, 52, 52, 52, 52, 55, 55, 55, 55, 55, 55, 55, 57, 59, 59, 59, 59, 61, 61, 63, 63, 63, 63, 63, 63, 63, 63, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64],
+	sourceName = "edit.gsp"
+)
+class ___LineNumberPlaceholder { }

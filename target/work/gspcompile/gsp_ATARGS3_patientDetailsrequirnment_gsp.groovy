@@ -49,18 +49,26 @@ printHtmlPart(11)
 createClosureForHtmlPart(12, 2)
 invokeTag('link','g',61,['class':("btn btn-default"),'action':("setMachine"),'role':("button"),'params':([machine:'CT'])],2)
 printHtmlPart(13)
-})
-invokeTag('captureBody','sitemesh',107,[:],1)
+expressionOut.print(createLink(uri: '/document/getReport'))
 printHtmlPart(14)
+})
+invokeTag('captureBody','sitemesh',103,[:],1)
+printHtmlPart(15)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394358965000L
+public static final long LAST_MODIFIED = 1396765909792L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 12, 12, 15, 15, 18, 18, 21, 21, 24, 25, 25, 27, 27, 27, 29, 60, 60, 60, 60, 60, 61, 61, 61, 74, 74, 103, 103, 103, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	sourceName = "requirnment.gsp"
+)
+class ___LineNumberPlaceholder { }

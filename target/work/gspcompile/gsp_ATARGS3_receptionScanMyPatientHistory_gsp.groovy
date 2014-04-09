@@ -29,8 +29,8 @@ invokeTag('captureHead','sitemesh',6,[:],1)
 printHtmlPart(1)
 createTagBody(1, {->
 printHtmlPart(3)
-for( _it24300733 in (result) ) {
-changeItVariable(_it24300733)
+for( _it16559719 in (result) ) {
+changeItVariable(_it16559719)
 printHtmlPart(4)
 expressionOut.print(it.firstname)
 printHtmlPart(5)

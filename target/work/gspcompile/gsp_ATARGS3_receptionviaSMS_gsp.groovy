@@ -45,8 +45,8 @@ invokeTag('remoteField','g',70,['name':("M"),'action':("Mfunc"),'update':("Patie
 printHtmlPart(9)
 invokeTag('remoteField','g',72,['name':("MOB"),'action':("MOBfunc"),'update':("PatientTable")],-1)
 printHtmlPart(10)
-for( _it3618756 in (appViaSms) ) {
-changeItVariable(_it3618756)
+for( _it17878984 in (appViaSms) ) {
+changeItVariable(_it17878984)
 printHtmlPart(11)
 expressionOut.print(it.machine)
 printHtmlPart(12)

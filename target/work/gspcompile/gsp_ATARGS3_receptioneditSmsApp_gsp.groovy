@@ -37,8 +37,8 @@ createTagBody(1, {->
 printHtmlPart(8)
 createTagBody(2, {->
 printHtmlPart(9)
-for( _it19292587 in (req_entry) ) {
-changeItVariable(_it19292587)
+for( _it8536794 in (req_entry) ) {
+changeItVariable(_it8536794)
 printHtmlPart(10)
 expressionOut.print(it.firstname)
 printHtmlPart(11)
@@ -67,8 +67,8 @@ expressionOut.print(it.city)
 printHtmlPart(22)
 expressionOut.print(it.state)
 printHtmlPart(23)
-for( _it14043423 in (doctors) ) {
-changeItVariable(_it14043423)
+for( _it32713943 in (doctors) ) {
+changeItVariable(_it32713943)
 printHtmlPart(24)
 expressionOut.print(it.id)
 printHtmlPart(25)

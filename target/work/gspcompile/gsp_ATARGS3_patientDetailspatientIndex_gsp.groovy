@@ -37,18 +37,34 @@ printHtmlPart(5)
 })
 invokeTag('captureHead','sitemesh',15,[:],1)
 printHtmlPart(2)
-createClosureForHtmlPart(6, 1)
-invokeTag('captureBody','sitemesh',112,[:],1)
+createTagBody(1, {->
+printHtmlPart(6)
+expressionOut.print(createLink(uri: '/patientDetails/procedurePreparation'))
 printHtmlPart(7)
+expressionOut.print(createLink(uri: '/document/getReport'))
+printHtmlPart(8)
+expressionOut.print(createLink(uri: '/learnmore/sms'))
+printHtmlPart(9)
+expressionOut.print(createLink(uri: '/document/getReport'))
+printHtmlPart(10)
+})
+invokeTag('captureBody','sitemesh',119,[:],1)
+printHtmlPart(11)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394732623448L
+public static final long LAST_MODIFIED = 1396765909791L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 5, 5, 6, 6, 8, 8, 8, 8, 8, 8, 9, 9, 10, 10, 11, 11, 11, 13, 13, 15, 15, 17, 54, 54, 54, 54, 65, 65, 73, 73, 91, 91, 119, 119, 119, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	sourceName = "patientIndex.gsp"
+)
+class ___LineNumberPlaceholder { }

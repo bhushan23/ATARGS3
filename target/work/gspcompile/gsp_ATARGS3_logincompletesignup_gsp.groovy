@@ -73,9 +73,15 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388132858000L
+public static final long LAST_MODIFIED = 1396765909784L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 5, 5, 6, 6, 6, 6, 6, 6, 8, 8, 8, 8, 8, 8, 8, 42, 42, 43, 47, 47, 48, 48, 48, 48, 49, 49, 51, 51, 51, 54, 54, 55, 55, 56, 57, 60, 60, 61, 64, 64, 65, 68, 68, 69, 69, 70, 70, 70, 70, 74, 74, 74, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	sourceName = "completesignup.gsp"
+)
+class ___LineNumberPlaceholder { }

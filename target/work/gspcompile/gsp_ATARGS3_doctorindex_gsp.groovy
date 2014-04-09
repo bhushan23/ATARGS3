@@ -51,8 +51,8 @@ printHtmlPart(10)
 createClosureForHtmlPart(11, 2)
 invokeTag('remoteLink','g',111,['controller':("Doctor"),'update':("PatientTable"),'action':("dashboard"),'before':("clearSearch()")],2)
 printHtmlPart(12)
-for( _it8709228 in (limits[0]..<limits[1]) ) {
-changeItVariable(_it8709228)
+for( _it1421419 in (limits[0]..<limits[1]) ) {
+changeItVariable(_it1421419)
 printHtmlPart(13)
 if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY)) {
 printHtmlPart(14)
@@ -68,8 +68,8 @@ printHtmlPart(18)
 printHtmlPart(19)
 invokeTag('set','g',187,['var':("i"),'value':(0)],-1)
 printHtmlPart(18)
-for( _it11567407 in (limits[1]..<limits[2]) ) {
-changeItVariable(_it11567407)
+for( _it32587992 in (limits[1]..<limits[2]) ) {
+changeItVariable(_it32587992)
 printHtmlPart(13)
 if(true && (it.getAt([Calendar.DAY_OF_WEEK]) == Calendar.SUNDAY)) {
 printHtmlPart(14)
@@ -115,8 +115,8 @@ invokeTag('remoteField','g',258,['name':("MOB"),'id':("mob"),'action':("MOBfunc"
 printHtmlPart(29)
 invokeTag('submitToRemote','g',260,['before':("clearSearch()"),'class':("btn-warning"),'update':("PatientTable"),'value':("Reset"),'action':("resetSearch")],-1)
 printHtmlPart(31)
-for( _it32587064 in (patientList) ) {
-changeItVariable(_it32587064)
+for( _it30944533 in (patientList) ) {
+changeItVariable(_it30944533)
 printHtmlPart(32)
 expressionOut.print(it.firstname)
 printHtmlPart(33)

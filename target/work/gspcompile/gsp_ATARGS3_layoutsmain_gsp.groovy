@@ -63,72 +63,62 @@ createTagBody(1, {->
 printHtmlPart(11)
 expressionOut.print(createLink(uri: '/'))
 printHtmlPart(12)
-invokeTag('message','g',67,['code':("Home")],-1)
+expressionOut.print(createLink(uri: '/'))
 printHtmlPart(13)
-createTagBody(2, {->
+invokeTag('message','g',67,['code':("Home")],-1)
 printHtmlPart(14)
+createTagBody(2, {->
+printHtmlPart(15)
 invokeTag('message','g',70,['code':("For Patients")],-1)
 })
 invokeTag('link','g',70,['controller':("PatientDetails"),'action':("patientIndex")],2)
-printHtmlPart(15)
+printHtmlPart(16)
 createTagBody(2, {->
-printHtmlPart(14)
+printHtmlPart(15)
 invokeTag('message','g',75,['code':("For Referral Physians")],-1)
 })
 invokeTag('link','g',75,['controller':("login"),'action':("loginAsDoctor")],2)
-printHtmlPart(16)
-createTagBody(2, {->
-printHtmlPart(14)
-invokeTag('message','g',79,['code':("Meet our Experts")],-1)
-})
-invokeTag('link','g',79,[:],2)
-printHtmlPart(16)
-createTagBody(2, {->
-printHtmlPart(14)
-invokeTag('message','g',83,['code':("About us")],-1)
-})
-invokeTag('link','g',83,[:],2)
 printHtmlPart(17)
 if(true && (session.UserLoggedin)) {
 printHtmlPart(18)
 createTagBody(3, {->
-printHtmlPart(14)
-invokeTag('message','g',90,['code':("Hi, ${session.UserLoggedin}")],-1)
+printHtmlPart(15)
+invokeTag('message','g',82,['code':("Hi, ${session.UserLoggedin}")],-1)
 })
-invokeTag('link','g',90,['controller':("Login"),'action':("loggedinhomepage")],3)
+invokeTag('link','g',82,['controller':("Login"),'action':("loggedinhomepage")],3)
 printHtmlPart(19)
 }
 else {
 printHtmlPart(20)
 createClosureForHtmlPart(21, 3)
-invokeTag('link','g',95,['controller':("Login"),'action':("loginAsDoctor")],3)
+invokeTag('link','g',87,['controller':("Login"),'action':("loginAsDoctor")],3)
 printHtmlPart(22)
 createClosureForHtmlPart(23, 3)
-invokeTag('link','g',96,['controller':("Login"),'action':("loginAsReceptionist")],3)
+invokeTag('link','g',88,['controller':("Login"),'action':("loginAsReceptionist")],3)
 printHtmlPart(22)
 createClosureForHtmlPart(24, 3)
-invokeTag('link','g',97,['controller':("Login"),'action':("login")],3)
+invokeTag('link','g',89,['controller':("Login"),'action':("login")],3)
 printHtmlPart(25)
 }
 printHtmlPart(26)
 if(true && (session.UserLoggedin)) {
 printHtmlPart(18)
 createTagBody(3, {->
-printHtmlPart(14)
-invokeTag('message','g',104,['code':("Logout")],-1)
+printHtmlPart(15)
+invokeTag('message','g',96,['code':("Logout")],-1)
 })
-invokeTag('link','g',104,['controller':("Login"),'action':("logout")],3)
+invokeTag('link','g',96,['controller':("Login"),'action':("logout")],3)
 printHtmlPart(19)
 }
 printHtmlPart(27)
-invokeTag('layoutBody','g',113,[:],-1)
+invokeTag('layoutBody','g',105,[:],-1)
 printHtmlPart(28)
-invokeTag('message','g',116,['code':("spinner.alt"),'default':("Loading&hellip;")],-1)
+invokeTag('message','g',108,['code':("spinner.alt"),'default':("Loading&hellip;")],-1)
 printHtmlPart(29)
-invokeTag('layoutResources','r',119,[:],-1)
+invokeTag('layoutResources','r',111,[:],-1)
 printHtmlPart(30)
 })
-invokeTag('captureBody','sitemesh',121,[:],1)
+invokeTag('captureBody','sitemesh',113,[:],1)
 printHtmlPart(31)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -136,9 +126,15 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1389682978000L
+public static final long LAST_MODIFIED = 1396765909783L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 11, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 17, 17, 17, 20, 20, 23, 23, 25, 25, 27, 27, 33, 33, 36, 36, 39, 39, 42, 42, 45, 46, 46, 47, 47, 48, 48, 48, 49, 60, 60, 60, 60, 66, 66, 67, 67, 70, 70, 70, 70, 70, 70, 75, 75, 75, 75, 75, 75, 80, 80, 82, 82, 82, 82, 82, 82, 84, 84, 84, 87, 87, 87, 88, 88, 88, 89, 89, 89, 93, 93, 94, 94, 96, 96, 96, 96, 96, 96, 98, 98, 105, 105, 108, 108, 111, 113, 113, 113, 113, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	sourceName = "main.gsp"
+)
+class ___LineNumberPlaceholder { }

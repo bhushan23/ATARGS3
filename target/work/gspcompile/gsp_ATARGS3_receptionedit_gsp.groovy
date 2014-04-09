@@ -50,19 +50,19 @@ expressionOut.print(error.field)
 printHtmlPart(14)
 }
 printHtmlPart(15)
-invokeTag('message','g',53,['error':(error)],-1)
+invokeTag('message','g',56,['error':("The entered ${error.field} is already in use.Please enter another one. ")],-1)
 printHtmlPart(16)
 })
-invokeTag('eachError','g',53,['bean':(receptionInstance),'var':("error")],3)
+invokeTag('eachError','g',56,['bean':(receptionInstance),'var':("error")],3)
 printHtmlPart(17)
 })
 invokeTag('hasErrors','g',56,['bean':(receptionInstance)],2)
 printHtmlPart(10)
 createTagBody(2, {->
 printHtmlPart(1)
-invokeTag('hiddenField','g',59,['name':("version"),'value':(receptionInstance?.version)],-1)
+invokeTag('hiddenField','g',60,['name':("version"),'value':(receptionInstance?.version)],-1)
 printHtmlPart(18)
-invokeTag('render','g',60,['template':("form")],-1)
+invokeTag('render','g',62,['template':("form")],-1)
 printHtmlPart(19)
 invokeTag('actionSubmit','g',64,['class':("save btn btn-info"),'action':("update"),'value':(message(code: 'default.button.update.label', default: 'Update'))],-1)
 printHtmlPart(20)
@@ -78,9 +78,15 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394274666000L
+public static final long LAST_MODIFIED = 1396981946548L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 64, 64, 64, 64, 64, 64, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 5, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 42, 42, 43, 48, 48, 48, 48, 49, 49, 51, 51, 51, 51, 52, 52, 53, 53, 53, 53, 53, 53, 53, 53, 56, 56, 56, 56, 56, 56, 56, 58, 60, 60, 60, 60, 62, 62, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64],
+	sourceName = "edit.gsp"
+)
+class ___LineNumberPlaceholder { }

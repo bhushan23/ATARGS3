@@ -53,7 +53,7 @@ expressionOut.print(error.field)
 printHtmlPart(15)
 }
 printHtmlPart(16)
-invokeTag('message','g',65,['error':("Invalid ${error.field} ")],-1)
+invokeTag('message','g',65,['error':("The entered ${error.field} is already in use.Please enter another one. ")],-1)
 printHtmlPart(17)
 })
 invokeTag('eachError','g',66,['bean':(receptionInstance),'var':("error")],3)
@@ -79,9 +79,15 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394771545435L
+public static final long LAST_MODIFIED = 1396981384752L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4, 4, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 41, 41, 42, 49, 49, 49, 49, 51, 51, 54, 54, 59, 59, 60, 60, 61, 62, 64, 64, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66, 66, 68, 68, 69, 71, 71, 71, 71, 75, 75, 77, 77, 77, 82, 82, 82, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	sourceName = "create.gsp"
+)
+class ___LineNumberPlaceholder { }

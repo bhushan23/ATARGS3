@@ -35,7 +35,7 @@ expressionOut.print(hasErrors(bean: doctorInstance, field: 'password', 'error'))
 printHtmlPart(10)
 invokeTag('message','g',35,['code':("doctor.password.label"),'default':("Password")],-1)
 printHtmlPart(11)
-invokeTag('passwordField','g',40,['name':("password"),'required':(""),'value':(doctorInstance?.password),'style':("height:100%")],-1)
+invokeTag('passwordField','g',40,['name':("password"),'required':(""),'value':(""),'style':("height:100%")],-1)
 printHtmlPart(12)
 expressionOut.print(hasErrors(bean: doctorInstance, field: 'address', 'error'))
 printHtmlPart(13)
@@ -52,36 +52,42 @@ printHtmlPart(16)
 expressionOut.print(hasErrors(bean: doctorInstance, field: 'email', 'error'))
 printHtmlPart(17)
 invokeTag('message','g',65,['code':("doctor.email.label"),'default':("Email")],-1)
-printHtmlPart(18)
+printHtmlPart(8)
 invokeTag('field','g',68,['type':("email"),'name':("email"),'value':(doctorInstance?.email),'style':("width:60%"),'class':("input-block-level")],-1)
-printHtmlPart(19)
+printHtmlPart(18)
 expressionOut.print(hasErrors(bean: doctorInstance, field: 'patients', 'error'))
-printHtmlPart(20)
+printHtmlPart(19)
 invokeTag('message','g',74,['code':("doctor.patients.label"),'default':("Patients")],-1)
-printHtmlPart(21)
+printHtmlPart(20)
 for( p in (doctorInstance?.patients) ) {
-printHtmlPart(22)
+printHtmlPart(21)
 createTagBody(2, {->
 expressionOut.print(p?.encodeAsHTML())
 })
 invokeTag('link','g',81,['controller':("patientDetails"),'action':("show"),'id':(p.id)],2)
-printHtmlPart(23)
+printHtmlPart(22)
 }
-printHtmlPart(24)
+printHtmlPart(23)
 createTagBody(1, {->
 expressionOut.print(message(code: 'default.add.label', args: [message(code: 'patientDetails.label', default: 'PatientDetails')]))
 })
 invokeTag('link','g',85,['controller':("patientDetails"),'action':("create"),'params':(['doctor.id': doctorInstance?.id])],1)
-printHtmlPart(25)
+printHtmlPart(24)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394470050153L
+public static final long LAST_MODIFIED = 1396982601056L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6, 6, 8, 8, 11, 11, 15, 15, 17, 17, 20, 20, 24, 24, 26, 26, 29, 29, 33, 33, 35, 35, 40, 40, 44, 44, 46, 46, 49, 49, 53, 53, 55, 55, 58, 58, 63, 63, 65, 65, 68, 68, 72, 72, 74, 74, 80, 80, 81, 81, 81, 81, 81, 82, 82, 85, 85, 85, 85, 85, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+	sourceName = "_form.gsp"
+)
+class ___LineNumberPlaceholder { }

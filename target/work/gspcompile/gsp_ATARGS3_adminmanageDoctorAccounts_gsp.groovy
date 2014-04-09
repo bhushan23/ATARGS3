@@ -35,42 +35,38 @@ invokeTag('captureHead','sitemesh',36,[:],1)
 printHtmlPart(7)
 createTagBody(1, {->
 printHtmlPart(8)
-expressionOut.print(createLink(uri: '/adminSettings/ControlPanel'))
+for( _it4567660 in (notConfirmed) ) {
+changeItVariable(_it4567660)
 printHtmlPart(9)
-for( _it9653880 in (notConfirmed) ) {
-changeItVariable(_it9653880)
-printHtmlPart(10)
 expressionOut.print(it.id)
-printHtmlPart(11)
+printHtmlPart(10)
 expressionOut.print(it.firstname)
-printHtmlPart(11)
+printHtmlPart(10)
 expressionOut.print(it.lastname)
-printHtmlPart(11)
+printHtmlPart(10)
 expressionOut.print(it.username)
 printHtmlPart(11)
-expressionOut.print(it.password)
-printHtmlPart(11)
 expressionOut.print(it.address)
-printHtmlPart(11)
+printHtmlPart(10)
 expressionOut.print(it.mobile)
 printHtmlPart(12)
 if(true && (it.confirmed_flag==1)) {
 printHtmlPart(13)
 createClosureForHtmlPart(14, 4)
-invokeTag('link','g',89,['params':([p: "${it.id}"]),'action':("deleteDoctorAcc")],4)
+invokeTag('link','g',85,['params':([p: "${it.id}"]),'action':("deleteDoctorAcc")],4)
 printHtmlPart(13)
 }
 else {
 printHtmlPart(15)
 createClosureForHtmlPart(16, 4)
-invokeTag('link','g',94,['params':([p: "${it.id}"]),'action':("confirmDoctorAcc")],4)
+invokeTag('link','g',90,['params':([p: "${it.id}"]),'action':("confirmDoctorAcc")],4)
 printHtmlPart(15)
 }
 printHtmlPart(17)
 }
 printHtmlPart(18)
 })
-invokeTag('captureBody','sitemesh',109,[:],1)
+invokeTag('captureBody','sitemesh',104,[:],1)
 printHtmlPart(19)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -78,9 +74,15 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1394732900123L
+public static final long LAST_MODIFIED = 1396765909775L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
 public static final String TAGLIB_CODEC = 'none'
 }
+
+@org.codehaus.groovy.grails.web.transform.LineNumber(
+	lines = [106, 106, 106, 106, 106, 106, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 10, 10, 11, 11, 12, 12, 12, 12, 12, 12, 12, 16, 16, 17, 17, 36, 36, 39, 70, 70, 70, 70, 70, 71, 71, 71, 72, 72, 72, 73, 73, 73, 74, 74, 74, 82, 85, 85, 85, 86, 86, 86, 90, 90, 90, 90, 90, 90, 93, 93, 104, 104, 105, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106, 106],
+	sourceName = "manageDoctorAccounts.gsp"
+)
+class ___LineNumberPlaceholder { }
