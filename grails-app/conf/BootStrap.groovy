@@ -2,6 +2,7 @@ import atargs3.Admin
 
 import atargs3.AdminSettings
 import atargs3.AdminSettingsController
+import atargs3.ScanInformation
 class BootStrap {
 
      def init = { servletContext ->
